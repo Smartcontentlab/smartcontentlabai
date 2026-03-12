@@ -9,5 +9,80 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- CONVERSION ENGINE: VIDEO SWAPPER & LEAD POPUP -->
+    <script>
+      (function() {
+        // --- 1. VIDEO PLAYER HIJACKER ---
+        // Dynamically replaces "Coming Soon" with actual videos if found
+        const observeModals = () => {
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.addedNodes.length) {
+                mutation.addedNodes.forEach((node) => {
+                  if (node.nodeType === 1 && (node.innerText?.includes('Coming Soon') || node.innerText?.includes('coming soon'))) {
+                    // We found the placeholder!
+                    const textNode = node.querySelector('p') || node;
+                    const modalContainer = node.closest('.bg-[#111114]') || node;
+                    
+                    // Add a video player instead
+                    // We'll try to find a video named demo1.mp4, demo2.mp4, etc based on context
+                    const videoSrc = `/videos/demo.mp4`; // Default placeholder
+                    
+                    modalContainer.innerHTML = `
+                      <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                        <video controls autoplay class="w-full h-full object-cover">
+                          <source src="${videoSrc}" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <div class="mt-4 text-center">
+                        <p class="text-white/60 text-xs">Video file not found in /videos/demo.mp4? Upload it to see it here!</p>
+                      </div>
+                    `;
+                  }
+                });
+              }
+            });
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        };
+
+        // --- 2. EXIT INTENT LEAD POPUP ---
+        let popupShown = false;
+        const showLeadPopup = () => {
+          if (popupShown) return;
+          popupShown = true;
+          
+          const popup = document.createElement('div');
+          popup.id = 'lead-popup';
+          popup.innerHTML = `
+            <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
+              <div style="background: #0B0B0D; border: 1px solid rgba(45,98,255,0.3); border-radius: 24px; max-width: 500px; width: 90%; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 100px rgba(45,98,255,0.1);">
+                <button onclick="this.closest('#lead-popup').remove()" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.05); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; z-index: 10;">&times;</button>
+                <img src="/images/viral_hooks_promo.jpg" style="width: 100%; aspect-ratio: 1; object-fit: cover;">
+                <div style="padding: 30px; text-align: center;">
+                  <h3 style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 10px;">Wait! Grab our Viral AI Hook Library</h3>
+                  <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 25px;">Stop struggling with engagement. Get 50+ proven AI-generated hooks for Instagram & TikTok — 100% Free.</p>
+                  <a href="https://gumroad.com" target="_blank" style="display: block; background: #2D62FF; color: white; padding: 16px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">Download Free Guide →</a>
+                </div>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(popup);
+          setTimeout(() => popup.firstElementChild.style.opacity = '1', 10);
+        };
+
+        // Trigger on exit intent (mouse leaves window)
+        document.addEventListener('mouseleave', (e) => {
+          if (e.clientY <= 0) showLeadPopup();
+        });
+
+        // Trigger on 30s delay if not shown
+        setTimeout(showLeadPopup, 30000);
+
+        window.addEventListener('DOMContentLoaded', observeModals);
+      })();
+    </script>
   </body>
 </html>
