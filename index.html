@@ -30,8 +30,15 @@
                   if (node.nodeType === 1 && (node.innerText?.toLowerCase().includes('coming soon'))) {
                     const modalContainer = node.closest('.bg-[#111114]') || node;
                     
-                    // Assign videos (we have 2 right now, looping them)
-                    const videoSrc = `/videos/Orbit_around_charging_stand_delpmaspu_.mp4`;
+                    // Assign videos (Now using the 5 videos from emergent)
+                    const videos = [
+                      '/videos/creative-workflow.mp4',
+                      '/videos/high-energy-social-ad.mp4',
+                      '/videos/product-demo-charger.mp4',
+                      '/videos/smart-led-transformation.mp4',
+                      '/videos/tech-accessory-lifestyle.mp4'
+                    ];
+                    const videoSrc = videos[Math.floor(Math.random() * videos.length)];
                     
                     modalContainer.innerHTML = `
                       <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10">
