@@ -22,40 +22,83 @@
         };
 
         // --- 2. VIDEO PLAYER HIJACKER ---
-        const observeModals = () => {
-          const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-              if (mutation.addedNodes.length) {
-                mutation.addedNodes.forEach((node) => {
-                  if (node.nodeType === 1 && (node.innerText?.toLowerCase().includes('coming soon'))) {
-                    const modalContainer = node.closest('.bg-[#111114]') || node;
-                    
-                    // Assign videos (Now using the 5 videos from emergent)
-                    const videos = [
-                      '/videos/creative-workflow.mp4',
-                      '/videos/high-energy-social-ad.mp4',
-                      '/videos/product-demo-charger.mp4',
-                      '/videos/smart-led-transformation.mp4',
-                      '/videos/tech-accessory-lifestyle.mp4'
-                    ];
-                    const videoSrc = videos[Math.floor(Math.random() * videos.length)];
-                    
-                    modalContainer.innerHTML = `
-                      <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10">
-                        <video controls autoplay class="w-full h-full object-cover">
-                          <source src="${videoSrc}" type="video/mp4">
-                        </video>
-                      </div>
-                      <div class="mt-4 text-center">
-                        <p class="text-white/60 text-xs">Dynamic AI Demo • Powered by SmartContent Lab</p>
-                      </div>
-                    `;
-                  }
-                });
+        const videoFiles = [
+          'videos/creative-workflow.mp4',
+          'videos/high-energy-social-ad.mp4',
+          'videos/product-demo-charger.mp4',
+          'videos/smart-led-transformation.mp4',
+          'videos/tech-accessory-lifestyle.mp4'
+        ];
+        let videoIndex = 0;
+        const getNextVideo = () => videoFiles[videoIndex++ % videoFiles.length];
+
+        const replaceWithPlayer = (container, videoSrc) => {
+          container.innerHTML = `
+            <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);">
+              <video controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;">
+                <source src="${videoSrc}" type="video/mp4">
+              </video>
+            </div>
+            <div style="margin-top:12px;text-align:center;">
+              <p style="color:rgba(255,255,255,0.5);font-size:11px;">AI Demo • Powered by SmartContent Lab</p>
+            </div>
+          `;
+        };
+
+        // Strategy 1: Find & replace "coming soon" text (works on initial render + mutations)
+        const findAndReplace = () => {
+          document.querySelectorAll('*').forEach(el => {
+            if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('coming soon')) {
+              const card = el.closest('[class*="rounded"]') || el.parentElement?.parentElement;
+              if (card && !card.dataset.videoReplaced) {
+                card.dataset.videoReplaced = 'true';
+                replaceWithPlayer(card, getNextVideo());
+              }
+            }
+          });
+        };
+
+        // Strategy 2: Attach click handlers to play icon buttons
+        const attachPlayButtons = () => {
+          document.querySelectorAll('svg').forEach(svg => {
+            // Find play icon SVGs (triangle shape)
+            const paths = svg.querySelectorAll('path');
+            paths.forEach(p => {
+              if (p.getAttribute('d')?.includes('5 19')) { // Lucide play icon path
+                const btn = svg.closest('button') || svg.closest('[role="button"]') || svg.closest('div[class*="cursor"]') || svg.parentElement;
+                if (btn && !btn.dataset.videoAttached) {
+                  btn.dataset.videoAttached = 'true';
+                  btn.style.cursor = 'pointer';
+                  btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Find the card/container this button belongs to
+                    const container = btn.closest('[class*="rounded-"]') || btn.closest('div[class*="relative"]') || btn.parentElement?.parentElement;
+                    if (container) {
+                      replaceWithPlayer(container, getNextVideo());
+                    }
+                  });
+                }
               }
             });
           });
+        };
+
+        // Strategy 3: MutationObserver for dynamically added modals
+        const observeModals = () => {
+          const observer = new MutationObserver(() => {
+            findAndReplace();
+            attachPlayButtons();
+          });
           observer.observe(document.body, { childList: true, subtree: true });
+
+          // Also poll for 10 seconds to catch late React renders
+          let attempts = 0;
+          const poll = setInterval(() => {
+            findAndReplace();
+            attachPlayButtons();
+            if (++attempts >= 20) clearInterval(poll);
+          }, 500);
         };
 
         // --- 3. CTA BUTTON LINKER ---
