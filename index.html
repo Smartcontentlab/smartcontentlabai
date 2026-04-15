@@ -32,64 +32,98 @@
         let videoIndex = 0;
         const getNextVideo = () => videoFiles[videoIndex++ % videoFiles.length];
 
-        const replaceWithPlayer = (container, videoSrc) => {
-          container.innerHTML = `
-            <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);">
-              <video controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;">
-                <source src="${videoSrc}" type="video/mp4">
-              </video>
+        const showVideoModal = (videoSrc) => {
+          const modal = document.createElement('div');
+          modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;backdrop-filter:blur(10px);';
+          
+          Object.assign(modal.style, {
+            animation: 'fadeIn 0.2s ease-out'
+          });
+
+          modal.innerHTML = `
+            <div style="width:90%;max-width:1000px;position:relative;animation: slideUp 0.3s ease-out;">
+              <button style="position:absolute;top:-50px;right:-10px;color:white;background:rgba(255,255,255,0.1);border-radius:50%;border:none;width:40px;height:40px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">&times;</button>
+              <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);">
+                <video controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;">
+                  <source src="${videoSrc}" type="video/mp4">
+                </video>
+              </div>
+              <p style="text-align:center;color:white;opacity:0.5;margin-top:16px;font-family:sans-serif;font-size:12px;">AI Demo • Powered by SmartContent Lab</p>
             </div>
-            <div style="margin-top:12px;text-align:center;">
-              <p style="color:rgba(255,255,255,0.5);font-size:11px;">AI Demo • Powered by SmartContent Lab</p>
-            </div>
+            <style>
+              @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+              @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+            </style>
           `;
+          
+          modal.querySelector('button').onclick = () => document.body.removeChild(modal);
+          modal.querySelector('button').onmouseover = (e) => e.target.style.background = 'rgba(255,255,255,0.2)';
+          modal.querySelector('button').onmouseout = (e) => e.target.style.background = 'rgba(255,255,255,0.1)';
+          
+          document.body.appendChild(modal);
         };
 
-        // Strategy 1: Find & replace "coming soon" text safely
-        const findAndReplace = () => {
+        // Strategy 1: Hide "coming soon" safely without breaking React
+        const hideTextPlaceholders = () => {
           document.querySelectorAll('*').forEach(el => {
             if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('coming soon')) {
-              // Try to find a reasonable container, but avoid going too high.
-              // Just replace the closest div or the parent element to avoid wiping the whole page layout.
-              const card = el.closest('.aspect-video') || el.parentElement;
-              if (card && !card.dataset.videoReplaced) {
-                card.dataset.videoReplaced = 'true';
-                replaceWithPlayer(card, getNextVideo());
+              el.style.opacity = '0';
+              el.style.pointerEvents = 'none';
+            }
+            if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('video file not found')) {
+              el.style.display = 'none';
+              
+              // We found the modal placeholder for missing video! Let's attach a play button automatically here if possible.
+              // Or better, let's just make the parent container clickable to show the modal!
+              const parent = el.closest('[class*="rounded"]');
+              if (parent && !parent.dataset.videoAttached) {
+                parent.dataset.videoAttached = 'true';
+                parent.style.cursor = 'pointer';
+                parent.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  showVideoModal(getNextVideo());
+                });
+                
+                // Add a visual play indicator
+                const playOverlay = document.createElement('div');
+                playOverlay.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);border-radius:inherit;z-index:10;';
+                playOverlay.innerHTML = '<div style="width:64px;height:64px;border-radius:50%;background:#BA55D3;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(186,85,211,0.5);"><svg width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>';
+                // Make parent position relative if not
+                if (window.getComputedStyle(parent).position === 'static') parent.style.position = 'relative';
+                parent.appendChild(playOverlay);
               }
             }
           });
         };
 
-        // Strategy 2: Attach click handlers to play icon buttons
+        // Strategy 2: Attach click handlers to existing play icon buttons in UI
         const attachPlayButtons = () => {
           document.querySelectorAll('svg').forEach(svg => {
-            // Find play icon SVGs (triangle shape)
-            const paths = svg.querySelectorAll('path');
+            const paths = svg.querySelectorAll('path, polygon');
+            let isPlay = false;
             paths.forEach(p => {
-              if (p.getAttribute('d')?.includes('5 19')) { // Lucide play icon path
-                const btn = svg.closest('button') || svg.closest('[role="button"]') || svg.closest('div[class*="cursor"]') || svg.parentElement;
-                if (btn && !btn.dataset.videoAttached) {
-                  btn.dataset.videoAttached = 'true';
-                  btn.style.cursor = 'pointer';
-                  btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    // Find the card/container this button belongs to
-                    const container = btn.closest('[class*="rounded-"]') || btn.closest('div[class*="relative"]') || btn.parentElement?.parentElement;
-                    if (container) {
-                      replaceWithPlayer(container, getNextVideo());
-                    }
-                  });
-                }
-              }
+              if (p.getAttribute('d')?.includes('5 19') || p.getAttribute('points')?.includes('5 3 19 12 5 21 5 3')) isPlay = true;
             });
+            if (isPlay) {
+              const btn = svg.closest('button') || svg.closest('[role="button"]') || svg.closest('div[class*="cursor"]') || svg.parentElement;
+              if (btn && !btn.dataset.videoAttached) {
+                btn.dataset.videoAttached = 'true';
+                btn.style.cursor = 'pointer';
+                btn.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  showVideoModal(getNextVideo());
+                });
+              }
+            }
           });
         };
 
         // Strategy 3: MutationObserver for dynamically added modals
         const observeModals = () => {
           const observer = new MutationObserver(() => {
-            findAndReplace();
+            hideTextPlaceholders();
             attachPlayButtons();
           });
           observer.observe(document.body, { childList: true, subtree: true });
@@ -97,7 +131,7 @@
           // Also poll for 10 seconds to catch late React renders
           let attempts = 0;
           const poll = setInterval(() => {
-            findAndReplace();
+            hideTextPlaceholders();
             attachPlayButtons();
             if (++attempts >= 20) clearInterval(poll);
           }, 500);
