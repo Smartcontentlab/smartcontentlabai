@@ -45,11 +45,13 @@
           `;
         };
 
-        // Strategy 1: Find & replace "coming soon" text (works on initial render + mutations)
+        // Strategy 1: Find & replace "coming soon" text safely
         const findAndReplace = () => {
           document.querySelectorAll('*').forEach(el => {
             if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('coming soon')) {
-              const card = el.closest('[class*="rounded"]') || el.parentElement?.parentElement;
+              // Try to find a reasonable container, but avoid going too high.
+              // Just replace the closest div or the parent element to avoid wiping the whole page layout.
+              const card = el.closest('.aspect-video') || el.parentElement;
               if (card && !card.dataset.videoReplaced) {
                 card.dataset.videoReplaced = 'true';
                 replaceWithPlayer(card, getNextVideo());
