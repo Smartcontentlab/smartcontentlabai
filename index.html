@@ -1,184 +1,437 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartContent Lab</title>
-    <script type="module" crossorigin src="./assets/index-BVoFWJPi.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CdQgCAos.css">
-  </head>
-  <body>
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartContent Lab — Premium Web Design for Growing Businesses</title>
+  <meta name="description" content="SmartContent Lab builds stunning, high-converting websites for local businesses and startups. From concept to launch in 7 days.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">S</div>
+        <span>SmartContent Lab</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">Process</a>
+      </div>
+      <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-primary btn-nav" id="nav-cta">
+        Book a Call
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      </a>
+    </div>
+  </nav>
 
-    <!-- CONVERSION ENGINE: VIDEO SWAPPER, STRIPE LINKS & LEAD POPUP -->
-    <script>
-      (function() {
-        // --- 1. STRIPE LINK MANAGEMENT ---
-        // Change these to your actual Stripe Payment Links
-        const STRIPE_LINKS = {
-          audit: "https://buy.stripe.com/test_placeholder_audit", // Free AI Audit
-          boardroom: "https://buy.stripe.com/test_placeholder_boardroom", // Profit Boardroom
-          content: "https://buy.stripe.com/test_placeholder_content" // AI Content Hub
-        };
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge animate-in">
+          <span class="badge-dot"></span>
+          Now accepting new clients for May 2026
+        </div>
+        <h1 class="hero-title animate-in delay-1">
+          We Build Websites That
+          <span class="gradient-text">Actually Make Money.</span>
+        </h1>
+        <p class="hero-subtitle animate-in delay-2">
+          Custom-designed, high-converting websites for local businesses and startups.
+          From concept to launch in 7 days. No templates. No BS.
+        </p>
+        <div class="hero-cta animate-in delay-3">
+          <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-primary btn-lg">
+            Start Your Project
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#portfolio" class="btn btn-ghost btn-lg">
+            See Our Work
+          </a>
+        </div>
+        <div class="hero-stats animate-in delay-4">
+          <div class="stat">
+            <span class="stat-number">47+</span>
+            <span class="stat-label">Sites Launched</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">7 Days</span>
+            <span class="stat-label">Avg. Delivery</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // --- 2. VIDEO PLAYER HIJACKER ---
-        const videoFiles = [
-          'videos/creative-workflow.mp4',
-          'videos/high-energy-social-ad.mp4',
-          'videos/product-demo-charger.mp4',
-          'videos/smart-led-transformation.mp4',
-          'videos/tech-accessory-lifestyle.mp4'
-        ];
-        let videoIndex = 0;
-        const getNextVideo = () => videoFiles[videoIndex++ % videoFiles.length];
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Everything Your Business Needs Online</h2>
+        <p class="section-subtitle">From a simple landing page to a full web application — we handle it all.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #6366f1;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Website Design</h3>
+          <p>Custom-designed sites that look incredible on every device. No cookie-cutter templates.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #8b5cf6;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3>SEO & Google</h3>
+          <p>Get found when people search for your services. Local SEO that puts you on the map — literally.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #a78bfa;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>Logo, colors, typography, and visual language that makes your business impossible to forget.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #c084fc;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          </div>
+          <h3>AI Automation</h3>
+          <p>Chatbots, lead capture, email sequences — we automate the boring stuff so you can focus on your craft.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #e879f9;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3>Content & Social</h3>
+          <p>Professional copywriting, social media templates, and content strategy that drives real engagement.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="--accent: #f0abfc;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Ongoing Support</h3>
+          <p>We don't disappear after launch. Monthly maintenance, updates, and priority support included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const showVideoModal = (videoSrc) => {
-          const modal = document.createElement('div');
-          modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;backdrop-filter:blur(10px);';
-          
-          Object.assign(modal.style, {
-            animation: 'fadeIn 0.2s ease-out'
-          });
-
-          modal.innerHTML = `
-            <div style="width:90%;max-width:1000px;position:relative;animation: slideUp 0.3s ease-out;">
-              <button style="position:absolute;top:-50px;right:-10px;color:white;background:rgba(255,255,255,0.1);border-radius:50%;border:none;width:40px;height:40px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">&times;</button>
-              <div style="width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);">
-                <video controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;">
-                  <source src="${videoSrc}" type="video/mp4">
-                </video>
-              </div>
-              <p style="text-align:center;color:white;opacity:0.5;margin-top:16px;font-family:sans-serif;font-size:12px;">AI Demo • Powered by SmartContent Lab</p>
-            </div>
-            <style>
-              @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-              @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-            </style>
-          `;
-          
-          modal.querySelector('button').onclick = () => document.body.removeChild(modal);
-          modal.querySelector('button').onmouseover = (e) => e.target.style.background = 'rgba(255,255,255,0.2)';
-          modal.querySelector('button').onmouseout = (e) => e.target.style.background = 'rgba(255,255,255,0.1)';
-          
-          document.body.appendChild(modal);
-        };
-
-        // Strategy 1: Hide "coming soon" safely without breaking React
-        const hideTextPlaceholders = () => {
-          document.querySelectorAll('*').forEach(el => {
-            if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('coming soon')) {
-              el.style.opacity = '0';
-              el.style.pointerEvents = 'none';
-            }
-            if (el.children.length === 0 && el.innerText && el.innerText.toLowerCase().includes('video file not found')) {
-              el.style.display = 'none';
-              
-              // We found the modal placeholder for missing video! Let's attach a play button automatically here if possible.
-              // Or better, let's just make the parent container clickable to show the modal!
-              const parent = el.closest('[class*="rounded"]');
-              if (parent && !parent.dataset.videoAttached) {
-                parent.dataset.videoAttached = 'true';
-                parent.style.cursor = 'pointer';
-                parent.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  showVideoModal(getNextVideo());
-                });
-                
-                // Add a visual play indicator
-                const playOverlay = document.createElement('div');
-                playOverlay.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);border-radius:inherit;z-index:10;';
-                playOverlay.innerHTML = '<div style="width:64px;height:64px;border-radius:50%;background:#BA55D3;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(186,85,211,0.5);"><svg width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>';
-                // Make parent position relative if not
-                if (window.getComputedStyle(parent).position === 'static') parent.style.position = 'relative';
-                parent.appendChild(playOverlay);
-              }
-            }
-          });
-        };
-
-        // Strategy 2: Attach click handlers to existing play icon buttons in UI
-        const attachPlayButtons = () => {
-          document.querySelectorAll('svg').forEach(svg => {
-            const paths = svg.querySelectorAll('path, polygon');
-            let isPlay = false;
-            paths.forEach(p => {
-              if (p.getAttribute('d')?.includes('5 19') || p.getAttribute('points')?.includes('5 3 19 12 5 21 5 3')) isPlay = true;
-            });
-            if (isPlay) {
-              const btn = svg.closest('button') || svg.closest('[role="button"]') || svg.closest('div[class*="cursor"]') || svg.parentElement;
-              if (btn && !btn.dataset.videoAttached) {
-                btn.dataset.videoAttached = 'true';
-                btn.style.cursor = 'pointer';
-                btn.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  showVideoModal(getNextVideo());
-                });
-              }
-            }
-          });
-        };
-
-        // Strategy 3: MutationObserver for dynamically added modals
-        const observeModals = () => {
-          const observer = new MutationObserver(() => {
-            hideTextPlaceholders();
-            attachPlayButtons();
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-
-          // Also poll for 10 seconds to catch late React renders
-          let attempts = 0;
-          const poll = setInterval(() => {
-            hideTextPlaceholders();
-            attachPlayButtons();
-            if (++attempts >= 20) clearInterval(poll);
-          }, 500);
-        };
-
-        // --- 3. CTA BUTTON LINKER ---
-        const linkButtons = () => {
-          document.querySelectorAll('button, a').forEach(btn => {
-            const text = btn.innerText.toLowerCase();
-            if (text.includes('request free ai audit')) btn.href = STRIPE_LINKS.audit;
-            if (text.includes('profit boardroom')) btn.href = STRIPE_LINKS.boardroom;
-            if (text.includes('content hub')) btn.href = STRIPE_LINKS.content;
-          });
-        };
-
-        // --- 4. EXIT INTENT LEAD POPUP ---
-        let popupShown = false;
-        const showLeadPopup = () => {
-          if (popupShown) return;
-          popupShown = true;
-          const popup = document.createElement('div');
-          popup.id = 'lead-popup';
-          popup.innerHTML = `
-            <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
-              <div style="background: #0B0B0D; border: 1px solid rgba(45,98,255,0.3); border-radius: 24px; max-width: 500px; width: 90%; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 100px rgba(45,98,255,0.1);">
-                <button onclick="this.closest('#lead-popup').remove()" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.05); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; z-index: 10;">&times;</button>
-                <img src="/images/viral_hooks_promo.jpg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
-                <div style="padding: 30px; text-align: center;">
-                  <h3 style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 10px;">Wait! Grab our Viral AI Hook Library</h3>
-                  <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 25px;">Stop struggling with engagement. Get 50+ proven AI-generated hooks for Instagram & TikTok — 100% Free.</p>
-                  <a href="https://gumroad.com" target="_blank" style="display: block; background: #2D62FF; color: white; padding: 16px; border-radius: 12px; font-weight: 600; text-decoration: none;">Download Free Guide →</a>
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">Sites We've Built</h2>
+        <p class="section-subtitle">Real projects. Real results. Real businesses growing online.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card portfolio-card-wide">
+          <div class="portfolio-image" style="background: linear-gradient(135deg, #1e1b4b, #4338ca);">
+            <div class="portfolio-mockup">
+              <div class="mockup-bar"><span></span><span></span><span></span></div>
+              <div class="mockup-content">
+                <div class="mockup-hero-text">AI Automation Hub</div>
+                <div class="mockup-subtitle">SaaS Dashboard & Client Tools</div>
+                <div class="mockup-cards">
+                  <div class="mockup-mini-card"></div>
+                  <div class="mockup-mini-card"></div>
+                  <div class="mockup-mini-card"></div>
                 </div>
               </div>
             </div>
-          `;
-          document.body.appendChild(popup);
-          setTimeout(() => popup.firstElementChild.style.opacity = '1', 10);
-        };
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Web Application</span>
+            <h3>AI Automation Hub</h3>
+            <p>Full-stack SaaS platform with cold email generator, proposal writer, and client onboarding tools.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-image" style="background: linear-gradient(135deg, #0f172a, #1e3a5f);">
+            <div class="portfolio-mockup">
+              <div class="mockup-bar"><span></span><span></span><span></span></div>
+              <div class="mockup-content">
+                <div class="mockup-hero-text">FestFlow</div>
+                <div class="mockup-subtitle">Festival Companion App</div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">React App</span>
+            <h3>FestFlow SaaS Template</h3>
+            <p>Event management platform with lineup explorer, interactive maps, and real-time scheduling.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-image" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+            <div class="portfolio-mockup">
+              <div class="mockup-bar"><span></span><span></span><span></span></div>
+              <div class="mockup-content">
+                <div class="mockup-hero-text">Profit Boardroom</div>
+                <div class="mockup-subtitle">AI Business Community</div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Landing Page</span>
+            <h3>AI Profit Boardroom</h3>
+            <p>Membership community landing page for entrepreneurs building 6-figure businesses with AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        document.addEventListener('mouseleave', (e) => { if (e.clientY <= 0) showLeadPopup(); });
-        setTimeout(showLeadPopup, 45000);
-        
-        window.addEventListener('DOMContentLoaded', () => {
-          observeModals();
-          linkButtons();
-        });
-      })();
-    </script>
-  </body>
+  <!-- Process Section -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">From Idea to Live in 4 Steps</h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Discovery Call</h3>
+            <p>15-minute free call. We learn about your business, your goals, and what you need. No sales pitch — just listening.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Design & Strategy</h3>
+            <p>We map out your site structure, create wireframes, and design a custom look that matches your brand. You approve before we build.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Build & Refine</h3>
+            <p>We code your site from scratch — mobile-responsive, lightning-fast, SEO-optimized. You get unlimited revisions before launch.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Launch & Grow</h3>
+            <p>Your site goes live. We handle domain, hosting, Google setup, and analytics. Then we stick around to help you grow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pricing</span>
+        <h2 class="section-title">Transparent Pricing. No Surprises.</h2>
+        <p class="section-subtitle">Every package includes hosting, domain setup, and 30 days of free support.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Starter</h3>
+            <p class="pricing-desc">Perfect for local businesses that need a clean, professional online presence.</p>
+            <div class="pricing-price">
+              <span class="price-amount">$997</span>
+              <span class="price-period">one-time</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Single page website</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mobile responsive design</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Contact form integration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic SEO setup</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Google Business connection</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>30 days free support</li>
+          </ul>
+          <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-outline btn-block">Get Started</a>
+        </div>
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-popular">Most Popular</div>
+          <div class="pricing-header">
+            <h3>Professional</h3>
+            <p class="pricing-desc">For businesses ready to dominate their local market with a premium web presence.</p>
+            <div class="pricing-price">
+              <span class="price-amount">$2,497</span>
+              <span class="price-period">one-time</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Multi-page website (up to 5)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom brand identity</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Advanced SEO & Google Maps</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>AI chatbot integration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Social media templates</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60 days priority support</li>
+          </ul>
+          <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-primary btn-block">Get Started</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Enterprise</h3>
+            <p class="pricing-desc">Full-scale web applications, SaaS products, and complex business platforms.</p>
+            <div class="pricing-price">
+              <span class="price-amount">$4,997</span>
+              <span class="price-period">one-time</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Full web application</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Backend & database</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Payment integration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom AI automation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ongoing development</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>90 days priority support</li>
+          </ul>
+          <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-outline btn-block">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"SmartContent Lab completely transformed our online presence. We went from zero web presence to getting 3-4 new leads per week through our website."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div>
+              <strong>Marco R.</strong>
+              <span>Landscaping Business Owner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Professional, fast, and genuinely cared about our business. The website paid for itself in the first month with new customer inquiries."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <strong>Sarah K.</strong>
+              <span>Salon Owner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"I was skeptical about investing in a website, but the ROI has been insane. Best business decision I've made this year."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">J</div>
+            <div>
+              <strong>James T.</strong>
+              <span>Plumbing Company</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <h2>Ready to Build Something Great?</h2>
+        <p>Book a free 15-minute call. No commitment, no sales pitch — just a conversation about your business and how we can help.</p>
+        <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-primary btn-lg">
+          Book Your Free Call
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">S</div>
+            <span>SmartContent Lab</span>
+          </div>
+          <p>Premium web design for businesses that want to grow.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="https://cal.com/smartcontentsf" target="_blank">Book a Call</a>
+            <a href="https://smartcontentsf.gumroad.com" target="_blank">Digital Products</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SmartContent Lab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-based nav styling
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+    });
+
+    // Animate elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .portfolio-card, .process-step, .pricing-card, .testimonial-card').forEach(el => {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
 </html>
