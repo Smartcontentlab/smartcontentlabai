@@ -20,7 +20,8 @@
       </a>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#portfolio">Our Work</a>
+        <a href="#pricing">What You Sell</a>
         <a href="#demo">See a Demo</a>
       </div>
       <a href="https://cal.com/smartcontentsf" target="_blank" class="btn btn-primary btn-nav" id="nav-cta">
@@ -33,7 +34,7 @@
   <!-- Top Banner for Primary Offer -->
   <div class="top-banner" id="top-banner">
     <span class="pulse-dot"></span>
-    <p>🚀 We fill your calendar with qualified website leads — you just build the sites. <a href="#pricing" style="color: inherit; text-decoration: underline; font-weight: 600;">See how →</a></p>
+    <p>🚀 We fill your calendar with qualified website leads — you just build the sites. <a href="#how-it-works" style="color: inherit; text-decoration: underline; font-weight: 600;">See how →</a></p>
   </div>
 
   <!-- Hero Section -->
@@ -82,8 +83,47 @@
     </div>
   </section>
 
+  <!-- Portfolio / Our Work (Restored with Project Images) -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">Sites We've Built</h2>
+        <p class="section-subtitle">Real projects. Real results. Real businesses growing online.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card portfolio-card-wide">
+          <div class="portfolio-image" style="background-image: url('images/aiauto.png'); background-size: cover; background-position: center;">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Web Application</span>
+            <h3>AI Automation Hub</h3>
+            <p>Full-stack SaaS platform with cold email generator, proposal writer, and client onboarding tools.</          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-image" style="background-image: url('images/festflow.png'); background-size: cover; background-position: center;">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">React App</span>
+            <h3>FestFlow SaaS Template</h3>
+            <p>Event management platform with lineup explorer, interactive maps, and real-time scheduling.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-image" style="background-image: url('images/profit.png'); background-size: cover; background-position: center;">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Landing Page</span>
+            <h3>AI Profit Boardroom</h3>
+            <p>Membership community landing page for entrepreneurs building 6-figure businesses with AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Primary Offer: AI SDR Outreach -->
-  <section class="primary-offer" id="ai-sdr">
+  <section class="primary-offer" id="how-it-works">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Our Core Service</span>
@@ -150,7 +190,7 @@
         </div>
       </div>
 
-      <div class="how-it-works" id="how-it-works">
+      <div class="how-it-works">
         <h3>How It Works</h3>
         <div class="how-grid">
           <div class="how-step">
@@ -207,7 +247,7 @@
     </div>
   </section>
 
-  <!-- Website Build Packages (What You Deliver) -->
+  <!-- Website Packages (What You Sell) -->
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-header">
@@ -219,8 +259,7 @@
         <div class="pricing-card">
           <div class="pricing-header">
             <h3>Starter Site</h3>
-            <p class="pricing-desc">Perfect for local service businesses needing a professional online presence.</p>
-            <div class="pricing-price">
+            <p class="pricing-desc">Perfect for local businesses needing a professional online presence.</            <div class="pricing-price">
               <span class="price-amount">$1,500</span>
               <span class="price-period">you charge</span>
             </div>
@@ -237,8 +276,7 @@
           <div class="pricing-popular">Most Popular</div>
           <div class="pricing-header">
             <h3>Pro Site</h3>
-            <p class="pricing-desc">For businesses ready to dominate their local market with booking & automation.</p>
-            <div class="pricing-price">
+            <p class="pricing-desc">For businesses ready to dominate their local market with booking & automation.</            <div class="pricing-price">
               <span class="price-amount">$3,500</span>
               <span class="price-period">you charge</span>
             </div>
@@ -255,8 +293,7 @@
         <div class="pricing-card">
           <div class="pricing-header">
             <h3>Enterprise Site</h3>
-            <p class="pricing-desc">Full-scale platforms, SaaS, multi-location businesses.</p>
-            <div class="pricing-price">
+            <p class="pricing-desc">Full-scale platforms, SaaS, multi-location businesses.</            <div class="pricing-price">
               <span class="price-amount">$7,500+</span>
               <span class="price-period">you charge</span>
             </div>
@@ -350,7 +387,7 @@
         <div class="footer-links">
           <div class="footer-col">
             <h4>Core Service</h4>
-            <a href="#ai-sdr">AI Outreach ($97 / $500/mo)</a>
+            <a href="#how-it-works">AI Outreach ($97 / $500/mo)</a>
             <a href="#pricing">Website Packages You Sell</a>
             <a href="#demo">Live Demos</a>
           </div>
@@ -380,16 +417,16 @@
       }
     });
 
-    // Animate elements on scroll
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          });
-        });
-      }
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
