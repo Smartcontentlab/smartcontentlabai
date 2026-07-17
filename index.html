@@ -3,558 +3,330 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartContent Lab — Web Design That Works</title>
+  <title>SmartContent Lab | Website Audits, Redesigns & AI Growth Systems</title>
+  <meta name="description" content="SmartContent Lab helps small businesses turn outdated websites into conversion-ready sales systems with free audits, custom demo redesigns, SEO, automation, and lead capture.">
+  <meta name="theme-color" content="#08111f">
+  <meta property="og:title" content="SmartContent Lab | Websites That Turn Local Visitors Into Leads">
+  <meta property="og:description" content="Get a practical website audit, a custom redesign demo, and a growth plan built for small businesses that need more calls, bookings, and quote requests.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smartcontentlabai.netlify.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #121212;
-      --text: #f0ebe3;
-      --text-muted: #8a847d;
-      --accent: #d4a373;
-      --accent-hover: #c99560;
-      --border: #2a2a2a;
-      --card-bg: #1a1a1a;
-    }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html { scroll-behavior: smooth; }
-    
-    body {
-      font-family: 'Mulish', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-weight: 400;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    /* Grain overlay */
-    .grain-overlay {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 9999;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px 256px;
-    }
-    
-    /* Nav */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100; padding: 24px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    nav.scrolled {
-      background: rgba(18, 18, 18, 0.95);
-      box-shadow: 0 1px 0 var(--border);
-    }
-    
-    .logo {
-      font-family: 'Fraunces', serif;
-      font-weight: 600; font-size: 1.25rem;
-      color: var(--text); text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    
-    .nav-links {
-      display: flex; gap: 40px; list-style: none;
-    }
-    
-    .nav-links a {
-      color: var(--text-muted); text-decoration: none;
-      font-size: 0.875rem; font-weight: 500;
-      letter-spacing: 0.5px; text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-links a:hover { color: var(--text); }
-    
-    .mobile-toggle {
-      display: none; background: none; border: none;
-      color: var(--text); font-size: 1.5rem; cursor: pointer;
-    }
-    
-    /* Container */
-    .container {
-      max-width: 1200px; margin: 0 auto; padding: 0 40px;
-    }
-    
-    /* Hero */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding-top: 80px; position: relative;
-    }
-    
-    .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 300; font-size: clamp(2.5rem, 6.5vw, 6rem);
-      line-height: 1.05; max-width: 850px;
-      margin-bottom: 32px; letter-spacing: -1.5px;
-    }
-    
-    .hero p {
-      font-size: 1.125rem; color: var(--text-muted);
-      max-width: 520px; margin-bottom: 48px; line-height: 1.7;
-    }
-    
-    .cta {
-      display: inline-block; padding: 18px 40px;
-      background: var(--accent); color: var(--bg);
-      text-decoration: none; font-weight: 600;
-      font-size: 0.85rem; letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    
-    .cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
-    
-    .cta-secondary {
-      display: inline-block; margin-left: 20px;
-      padding: 18px 40px; color: var(--text);
-      text-decoration: none; font-weight: 500;
-      font-size: 0.85rem; letter-spacing: 1px;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--text-muted);
-      transition: border-color 0.3s ease, color 0.3s ease;
-    }
-    
-    .cta-secondary:hover { border-color: var(--accent); color: var(--accent); }
-    
-    /* Section rule */
-    .section-rule { border: none; height: 1px; background: var(--border); margin: 0; }
-    
-    /* Section */
-    section { padding: 140px 0; }
-    
-    section h2 {
-      font-family: 'Fraunces', serif;
-      font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 4rem);
-      line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px;
-    }
-    
-    .section-label {
-      font-size: 0.75rem; text-transform: uppercase;
-      letter-spacing: 3px; color: var(--accent);
-      font-weight: 600; margin-bottom: 20px;
-    }
-    
-    .section-sub {
-      font-size: 1.1rem; color: var(--text-muted);
-      max-width: 600px; line-height: 1.7;
-    }
-    
-    /* Work section */
-    .work-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2px; margin-top: 80px;
-    }
-    
-    .work-card {
-      position: relative; overflow: hidden;
-      aspect-ratio: 4/3; cursor: pointer;
-    }
-    
-    .work-card-bg {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .work-card:hover .work-card-bg { transform: scale(1.05); }
-    
-    .work-card-placeholder {
-      font-family: 'Fraunces', serif; font-size: 2.5rem;
-      font-weight: 300; color: rgba(255,255,255,0.15);
-      letter-spacing: 2px; text-transform: uppercase;
-    }
-    
-    .work-card-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 40px;
-      background: linear-gradient(to top, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.6) 60%, transparent 100%);
-    }
-    
-    .work-card-tag {
-      font-size: 0.7rem; text-transform: uppercase;
-      letter-spacing: 2px; color: var(--accent);
-      font-weight: 600; margin-bottom: 8px;
-    }
-    
-    .work-card-title {
-      font-family: 'Fraunces', serif;
-      font-size: 1.5rem; font-weight: 500;
-    }
-    
-    .work-card-desc {
-      font-size: 0.875rem; color: var(--text-muted);
-      margin-top: 8px; line-height: 1.5; max-width: 400px;
-    }
-    
-    /* Pricing */
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2px; margin-top: 80px;
-    }
-    
-    .pricing-card {
-      background: var(--card-bg); padding: 56px 40px;
-      position: relative; border: 1px solid var(--border);
-    }
-    
-    .pricing-card.popular { border-color: var(--accent); }
-    
-    .popular-tag {
-      position: absolute; top: -1px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent); color: var(--bg);
-      padding: 8px 20px; font-size: 0.7rem;
-      text-transform: uppercase; letter-spacing: 2px;
-      font-weight: 600;
-    }
-    
-    .pricing-card .tier {
-      font-size: 0.75rem; text-transform: uppercase;
-      letter-spacing: 2px; color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    
-    .pricing-card .price {
-      font-family: 'Fraunces', serif;
-      font-size: 3.5rem; font-weight: 400;
-      margin-bottom: 8px; letter-spacing: -1px;
-    }
-    
-    .pricing-card .price-note {
-      font-size: 0.875rem; color: var(--text-muted);
-      margin-bottom: 32px; font-weight: 300;
-    }
-    
-    .pricing-card .desc {
-      font-size: 1rem; color: var(--text);
-      margin-bottom: 32px; line-height: 1.6;
-    }
-    
-    .pricing-card ul {
-      list-style: none; margin-bottom: 48px;
-    }
-    
-    .pricing-card li {
-      font-size: 0.875rem; color: var(--text-muted);
-      padding: 10px 0; border-bottom: 1px solid var(--border);
-      line-height: 1.5; font-weight: 300;
-    }
-    
-    .pricing-card li:last-child { border-bottom: none; }
-    
-    .pricing-card li::before {
-      content: '\2014'; margin-right: 12px;
-      color: var(--accent); font-weight: 400;
-    }
-    
-    .pricing-btn {
-      display: block; width: 100%; padding: 18px;
-      background: transparent; border: 1px solid var(--text);
-      color: var(--text); text-align: center;
-      text-decoration: none; font-weight: 600;
-      font-size: 0.8rem; letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .pricing-btn:hover {
-      background: var(--text); color: var(--bg);
-    }
-    
-    .pricing-card.popular .pricing-btn {
-      background: var(--accent); border-color: var(--accent);
-      color: var(--bg);
-    }
-    
-    .pricing-card.popular .pricing-btn:hover {
-      background: var(--accent-hover); border-color: var(--accent-hover);
-    }
-    
-    /* Process */
-    .process-list {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 48px; margin-top: 80px;
-    }
-    
-    .process-item { border-top: 1px solid var(--border); padding-top: 40px; }
-    
-    .process-number {
-      font-family: 'Fraunces', serif;
-      font-size: 3.5rem; font-weight: 300;
-      color: var(--accent); margin-bottom: 20px;
-      line-height: 1; letter-spacing: -2px;
-    }
-    
-    .process-title {
-      font-family: 'Fraunces', serif;
-      font-size: 1.25rem; font-weight: 500;
-      margin-bottom: 12px;
-    }
-    
-    .process-desc {
-      font-size: 0.9rem; color: var(--text-muted);
-      line-height: 1.6; font-weight: 300;
-    }
-    
-    /* CTA */
-    .cta-section { text-align: center; padding: 180px 0; }
-    
-    .cta-section h2 { margin-bottom: 24px; }
-    
-    .cta-section p {
-      color: var(--text-muted); font-size: 1.15rem;
-      max-width: 500px; margin: 0 auto 48px; line-height: 1.7;
-    }
-    
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 60px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    
-    footer .logo { font-size: 1rem; }
-    
-    footer p { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
-    
-    /* Reveal class */
-    .reveal { opacity: 0; transform: translateY(40px); }
-    
-    /* Mobile */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
-      .hero { padding: 100px 0 80px; min-height: auto; }
-      .hero .cta-secondary { display: block; margin: 20px 0 0 0; width: max-content; }
-      .work-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
-      .process-list { grid-template-columns: 1fr; gap: 32px; }
-      .container { padding: 0 24px; }
-      section { padding: 100px 0; }
-      .cta-section { padding: 120px 0; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
-      .pricing-card .price { font-size: 2.5rem; }
-      .process-number { font-size: 2.5rem; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="grain-overlay"></div>
-  
-  <nav id="nav">
-    <a href="#" class="logo">SmartContent Lab</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">☰</button>
-  </nav>
-  
-  <section class="hero">
-    <div class="container">
-      <h1 class="reveal">Your website should be your best salesperson.</h1>
-      <p class="reveal">Not your worst expense. We build clean, fast, mobile-first websites that convert visitors into paying customers. No fluff, no jargon, just results.</p>
-      <a href="#work" class="cta reveal">See Our Work</a>
-      <a href="#services" class="cta-secondary reveal">View Pricing</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="SmartContent Lab home">
+        <span class="brand-mark">S</span>
+        <span>SmartContent Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#audit">Audit</a>
+        <a href="#offers">Offers</a>
+        <a href="#demos">Demos</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <a class="btn btn-small btn-primary" href="mailto:shay@smartcontentlabs.com?subject=Free%20website%20audit%20request&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20a%20free%20website%20audit.%20My%20website%20is%3A%20" aria-label="Request a free website audit by email">Free Audit</a>
     </div>
-  </section>
-  
-  <hr class="section-rule">
-  
-  <section id="work">
-    <div class="container">
-      <p class="section-label reveal">Selected Work</p>
-      <h2 class="reveal">Real projects.<br>Real businesses.</h2>
-      <p class="section-sub reveal">Every site is built with one goal: turn visitors into customers.</p>
-      
-      <div class="work-grid">
-        <div class="work-card reveal">
-          <div class="work-card-bg" style="background:transparent; overflow:hidden;">
-            <img src="images/aiauto.png" alt="AI Automation Hub" style="width:100%; height:100%; object-fit:cover; display:block;" />
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Website rescue for local businesses</p>
+          <h1>We turn underperforming websites into lead-generating sales systems.</h1>
+          <p class="hero-subtitle">SmartContent Lab audits outdated small-business websites, sends a clear redesign demo, then builds the pages, automations, and trust signals needed to convert more visitors into calls, bookings, and quote requests.</p>
+          <div class="hero-actions" aria-label="Primary calls to action">
+            <a class="btn btn-primary" href="mailto:shay@smartcontentlabs.com?subject=Free%20website%20audit%20request&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20a%20free%20website%20audit.%20My%20website%20is%3A%20">Get My Free Audit</a>
+            <a class="btn btn-secondary" href="#demos">See Demo Concepts</a>
           </div>
-          <div class="work-card-overlay">
-            <p class="work-card-tag">Web Application</p>
-            <h3 class="work-card-title">AI Automation Hub</h3>
-            <p class="work-card-desc">Full-stack SaaS platform with cold email generator, proposal writer, and client onboarding tools.</p>
-          </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-card-bg" style="background:transparent; overflow:hidden;">
-            <img src="images/festflow.png" alt="FestFlow SaaS Template" style="width:100%; height:100%; object-fit:cover; display:block;" />
-          </div>
-          <div class="work-card-overlay">
-            <p class="work-card-tag">React App</p>
-            <h3 class="work-card-title">FestFlow SaaS Template</h3>
-            <p class="work-card-desc">Event management platform with lineup explorer, interactive maps, and real-time scheduling.</p>
+          <div class="trust-row" aria-label="What the audit covers">
+            <span>UX</span>
+            <span>SEO</span>
+            <span>Mobile</span>
+            <span>Speed</span>
+            <span>Lead capture</span>
           </div>
         </div>
-        <div class="work-card reveal">
-          <div class="work-card-bg" style="background:transparent; overflow:hidden;">
-            <img src="images/profit.png" alt="AI Profit Boardroom" style="width:100%; height:100%; object-fit:cover; display:block;" />
+
+        <aside class="audit-panel" aria-label="Website audit preview">
+          <div class="panel-header">
+            <span class="status-dot"></span>
+            <span>Audit snapshot</span>
           </div>
-          <div class="work-card-overlay">
-            <p class="work-card-tag">Landing Page</p>
-            <h3 class="work-card-title">AI Profit Boardroom</h3>
-            <p class="work-card-desc">Membership community landing page for entrepreneurs building 6-figure businesses with AI.</p>
+          <div class="score-card">
+            <div>
+              <span class="score-label">Conversion readiness</span>
+              <strong>42<span>/100</span></strong>
+            </div>
+            <p>Most local websites lose leads before visitors ever find the phone number.</p>
           </div>
+          <ul class="audit-list">
+            <li><span class="warning"></span> No clear above-the-fold offer</li>
+            <li><span class="warning"></span> Weak proof and missing reviews</li>
+            <li><span class="warning"></span> Mobile CTA buried below scroll</li>
+            <li><span class="good"></span> Redesign demo ready in 48 hours</li>
+          </ul>
+          <div class="mini-browser" aria-hidden="true">
+            <div class="browser-bar"><i></i><i></i><i></i></div>
+            <div class="browser-body">
+              <div class="skeleton wide"></div>
+              <div class="skeleton"></div>
+              <div class="skeleton short"></div>
+              <div class="cta-skeleton"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Positioning statement">
+      <div class="container proof-grid">
+        <div>
+          <strong>For owners</strong>
+          <span>who know their website should bring in more business.</span>
         </div>
-        <div class="work-card reveal">
-          <div class="work-card-bg" style="background:#1e3a5f;">
-            <span class="work-card-placeholder">You</span>
-          </div>
-          <div class="work-card-overlay">
-            <p class="work-card-tag">Next Project</p>
-            <h3 class="work-card-title">Your Business</h3>
-            <p class="work-card-desc">Let's build something that actually works for your customers.</p>
-          </div>
+        <div>
+          <strong>Built fast</strong>
+          <span>with static, mobile-first pages that are easy to launch.</span>
+        </div>
+        <div>
+          <strong>AI enabled</strong>
+          <span>with chat, follow-up, intake, and outreach systems available.</span>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <hr class="section-rule">
-  
-  <section id="services">
-    <div class="container">
-      <p class="section-label reveal">Services</p>
-      <h2 class="reveal">Clear pricing.<br>Real results.</h2>
-      <p class="section-sub reveal">Fixed-price packages. No hidden fees. No hourly rates. You know exactly what you're getting before we start.</p>
-      
-      <div class="pricing-grid">
-        <div class="pricing-card reveal">
-          <p class="tier">Start Here</p>
-          <p class="price">$750</p>
-          <p class="price-note">one-time — 3-day delivery</p>
-          <p class="desc">Single-page website for businesses that need a clean, professional presence fast.</p>
-          <ul>
-            <li>Mobile-responsive, fast loading</li>
-            <li>Contact form + click-to-call</li>
-            <li>Google Maps + Business integration</li>
-            <li>Review widget (Google/Yelp)</li>
-            <li>SEO-ready setup</li>
-            <li>3-day turnaround</li>
-          </ul>
-          <a href="mailto:shay@smartcontentlabs.com" class="pricing-btn">Get Started</a>
+    </section>
+
+    <section class="section-pad" id="audit">
+      <div class="container split-section">
+        <div>
+          <p class="eyebrow"><span></span> The problem</p>
+          <h2>Bad websites quietly tax small businesses every day.</h2>
         </div>
-        
-        <div class="pricing-card popular reveal">
-          <p class="popular-tag">Most Popular</p>
-          <p class="tier">Grow</p>
-          <p class="price">$1,500</p>
-          <p class="price-note">one-time — 7-day delivery</p>
-          <p class="desc">Multi-page business site with everything you need to compete online.</p>
-          <ul>
-            <li>3-5 pages (Home, Services, About, Gallery, Contact)</li>
-            <li>Online booking / estimate requests</li>
-            <li>Service area map</li>
-            <li>AI chatbot for after-hours leads</li>
-            <li>Portfolio / before-after gallery</li>
-            <li>Email capture + drip sequence</li>
-            <li>7-day turnaround</li>
-          </ul>
-          <a href="mailto:shay@smartcontentlabs.com" class="pricing-btn">Get Started</a>
-        </div>
-        
-        <div class="pricing-card reveal">
-          <p class="tier">Scale</p>
-          <p class="price">$2,500+</p>
-          <p class="price-note">custom quote</p>
-          <p class="desc">Custom platforms, dashboards, and apps for businesses ready to scale.</p>
-          <ul>
-            <li>Custom web application / dashboard</li>
-            <li>Multi-location / franchise management</li>
-            <li>Payment processing / invoicing</li>
-            <li>Customer portal / member area</li>
-            <li>API integrations (CRM, scheduling)</li>
-            <li>Ongoing support available</li>
-          </ul>
-          <a href="mailto:shay@smartcontentlabs.com" class="pricing-btn">Book a Call</a>
+        <div class="large-copy">
+          <p>A local customer lands on the site, gets confused, doubts the business, fails to find proof, and leaves. The owner sees “low traffic” when the real issue is often trust, clarity, speed, and friction.</p>
+          <p>Our audit is designed to expose the exact leaks: unclear messaging, weak CTAs, thin service pages, poor mobile layout, missing reviews, slow media, no lead magnet, and no follow-up system.</p>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <hr class="section-rule">
-  
-  <section id="process">
-    <div class="container">
-      <p class="section-label reveal">How We Work</p>
-      <h2 class="reveal">Simple process.<br>Remarkable results.</h2>
-      <p class="section-sub reveal">No endless meetings, no back-and-forth. We get to work and get it done.</p>
-      
-      <div class="process-list">
-        <div class="process-item reveal">
-          <p class="process-number">01</p>
-          <h3 class="process-title">Discovery</h3>
-          <p class="process-desc">One 30-minute call to understand your business, your customers, and what success looks like.</p>
+      <div class="container issue-grid" role="list" aria-label="Common website issues">
+        <article class="issue-card" role="listitem">
+          <span>01</span>
+          <h3>Unclear first impression</h3>
+          <p>Visitors need to understand who you help, what you do, where you work, and why to trust you within seconds.</p>
+        </article>
+        <article class="issue-card" role="listitem">
+          <span>02</span>
+          <h3>Missing conversion path</h3>
+          <p>Most sites have a contact page but no persuasive path from pain point to proof to action.</p>
+        </article>
+        <article class="issue-card" role="listitem">
+          <span>03</span>
+          <h3>Weak trust signals</h3>
+          <p>Reviews, guarantees, before-and-after work, credentials, service areas, and fast response promises reduce buyer anxiety.</p>
+        </article>
+        <article class="issue-card" role="listitem">
+          <span>04</span>
+          <h3>No follow-up engine</h3>
+          <p>A form submission should trigger qualification, reminders, estimates, review requests, and nurture — not disappear into an inbox.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad dark-section" id="offers">
+      <div class="container section-header-center">
+        <p class="eyebrow center"><span></span> What we build</p>
+        <h2>A better website offer than “we make pretty pages.”</h2>
+        <p>Every deliverable is tied to a business outcome: more credibility, more qualified inquiries, faster response, and more booked jobs.</p>
+      </div>
+      <div class="container offers-grid">
+        <article class="offer-card featured">
+          <p class="card-kicker">Lead generation</p>
+          <h3>Conversion Website Redesign</h3>
+          <p>Homepage, service pages, mobile CTA system, review sections, before-and-after proof, service-area SEO, and fast static deployment.</p>
+        </article>
+        <article class="offer-card">
+          <p class="card-kicker">AI upgrade</p>
+          <h3>Smart Intake & Follow-Up</h3>
+          <p>Lead forms, FAQ chatbot, estimate request flows, email/SMS handoff planning, and simple automations that stop leads from going cold.</p>
+        </article>
+        <article class="offer-card">
+          <p class="card-kicker">Visibility</p>
+          <h3>Local SEO Foundation</h3>
+          <p>Search-friendly page structure, metadata, schema markup, Google Business Profile alignment, and content ideas for local demand.</p>
+        </article>
+        <article class="offer-card">
+          <p class="card-kicker">Sales enablement</p>
+          <h3>Custom Demo Page</h3>
+          <p>A targeted preview that shows the business owner what their site could become before asking them to commit to a full build.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad" id="demos">
+      <div class="container section-header-center">
+        <p class="eyebrow center"><span></span> Demo concepts</p>
+        <h2>Show the upgrade before selling the redesign.</h2>
+        <p>For outreach, a personalized demo beats a generic pitch. These example categories show how we can tailor the offer by industry.</p>
+      </div>
+      <div class="container demo-grid">
+        <article class="demo-card">
+          <div class="demo-visual"><img src="images/aiauto.png" alt="AI automation dashboard example"></div>
+          <div>
+            <p class="card-kicker">Home services</p>
+            <h3>Roofers, plumbers, HVAC, landscapers</h3>
+            <p>Before-and-after galleries, urgent call CTAs, service-area pages, quote request flows, financing prompts, and review proof.</p>
+          </div>
+        </article>
+        <article class="demo-card">
+          <div class="demo-visual"><img src="images/festflow.png" alt="Interactive scheduling and event app example"></div>
+          <div>
+            <p class="card-kicker">Appointment businesses</p>
+            <h3>Salons, clinics, med spas, studios</h3>
+            <p>Booking-first layouts, service menus, staff credibility, policies, FAQs, offers, and automated reminders.</p>
+          </div>
+        </article>
+        <article class="demo-card">
+          <div class="demo-visual"><img src="images/profit.png" alt="Premium landing page example"></div>
+          <div>
+            <p class="card-kicker">Professional services</p>
+            <h3>Consultants, contractors, agencies</h3>
+            <p>Authority positioning, case-study sections, lead magnets, qualification forms, and nurture sequences for longer sales cycles.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad dark-section" id="process">
+      <div class="container split-section">
+        <div>
+          <p class="eyebrow"><span></span> How it works</p>
+          <h2>A simple path from cold prospect to paid redesign.</h2>
         </div>
-        <div class="process-item reveal">
-          <p class="process-number">02</p>
-          <h3 class="process-title">Design</h3>
-          <p class="process-desc">We design your site in Figma. You see exactly what you're getting before a single line of code is written.</p>
-        </div>
-        <div class="process-item reveal">
-          <p class="process-number">03</p>
-          <h3 class="process-title">Build</h3>
-          <p class="process-desc">Clean, fast, mobile-first code. We build with modern tools that are easy to maintain and scale.</p>
-        </div>
-        <div class="process-item reveal">
-          <p class="process-number">04</p>
-          <h3 class="process-title">Launch</h3>
-          <p class="process-desc">We handle deployment, DNS, and all the technical details. You just review, approve, and start converting.</p>
+        <div class="process-list">
+          <article>
+            <span>1</span>
+            <div>
+              <h3>Find weak websites</h3>
+              <p>Identify local businesses where unclear messaging, outdated design, mobile friction, or poor SEO is likely costing leads.</p>
+            </div>
+          </article>
+          <article>
+            <span>2</span>
+            <div>
+              <h3>Send a useful audit</h3>
+              <p>Lead with value: a short, specific teardown showing what is broken, why it matters, and what to fix first.</p>
+            </div>
+          </article>
+          <article>
+            <span>3</span>
+            <div>
+              <h3>Show a redesign demo</h3>
+              <p>Make the future tangible with a custom landing-page preview, stronger copy, and clear conversion improvements.</p>
+            </div>
+          </article>
+          <article>
+            <span>4</span>
+            <div>
+              <h3>Build the growth system</h3>
+              <p>Launch the site, connect lead capture, add automation, and give the owner a cleaner way to turn attention into booked work.</p>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
+
+    <section class="section-pad" id="pricing">
+      <div class="container section-header-center">
+        <p class="eyebrow center"><span></span> Packages</p>
+        <h2>Start with the website. Expand into the growth stack.</h2>
+        <p>Pricing should be validated as outreach data comes in, but the offer ladder gives prospects a clear next step.</p>
+      </div>
+      <div class="container pricing-grid">
+        <article class="price-card">
+          <p class="card-kicker">Audit</p>
+          <h3>Website Leak Report</h3>
+          <p class="price">Free</p>
+          <p>A concise teardown of the biggest trust, SEO, mobile, and conversion issues holding the site back.</p>
+          <ul>
+            <li>Homepage clarity review</li>
+            <li>Mobile CTA check</li>
+            <li>Trust and proof gaps</li>
+            <li>Priority fix list</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" href="mailto:shay@smartcontentlabs.com?subject=Free%20website%20audit%20request&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20a%20free%20website%20audit.%20My%20website%20is%3A%20">Request Audit</a>
+        </article>
+        <article class="price-card popular">
+          <span class="popular-badge">Best entry offer</span>
+          <p class="card-kicker">Redesign</p>
+          <h3>Conversion Site Build</h3>
+          <p class="price">From $1,500</p>
+          <p>A polished, mobile-first website built to turn local visitors into calls, quote requests, bookings, and email leads.</p>
+          <ul>
+            <li>Homepage plus key service sections</li>
+            <li>Conversion copywriting</li>
+            <li>Review and proof blocks</li>
+            <li>SEO and analytics foundation</li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="mailto:shay@smartcontentlabs.com?subject=Website%20redesign%20project&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20to%20talk%20about%20a%20redesign.%20My%20website%20is%3A%20">Start Redesign</a>
+        </article>
+        <article class="price-card">
+          <p class="card-kicker">Growth</p>
+          <h3>AI Lead System</h3>
+          <p class="price">Custom</p>
+          <p>For businesses that want the site connected to intake, follow-up, content, automations, and ongoing conversion improvements.</p>
+          <ul>
+            <li>Chat or guided intake</li>
+            <li>Email follow-up flows</li>
+            <li>Lead magnets and funnels</li>
+            <li>Monthly optimization roadmap</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" href="mailto:shay@smartcontentlabs.com?subject=AI%20lead%20system%20inquiry&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20to%20discuss%20AI%20lead%20systems.%20My%20website%20is%3A%20">Discuss Growth</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad final-cta">
+      <div class="container final-card">
+        <p class="eyebrow center"><span></span> Next step</p>
+        <h2>Want to know what your website is costing you?</h2>
+        <p>Send your URL. We will look for the highest-impact conversion leaks and show what we would change first.</p>
+        <div class="hero-actions centered">
+          <a class="btn btn-primary" href="mailto:shay@smartcontentlabs.com?subject=Free%20website%20audit%20request&body=Hi%20SmartContent%20Lab%2C%20I%27d%20like%20a%20free%20website%20audit.%20My%20website%20is%3A%20">Send My URL</a>
+          <a class="btn btn-secondary" href="mailto:shay@smartcontentlabs.com?subject=Partnership%20or%20outreach%20idea">Partner With Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="SmartContent Lab home">
+          <span class="brand-mark">S</span>
+          <span>SmartContent Lab</span>
+        </a>
+        <p>Website audits, redesigns, and AI-enabled lead systems for small businesses.</p>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#audit">Audit</a>
+        <a href="#offers">Offers</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:shay@smartcontentlabs.com">shay@smartcontentlabs.com</a>
+      </div>
     </div>
-  </section>
-  
-  <hr class="section-rule">
-  
-  <section id="contact" class="cta-section">
-    <div class="container">
-      <h2 class="reveal">Ready to turn visitors into customers?</h2>
-      <p class="reveal">Book a free 15-minute call. No pitch, just a conversation about what your business needs.</p>
-      <a href="mailto:shay@smartcontentlabs.com" class="cta reveal">Book a Call</a>
-    </div>
-  </section>
-  
-  <footer>
-    <a href="#" class="logo">SmartContent Lab</a>
-    <p>© 2026 SmartContent Lab. Built with intention.</p>
   </footer>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <script>
-    gsap.registerPlugin(ScrollTrigger);
-    
-    gsap.utils.toArray('.reveal').forEach(el => {
-      gsap.from(el, {
-        y: 40, opacity: 0, duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
-      });
-    });
-    
+    const header = document.querySelector('.site-header');
     window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      nav.classList.toggle('scrolled', window.scrollY > 50);
+      header.classList.toggle('is-scrolled', window.scrollY > 16);
     });
   </script>
 </body>
