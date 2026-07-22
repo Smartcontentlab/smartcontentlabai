@@ -706,6 +706,14 @@ h3 {
   letter-spacing: -0.06em;
 }
 
+.price span {
+  font-size: 1.05rem;
+  color: var(--muted-2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-left: 4px;
+}
+
 .price-card ul {
   list-style: none;
   padding: 0;
