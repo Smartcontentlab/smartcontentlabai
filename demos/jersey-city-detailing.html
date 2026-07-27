@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hudson Shine Mobile Detailing | Jersey City, NJ — Showroom Shine, Delivered to Your Driveway</title>
+<meta name="description" content="Jersey City's premium mobile car detailing. Snow-foam hand washes, interior steam cleaning, full details and ceramic coatings — we come to you. Serving Jersey City, Hoboken, Bayonne and the Newark metro. Call (201) 555-0147.">
+<meta name="theme-color" content="#07080b">
+<meta property="og:title" content="Hudson Shine Mobile Detailing — Jersey City, NJ">
+<meta property="og:description" content="Showroom shine, delivered to your driveway. Mobile detailing for Jersey City, Hoboken, Bayonne and the Newark metro.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1800&q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hudson Shine Mobile Detailing",
+  "description": "Premium mobile car detailing serving Jersey City, Hoboken, Bayonne and the Newark metro.",
+  "telephone": "+1-201-555-0147",
+  "address": { "@type": "PostalAddress", "addressLocality": "Jersey City", "addressRegion": "NJ", "addressCountry": "US" },
+  "areaServed": ["Jersey City NJ", "Hoboken NJ", "Bayonne NJ", "Newark NJ metro"],
+  "priceRange": "$49 - $599+",
+  "openingHours": "Mo-Su 08:00-19:00"
+}
+</script>
+<style>
+  :root{
+    --bg:#07080b;
+    --bg-2:#0a0c10;
+    --panel:#0e1117;
+    --panel-2:#12161e;
+    --line:rgba(148,163,184,.14);
+    --line-strong:rgba(148,163,184,.24);
+    --ink:#eef2f8;
+    --body-c:#a9b3c4;
+    --muted:#8b95a7;
+    --blue:#2f7dff;
+    --blue-bright:#6ba4ff;
+    --blue-deep:#1a5fe0;
+    --glow:rgba(47,125,255,.38);
+    --amber:#f5b942;
+    --ok:#22b573;
+    --radius:18px;
+    --ribbon-h:42px;
+    --head-h:64px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:dark;scroll-padding-top:calc(var(--ribbon-h) + var(--head-h) + 16px)}
+  body{
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--bg);
+    color:var(--body-c);
+    line-height:1.6;
+    padding-top:var(--ribbon-h);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.num{font-family:"Space Grotesk",Inter,sans-serif;color:var(--ink);letter-spacing:-.01em}
+  img{display:block;max-width:100%}
+  a{color:var(--blue-bright)}
+  .wrap{width:min(1140px,92%);margin-inline:auto}
+
+  /* ---------- SmartContent Lab ribbon ---------- */
+  .scl-ribbon{
+    position:fixed;inset:0 0 auto 0;z-index:1000;
+    min-height:var(--ribbon-h);
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+    column-gap:12px;row-gap:2px;
+    padding:6px 14px;
+    background:linear-gradient(90deg,#123c8f 0%,#1a5fe0 45%,#2f7dff 100%);
+    color:#eaf2ff;text-decoration:none;
+    font-size:12.5px;font-weight:500;letter-spacing:.015em;text-align:center;
+    box-shadow:0 6px 24px -8px rgba(26,95,224,.55);
+  }
+  .scl-ribbon strong{color:#fff;font-weight:700}
+  .scl-ribbon .rb-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:4px 12px;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+    color:#fff;font-weight:600;white-space:nowrap;
+    transition:background .2s;
+  }
+  .scl-ribbon:hover .rb-pill{background:rgba(255,255,255,.26)}
+  .rb-pill svg{width:13px;height:13px}
+
+  /* ---------- Header ---------- */
+  .site-head{
+    position:sticky;top:var(--ribbon-h);z-index:900;
+    background:rgba(7,8,11,.78);
+    backdrop-filter:saturate(150%) blur(14px);
+    -webkit-backdrop-filter:saturate(150%) blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--head-h)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand-mark{
+    width:38px;height:38px;border-radius:11px;flex:0 0 auto;
+    display:grid;place-items:center;
+    background:linear-gradient(145deg,#3f8bff,#1a5fe0);
+    color:#fff;font:700 15px/1 "Space Grotesk",sans-serif;letter-spacing:.02em;
+    box-shadow:0 6px 18px -6px var(--glow), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .brand-name{display:flex;flex-direction:column;line-height:1.15}
+  .brand-name b{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15.5px;color:var(--ink);letter-spacing:.06em}
+  .brand-name span{font-size:9.5px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase}
+  .head-nav{display:none;gap:26px}
+  .head-nav a{color:var(--body-c);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+  .head-nav a:hover{color:var(--ink)}
+  .head-call{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:12px;
+    background:linear-gradient(180deg,#3f8bff,#2467e8);
+    color:#fff;text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;
+    box-shadow:0 8px 22px -8px var(--glow), inset 0 1px 0 rgba(255,255,255,.25);
+    transition:transform .15s,filter .15s;
+  }
+  .head-call:hover{transform:translateY(-1px);filter:brightness(1.06)}
+  .head-call svg{width:15px;height:15px}
+  .head-call .num-txt{display:none}
+  @media (min-width:560px){ .head-call .num-txt{display:inline} .head-call .call-txt{display:none} }
+  @media (min-width:880px){ .head-nav{display:flex} }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    position:relative;overflow:hidden;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 26px;border-radius:15px;border:1px solid transparent;
+    font:600 16px/1.1 Inter,sans-serif;letter-spacing:.01em;
+    text-decoration:none;cursor:pointer;transition:transform .15s,filter .15s,border-color .2s,color .2s;
+  }
+  .btn svg{width:18px;height:18px;flex:0 0 auto}
+  .btn-solid{
+    background:linear-gradient(180deg,#3f8bff,#2265e6);color:#fff;
+    box-shadow:0 14px 34px -12px var(--glow), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  .btn-solid::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.28) 50%,transparent 58%);
+    transform:translateX(-130%);transition:transform .6s ease;
+  }
+  .btn-solid:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-solid:hover::after{transform:translateX(130%)}
+  .btn-ghost{
+    background:rgba(255,255,255,.03);color:var(--ink);border-color:var(--line-strong);
+  }
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue-bright);transform:translateY(-2px)}
+  .btn-xl{padding:19px 30px;font-size:17px;border-radius:16px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(7,8,11,.62) 0%,rgba(7,8,11,.78) 55%,var(--bg) 100%),
+      url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1800&q=80") center 40%/cover no-repeat;
+  }
+  .hero-glow{
+    position:absolute;z-index:1;width:720px;height:720px;border-radius:50%;
+    right:-260px;top:-200px;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(47,125,255,.30),transparent 70%);
+    filter:blur(30px);
+  }
+  .hero-in{position:relative;z-index:2;padding:clamp(64px,10vw,120px) 0 clamp(44px,6vw,72px)}
+  .kicker{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--blue-bright);margin-bottom:18px;
+  }
+  .kicker::before{content:"";width:26px;height:2px;background:var(--blue);border-radius:2px}
+  .hero h1{
+    font-size:clamp(34px,7.2vw,66px);font-weight:700;line-height:1.04;letter-spacing:-.025em;
+    max-width:13ch;
+  }
+  .hero h1 .shine{
+    background:linear-gradient(92deg,#ffffff 10%,#9cc2ff 55%,#4f92ff 95%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{max-width:52ch;margin:20px 0 30px;font-size:clamp(15.5px,2.4vw,18px);color:#c3cbd9}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:8px 13px;border-radius:999px;
+    border:1px solid var(--line-strong);background:rgba(10,12,16,.55);
+    font-size:12.5px;font-weight:500;color:#cdd5e1;
+  }
+  .chip svg{width:13px;height:13px;color:var(--blue-bright)}
+  .chip .stars{color:var(--amber);letter-spacing:.08em;font-size:12px}
+  .hero-stats{
+    margin-top:clamp(34px,6vw,56px);
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .stat{background:rgba(12,14,19,.82);padding:18px 16px}
+  .stat .num{font-size:clamp(22px,3.4vw,30px);font-weight:700;color:var(--ink)}
+  .stat .num em{font-style:normal;color:var(--blue-bright)}
+  .stat .lbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  @media (min-width:760px){ .hero-stats{grid-template-columns:repeat(4,1fr)} }
+  @media (max-width:560px){ .hero-cta .btn{width:100%} }
+
+  /* ---------- Marquee ---------- */
+  .tick{overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .tick-track{display:flex;width:max-content;animation:tick 30s linear infinite;padding:13px 0}
+  .tick-seq{display:flex;align-items:center;white-space:nowrap}
+  .tick-seq span{
+    font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#6d7787;
+    padding:0 20px;display:inline-flex;align-items:center;gap:20px;
+  }
+  .tick-seq span::after{content:"\2726";color:var(--blue);font-size:9px;letter-spacing:0}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){ .tick-track{animation:none} html{scroll-behavior:auto} }
+
+  /* ---------- Sections ---------- */
+  .sec{padding:clamp(64px,9vw,104px) 0}
+  .sec-alt{background:var(--bg-2);border-block:1px solid var(--line)}
+  .sec-head{max-width:660px;margin-bottom:clamp(30px,5vw,48px)}
+  .sec-head h2{font-size:clamp(28px,4.6vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:10px 0 14px}
+  .sec-head p{font-size:16px;color:var(--muted);max-width:56ch}
+
+  /* ---------- Packages ---------- */
+  .pack-grid{display:grid;gap:16px;grid-template-columns:1fr}
+  .pack{
+    position:relative;display:flex;flex-direction:column;
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px;transition:transform .2s,border-color .2s,box-shadow .2s;
+  }
+  .pack:hover{transform:translateY(-4px);border-color:rgba(47,125,255,.45);box-shadow:0 22px 48px -20px var(--glow)}
+  .pack h3{font-size:19px;font-weight:700;letter-spacing:.01em}
+  .pack .meta{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .pack .price{margin:16px 0 4px;font-family:"Space Grotesk",sans-serif;font-size:38px;font-weight:700;color:var(--ink);line-height:1}
+  .pack .price .from{font-size:13px;font-weight:500;color:var(--muted);font-family:Inter,sans-serif;margin-right:6px;letter-spacing:.04em}
+  .pack .tag{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  .pack ul{list-style:none;display:grid;gap:9px;margin:0 0 22px;padding-top:18px;border-top:1px solid var(--line)}
+  .pack li{display:flex;gap:10px;font-size:13.8px;color:#c4cddb;line-height:1.45}
+  .pack li svg{width:15px;height:15px;flex:0 0 auto;margin-top:3px;color:var(--blue-bright)}
+  .pack-cta{
+    margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 16px;border-radius:12px;text-decoration:none;
+    border:1px solid var(--line-strong);color:var(--ink);font-weight:600;font-size:14.5px;
+    transition:border-color .2s,color .2s,background .2s;
+  }
+  .pack-cta svg{width:15px;height:15px}
+  .pack-cta:hover{border-color:var(--blue);color:var(--blue-bright);background:rgba(47,125,255,.07)}
+  .pack.popular{
+    border-color:rgba(47,125,255,.6);
+    box-shadow:0 0 0 1px rgba(47,125,255,.35), 0 24px 56px -22px var(--glow);
+    background:linear-gradient(180deg,#131a26,#0d1119);
+  }
+  .pack.popular .pack-cta{background:linear-gradient(180deg,#3f8bff,#2265e6);border-color:transparent;color:#fff;box-shadow:0 10px 26px -10px var(--glow)}
+  .pack.popular .pack-cta:hover{filter:brightness(1.06)}
+  .pop-badge{
+    position:absolute;top:-12px;left:22px;
+    padding:5px 12px;border-radius:999px;
+    background:linear-gradient(180deg,#3f8bff,#2265e6);color:#fff;
+    font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    box-shadow:0 8px 20px -8px var(--glow);
+  }
+  @media (min-width:720px){ .pack-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:1080px){ .pack-grid{grid-template-columns:repeat(4,1fr)} .pack{padding:26px 20px} }
+  .pack-note{margin-top:18px;font-size:12.5px;color:var(--muted)}
+
+  /* ---------- Gallery ---------- */
+  .g-grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+  .g-grid figure{
+    position:relative;overflow:hidden;border-radius:15px;
+    border:1px solid var(--line);aspect-ratio:4/3;background:var(--panel);
+  }
+  .g-grid figure:first-child{grid-column:span 2;aspect-ratio:16/9}
+  .g-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .g-grid figure:hover img{transform:scale(1.045)}
+  .g-grid figcaption{
+    position:absolute;inset:auto 0 0 0;padding:34px 14px 12px;
+    background:linear-gradient(180deg,transparent,rgba(4,5,8,.88));
+    font-size:12.5px;font-weight:500;color:#dbe4f0;letter-spacing:.02em;
+  }
+  @media (min-width:900px){
+    .g-grid{grid-template-columns:repeat(3,1fr);gap:14px}
+    .g-grid figure:first-child{grid-column:span 2;aspect-ratio:auto}
+  }
+
+  /* ---------- Reviews & trust ---------- */
+  .rev-grid{display:grid;gap:16px;grid-template-columns:1fr}
+  .rev{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+    display:flex;flex-direction:column;gap:13px;
+  }
+  .rev .stars{color:var(--amber);font-size:15px;letter-spacing:.14em}
+  .rev p{font-size:14.5px;color:#cbd3e0;line-height:1.65}
+  .rev .who{margin-top:auto;font-size:13px;color:var(--muted)}
+  .rev .who b{color:var(--ink);font-weight:600}
+  @media (min-width:880px){ .rev-grid{grid-template-columns:repeat(3,1fr)} }
+  .sample-note{margin-top:14px;font-size:11.5px;color:#6d7787;font-style:italic}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:11px 16px;border-radius:13px;
+    border:1px solid var(--line-strong);background:rgba(255,255,255,.025);
+    font-size:13px;font-weight:600;color:#d4dbe7;
+  }
+  .badge svg{width:16px;height:16px;color:var(--blue-bright)}
+
+  /* ---------- Service area ---------- */
+  .area{
+    margin-top:clamp(36px,6vw,56px);
+    border:1px solid var(--line);border-radius:20px;
+    background:
+      radial-gradient(600px 260px at 85% -20%,rgba(47,125,255,.14),transparent 70%),
+      linear-gradient(180deg,var(--panel-2),var(--panel));
+    padding:clamp(26px,4.5vw,40px);
+  }
+  .area h3{font-size:clamp(21px,3vw,27px);font-weight:700;margin-bottom:8px}
+  .area>p{font-size:14.5px;color:var(--muted);max-width:58ch;margin-bottom:20px}
+  .area-chips{display:flex;flex-wrap:wrap;gap:9px}
+  .area-chips .chip{background:rgba(7,8,11,.5)}
+  .area-chips .chip b{color:var(--ink);font-weight:600}
+
+  /* ---------- Booking ---------- */
+  .book-grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:start}
+  @media (min-width:940px){ .book-grid{grid-template-columns:1fr 1.1fr;gap:56px} }
+  .book-points{list-style:none;display:grid;gap:14px;margin:26px 0 30px}
+  .book-points li{display:flex;gap:12px;font-size:15px;color:#c4cddb}
+  .book-points svg{width:18px;height:18px;flex:0 0 auto;margin-top:2px;color:var(--blue-bright)}
+  .alt-call{font-size:14.5px;color:var(--muted)}
+  .alt-call a{color:var(--blue-bright);font-weight:600;text-decoration:none}
+  .alt-call a:hover{text-decoration:underline}
+  .form-card{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:20px;
+    padding:clamp(22px,3.6vw,32px);
+    box-shadow:0 30px 70px -40px rgba(0,0,0,.9);
+  }
+  .form-card h3{font-size:19px;margin-bottom:4px}
+  .form-card .fc-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .f-row{display:grid;gap:16px;grid-template-columns:1fr;margin-bottom:16px}
+  @media (min-width:560px){ .f-row.two{grid-template-columns:1fr 1fr} }
+  .field label{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;padding:13px 14px;border-radius:12px;
+    background:#0a0d12;border:1px solid var(--line-strong);
+    color:var(--ink);font:500 15px/1.4 Inter,sans-serif;
+    transition:border-color .2s,box-shadow .2s;appearance:none;
+  }
+  .field select{
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 19px) 22px,calc(100% - 14px) 22px;
+    background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+  }
+  .field textarea{resize:vertical;min-height:74px}
+  .field input::placeholder,.field textarea::placeholder{color:#5b6472}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,125,255,.22);
+  }
+  .form-btn{width:100%;margin-top:6px}
+  .form-btn.sent{background:linear-gradient(180deg,#2fc482,#1b9a63);box-shadow:0 14px 34px -12px rgba(34,181,115,.5)}
+  .form-note{margin-top:13px;font-size:12px;color:#6d7787;text-align:center}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);background:var(--bg-2)}
+  .foot-grid{display:grid;gap:30px;grid-template-columns:1fr;padding:clamp(44px,7vw,64px) 0 34px}
+  @media (min-width:800px){ .foot-grid{grid-template-columns:1.4fr 1fr 1fr} }
+  .foot-grid h4{font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+  .foot-grid p,.foot-grid li{font-size:14px;color:var(--muted)}
+  .foot-grid ul{list-style:none;display:grid;gap:8px}
+  .foot-grid a{color:var(--body-c);text-decoration:none}
+  .foot-grid a:hover{color:var(--blue-bright)}
+  .foot-brand-blurb{max-width:34ch;margin-top:12px}
+  .foot-tel{font-family:"Space Grotesk",sans-serif;font-size:19px;font-weight:700;color:var(--ink) !important}
+  .foot-bottom{
+    border-top:1px solid var(--line);padding:20px 0 22px;
+    display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;
+    font-size:12.5px;color:#6d7787;
+  }
+  .foot-bottom a{color:var(--blue-bright);text-decoration:none;font-weight:600}
+  .foot-bottom a:hover{text-decoration:underline}
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .callbar{display:none}
+  @media (max-width:760px){
+    body{padding-bottom:86px}
+    .callbar{
+      position:fixed;left:0;right:0;bottom:0;z-index:950;
+      display:grid;grid-template-columns:1.45fr 1fr;gap:10px;
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      background:rgba(8,9,13,.92);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border-top:1px solid var(--line-strong);
+    }
+    .callbar .btn{padding:14px 10px;font-size:15px;border-radius:13px;width:100%}
+  }
+
+  ::selection{background:rgba(47,125,255,.35);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- SmartContent Lab conversion ribbon -->
+<a class="scl-ribbon" href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer" aria-label="Free redesign preview built by SmartContent Lab. Book a 15-minute call.">
+  <span>Free redesign preview built by <strong>SmartContent Lab</strong></span>
+  <span class="rb-pill">Book a 15-min call
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </span>
+</a>
+
+<!-- Header -->
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Hudson Shine Mobile Detailing — home">
+      <span class="brand-mark">HS</span>
+      <span class="brand-name"><b>HUDSON SHINE</b><span>Mobile Detailing</span></span>
+    </a>
+    <nav class="head-nav" aria-label="Primary">
+      <a href="#services">Packages</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book">Book</a>
+    </nav>
+    <a class="head-call" href="tel:+12015550147" aria-label="Call Hudson Shine at (201) 555-0147">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="num-txt">(201) 555-0147</span><span class="call-txt">Call Now</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Deep blue sports car with glossy paint photographed against a dark background"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <p class="kicker">Mobile Detailing — Jersey City, NJ</p>
+      <h1>Jersey City&rsquo;s <span class="shine">showroom shine</span>, delivered to your driveway.</h1>
+      <p class="hero-sub">Premium hand washes, interior deep cleans, and ceramic coatings — at your home, office, or garage. We bring the water, the power, and the obsession. You keep your Saturday.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid btn-xl" href="tel:+12015550147" aria-label="Call Hudson Shine now at (201) 555-0147">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (201) 555-0147
+        </a>
+        <a class="btn btn-ghost btn-xl" href="#book">
+          Book a Detail
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 from local drivers</span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Fully insured
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          We come to you — JC, Hoboken &amp; Bayonne
+        </span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">500<em>+</em></div><div class="lbl">Vehicles detailed</div></div>
+        <div class="stat"><div class="num">5.0<em>&#9733;</em></div><div class="lbl">Average rating</div></div>
+        <div class="stat"><div class="num">7<em>&nbsp;days</em></div><div class="lbl">Open every week</div></div>
+        <div class="stat"><div class="num">60<em>&nbsp;min</em></div><div class="lbl">Text-back time</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="tick" aria-hidden="true">
+    <div class="tick-track">
+      <div class="tick-seq">
+        <span>Snow-foam hand wash</span><span>Interior steam clean</span><span>Paint correction</span><span>Ceramic coating</span><span>Pet-hair removal</span><span>Engine bay detail</span><span>Headlight restoration</span><span>We come to you</span>
+      </div>
+      <div class="tick-seq">
+        <span>Snow-foam hand wash</span><span>Interior steam clean</span><span>Paint correction</span><span>Ceramic coating</span><span>Pet-hair removal</span><span>Engine bay detail</span><span>Headlight restoration</span><span>We come to you</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Packages -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Packages &amp; Pricing</p>
+        <h2>Pick your shine level.</h2>
+        <p>Flat, honest pricing for sedans and coupes — SUVs, trucks and vans add $30. Every package is performed at your location, on your schedule.</p>
+      </div>
+      <div class="pack-grid">
+
+        <article class="pack">
+          <h3>Express Wash</h3>
+          <p class="meta">Exterior &middot; About 45 min</p>
+          <p class="price">$49</p>
+          <p class="tag">The maintenance wash that keeps daily drivers sharp.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>pH-neutral snow-foam hand wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Two-bucket, scratch-safe contact wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Wheels, tires &amp; arches cleaned + dressed</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Streak-free exterior glass</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>30-day spray sealant, hand-dried finish</li>
+          </ul>
+          <a class="pack-cta" href="#book">Book Express<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="pack">
+          <h3>Interior Revival</h3>
+          <p class="meta">Interior &middot; About 2 hrs</p>
+          <p class="price">$129</p>
+          <p class="tag">Kids, commutes, pets — we erase all the evidence.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full vacuum — seats, carpets &amp; trunk</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Steam clean of vents, seams &amp; cupholders</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Carpet &amp; mat shampoo with stain treatment</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Leather cleaned &amp; conditioned</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Interior glass + odor neutralizer</li>
+          </ul>
+          <a class="pack-cta" href="#book">Book Interior<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="pack popular">
+          <span class="pop-badge">Most Popular</span>
+          <h3>Full Detail</h3>
+          <p class="meta">Inside + Out &middot; About 3.5 hrs</p>
+          <p class="price">$199</p>
+          <p class="tag">The complete reset — better than the day you bought it.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in Express + Interior Revival</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Clay-bar paint decontamination</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Machine-applied gloss enhancer</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>6-month paint sealant</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Door jambs, trim &amp; exhaust tips finished</li>
+          </ul>
+          <a class="pack-cta" href="#book">Book Full Detail<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="pack">
+          <h3>Ceramic Coating</h3>
+          <p class="meta">Protection &middot; 1&ndash;2 days</p>
+          <p class="price"><span class="from">from</span>$599</p>
+          <p class="tag">Years of gloss and protection, not weeks.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Single-stage machine paint correction</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pro-grade ceramic coating (3&ndash;5 yr)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Extreme gloss + hydrophobic protection</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Wheel faces &amp; glass coated</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Aftercare kit + wash guidance included</li>
+          </ul>
+          <a class="pack-cta" href="#book">Get a Quote<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+      </div>
+      <p class="pack-note">Not sure which package fits? Call <a href="tel:+12015550147" style="color:var(--blue-bright);font-weight:600;text-decoration:none">(201) 555-0147</a> and we&rsquo;ll recommend one in two minutes.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="sec sec-alt" id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Recent Work</p>
+        <h2>Gloss you can check your reflection in.</h2>
+        <p>Every vehicle gets the same treatment: methodical prep, safe technique, and a final walkaround before we roll out.</p>
+      </div>
+      <div class="g-grid">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Car covered in thick snow foam during a pre-wash" loading="lazy" decoding="async" width="1600" height="900">
+          <figcaption>Snow-foam pre-wash — lifting road grime the scratch-safe way</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Glossy red sports car with mirror-finish paint on a dark background" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption>Paint corrected, gloss locked in</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Detailed leather interior and steering wheel" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption>Leather cleaned, conditioned &amp; protected</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Spotless car cockpit and dashboard after an interior detail" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption>Cockpit reset to factory-fresh</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sports car with deep reflective paint parked outdoors" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption>Ceramic-coated &amp; road-ready</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Front end of a gleaming muscle car after a full detail" loading="lazy" decoding="async" width="1200" height="900">
+          <figcaption>Every panel inspected before we leave</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews / trust / service area -->
+  <section class="sec" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Word Around Hudson County</p>
+        <h2>Drivers keep us on speed dial.</h2>
+      </div>
+      <div class="rev-grid">
+        <article class="rev">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>&ldquo;Booked the Full Detail for my 4Runner after two winters of street parking and salt. They texted when they were 20 minutes out, brought their own water and power, and three hours later it honestly looked better than the day I bought it.&rdquo;</p>
+          <p class="who"><b>Marcus D.</b> &mdash; The Heights, Jersey City</p>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>&ldquo;Two kids, one golden retriever, zero shame. The Interior Revival erased all of it — seats, carpets, even the crayon melted into the cupholders. My CR-V smells like a new car again.&rdquo;</p>
+          <p class="who"><b>Alyssa R.</b> &mdash; Downtown Jersey City</p>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>&ldquo;Ceramic coating on my Model 3 was worth every penny. Rain just rolls off, brake dust wipes away, and it still beads like day one. All done in my building&rsquo;s garage — never had to leave Hoboken.&rdquo;</p>
+          <p class="who"><b>Danny P.</b> &mdash; Hoboken</p>
+        </article>
+      </div>
+      <p class="sample-note">Sample content for preview — reviews and stats shown are illustrative.</p>
+
+      <div class="badges">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Fully insured &amp; background-checked
+        </span>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Water &amp; power on board
+        </span>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          100% satisfaction promise
+        </span>
+      </div>
+
+      <div class="area">
+        <h3>We come to you.</h3>
+        <p>Street parking, driveway, office lot, or building garage — if we can park next to it, we can detail it. Based in Jersey City, rolling all over the Newark metro.</p>
+        <div class="area-chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>Jersey City</b>&nbsp;— home base</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>Hoboken</b></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>Bayonne</b></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>Newark metro</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section class="sec sec-alt" id="book">
+    <div class="wrap book-grid">
+      <div>
+        <p class="kicker">Booking</p>
+        <h2 style="font-size:clamp(28px,4.6vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:10px 0 14px">Grab a slot. We&rsquo;ll handle the rest.</h2>
+        <p style="font-size:16px;color:var(--muted);max-width:52ch">Tell us about your vehicle and when works for you — we&rsquo;ll text back within the hour to confirm your time and exact quote.</p>
+        <ul class="book-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Same-week slots usually available</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>We arrive with everything — water, power, products</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>No deposit. Pay when you&rsquo;re thrilled with the result</li>
+        </ul>
+        <p class="alt-call">Prefer to talk it through? Call <a href="tel:+12015550147">(201) 555-0147</a> — 7 days, 8am&ndash;7pm.</p>
+      </div>
+
+      <form class="form-card" id="bookform" novalidate>
+        <h3>Request your detail</h3>
+        <p class="fc-sub">Takes 30 seconds. We reply by text within the hour.</p>
+        <div class="f-row two">
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input id="f-name" name="name" type="text" placeholder="Sam Rivera" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-phone">Mobile phone</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="(201) 555-0000" autocomplete="tel">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="field">
+            <label for="f-vehicle">Vehicle</label>
+            <input id="f-vehicle" name="vehicle" type="text" placeholder="2021 Toyota 4Runner, black">
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="f-service">Service</label>
+            <select id="f-service" name="service">
+              <option>Full Detail — $199 (most popular)</option>
+              <option>Express Wash — $49</option>
+              <option>Interior Revival — $129</option>
+              <option>Ceramic Coating — from $599</option>
+              <option>Not sure yet — help me choose</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-date">Preferred date</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="field">
+            <label for="f-notes">Anything we should know? <span style="text-transform:none;letter-spacing:0;font-weight:500">(optional)</span></label>
+            <textarea id="f-notes" name="notes" placeholder="Pet hair in the back, street parking on Grove St..."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-solid form-btn" id="bookbtn" type="submit">Request My Slot</button>
+        <p class="form-note">Demo preview — this form isn&rsquo;t wired up yet. On the live site, requests text straight to your phone.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top" aria-label="Hudson Shine Mobile Detailing — back to top">
+        <span class="brand-mark">HS</span>
+        <span class="brand-name"><b>HUDSON SHINE</b><span>Mobile Detailing</span></span>
+      </a>
+      <p class="foot-brand-blurb">Premium mobile detailing for Hudson County&rsquo;s daily drivers, weekend toys, and everything in between.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a class="foot-tel" href="tel:+12015550147">(201) 555-0147</a></li>
+        <li><a href="mailto:hello@hudsonshinedetailing.com">hello@hudsonshinedetailing.com</a></li>
+        <li>Open 7 days &middot; 8am&ndash;7pm</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Service Area</h4>
+      <ul>
+        <li>Jersey City — all neighborhoods</li>
+        <li>Hoboken</li>
+        <li>Bayonne</li>
+        <li>Newark metro</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 Hudson Shine Mobile Detailing. Demo website — sample business for preview purposes.</span>
+    <span>Preview crafted by SmartContent Lab &mdash; <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">book a 15-min call</a></span>
+  </div>
+</footer>
+
+<!-- Sticky mobile call bar -->
+<div class="callbar" role="navigation" aria-label="Quick contact">
+  <a class="btn btn-solid" href="tel:+12015550147" aria-label="Call Hudson Shine at (201) 555-0147">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call (201) 555-0147
+  </a>
+  <a class="btn btn-ghost" href="#book">Book a Detail</a>
+</div>
+
+<script>
+  (function(){
+    var form = document.getElementById('bookform');
+    var btn = document.getElementById('bookbtn');
+    if(form && btn){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        btn.textContent = 'Request received — we’ll text you (demo)';
+        btn.classList.add('sent');
+        btn.disabled = true;
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
