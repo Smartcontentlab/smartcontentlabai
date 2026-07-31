@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genteel Plumbers | San Francisco Plumber Since 2016 | Same-Day & 24/7 Emergency</title>
+<meta name="description" content="Reliable and trustworthy plumbers in San Francisco since 2016. Same-day service, 24/7 emergency, flat-rate pricing. Call 628-626-0276. CSL #1025814.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2240;
+  --navy2:#162F57;
+  --navy3:#1E3A6A;
+  --cream:#FDF8EE;
+  --paper:#FFFFFF;
+  --ink:#141B29;
+  --muted:#6D7A90;
+  --muted2:#9AA6BD;
+  --line:#ECE6DA;
+  --line2:#E8E2D5;
+  --copper:#C7853E;
+  --copper2:#A86F33;
+  --copper-soft:#FFF1E0;
+  --green:#16694A;
+  --green-soft:#E6F4EE;
+  --red:#B42318;
+  --shadow:0 20px 60px rgba(15,34,64,.12);
+  --shadow2:0 8px 24px rgba(15,34,64,.08);
+  --r12:12px; --r16:16px; --r20:20px; --r24:24px; --r32:32px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;padding-top:36px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* RIBBON REQUIRED */
+.ribbon{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  height:36px;display:flex;align-items:center;justify-content:center;
+  background:#101828;color:#fff;font-size:13px;letter-spacing:.02em;font-weight:500;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.ribbon a{color:#FFD8A8;text-decoration:underline;text-underline-offset:3px;font-weight:600;margin-left:6px}
+.ribbon a:hover{color:#fff}
+.ribbon-dot{width:6px;height:6px;background:#3ED598;border-radius:50%;display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(62,213,152,.2)}
+
+/* Topbar */
+.topbar{
+  background:var(--navy);color:#D8E1F0;font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.topbar-left{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.pill-live{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:5px 12px;border-radius:999px;font-weight:600;letter-spacing:.02em}
+.pill-live i{width:7px;height:7px;background:#FF4D4D;border-radius:50%;display:inline-block;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,77,77,.7)}70%{box-shadow:0 0 0 8px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
+.topbar b{color:#fff;font-weight:700}
+.topbar a.tel{color:#FFD8A8;font-weight:700;text-decoration:none}
+.topbar a.tel:hover{color:#fff}
+
+/* Header */
+.header{
+  position:sticky;top:36px;z-index:900;background:rgba(253,248,238,.88);backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:46px;height:46px;background:var(--navy);border-radius:12px;display:grid;place-items:center;
+  color:var(--cream);font-family:Fraunces,serif;font-weight:800;font-size:22px;letter-spacing:-.02em;
+  box-shadow:0 8px 20px rgba(15,34,64,.18);
+}
+.brand-name{font-family:Fraunces,serif;font-weight:800;font-size:22px;line-height:.95;letter-spacing:-.02em}
+.brand-name span{display:block;font-family:Inter;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.nav{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:#2A374F}
+.nav a{position:relative;padding:4px 0}
+.nav a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--copper);transition:.25s}
+.nav a:hover:after{width:100%}
+.header-cta{display:flex;align-items:center;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 22px;border-radius:999px;font-weight:700;font-size:14.5px;letter-spacing:.01em;
+  border:1px solid transparent;cursor:pointer;transition:.22s;white-space:nowrap;
+}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(15,34,64,.18)}
+.btn-primary:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 12px 28px rgba(15,34,64,.22)}
+.btn-copper{background:var(--copper);color:#fff;box-shadow:0 8px 20px rgba(199,133,62,.28)}
+.btn-copper:hover{background:var(--copper2);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--paper)}
+.btn-small{padding:9px 16px;font-size:13.5px}
+.mob-toggle{display:none;border:1px solid var(--line2);background:#fff;width:42px;height:42px;border-radius:999px;align-items:center;justify-content:center}
+
+/* Hero */
+.hero{max-width:1280px;margin:0 auto;padding:28px 24px 0;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:start}
+.hero-copy{padding:28px 0 28px}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line2);border-radius:999px;
+  padding:7px 14px 7px 8px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--navy);
+}
+.kicker-badge{
+  background:var(--navy);color:#fff;border-radius:999px;padding:3px 9px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase
+}
+.h1{
+  font-family:Fraunces,serif;font-weight:800;font-size:clamp(38px,5.2vw,62px);line-height:.92;letter-spacing:-.03em;margin:18px 0 16px;
+}
+.h1 em{font-style:normal;color:var(--copper);position:relative}
+.h1 em:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:10px;background:rgba(199,133,62,.18);z-index:-1;border-radius:4px}
+.sub{
+  font-size:18px;line-height:1.6;color:#3A475E;max-width:560px;margin:0 0 22px;
+}
+.trust-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}
+.trust-chip{
+  display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line2);padding:8px 13px;border-radius:999px;
+  font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow2)
+}
+.trust-chip b{font-weight:800}
+.trust-chip svg{width:16px;height:16px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.micro{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.micro b{color:var(--ink)}
+.hero-visual{position:relative;padding-top:12px}
+.hero-img-wrap{
+  position:relative;border-radius:24px;overflow:hidden;background:#DDE3EE;
+  box-shadow:var(--shadow);border:1px solid rgba(15,34,64,.08);
+  aspect-ratio:4/4.6;
+}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-float{
+  position:absolute;left:-18px;bottom:22px;background:#fff;border:1px solid var(--line2);border-radius:16px;
+  padding:14px 14px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);max-width:300px
+}
+.float-ava{width:44px;height:44px;border-radius:999px;background:#E9EEF7;display:grid;place-items:center;font-weight:800;font-family:Fraunces,serif;color:var(--navy)}
+.hero-float b{display:block;font-size:14px;line-height:1.2}
+.hero-float span{font-size:12.5px;color:var(--muted)}
+.hero-badge-top{
+  position:absolute;right:12px;top:24px;background:var(--paper);border:1px solid var(--line2);border-radius:999px;
+  padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;box-shadow:var(--shadow2)
+}
+.stars{color:#FFB020;letter-spacing:1px}
+
+/* Trust bar */
+.trust-bar{max-width:1280px;margin:22px auto 0;padding:0 24px}
+.trust-bar-inner{
+  background:var(--paper);border:1px solid var(--line2);border-radius:16px;padding:14px 18px;
+  display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;
+}
+.trust-stat{display:flex;align-items:center;gap:12px}
+.trust-stat b{font-family:Fraunces,serif;font-size:22px;line-height:1;letter-spacing:-.02em}
+.trust-stat small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}
+.divider{width:1px;height:36px;background:var(--line);display:block}
+
+/* Services */
+.section{max-width:1280px;margin:0 auto;padding:72px 24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--copper2);
+  border:1px solid rgba(199,133,62,.22);background:var(--copper-soft);padding:6px 12px;border-radius:999px;margin-bottom:14px;
+}
+.h2{font-family:Fraunces,serif;font-weight:700;font-size:clamp(30px,3.8vw,46px);line-height:.98;letter-spacing:-.03em;margin:0 0 12px}
+.h2 .accent{color:var(--copper2)}
+.lead{font-size:17px;line-height:1.6;color:#3A475E;max-width:720px;margin:0 0 28px}
+.grid-services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{
+  background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:18px 18px 16px;
+  transition:.24s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(15,34,64,.18)}
+.card-icon{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:#F1F4FA;border:1px solid #E2E8F3;margin-bottom:14px;color:var(--navy)
+}
+.card h3{font-family:Fraunces,serif;font-size:19px;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}
+.card p{font-size:13.8px;line-height:1.55;color:#4A5A78;margin:0 0 12px;min-height:62px}
+.card a.link{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--navy);display:inline-flex;align-items:center;gap:6px}
+.card a.link:hover{color:var(--copper2)}
+.card.featured{background:var(--navy);color:#E8EEF8;border-color:var(--navy2)}
+.card.featured .card-icon{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#FFD8A8}
+.card.featured p{color:#A9B8D0}
+.card.featured a.link{color:#FFD8A8}
+
+/* Why / Story */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start}
+.why-list{display:grid;gap:14px;margin-top:18px}
+.why-item{
+  background:#fff;border:1px solid var(--line2);border-radius:16px;padding:16px 16px;display:flex;gap:14px;align-items:flex-start;
+}
+.why-icon{
+  width:40px;height:40px;border-radius:999px;background:var(--green-soft);border:1px solid #CFE7DA;color:var(--green);
+  display:grid;place-items:center;flex:0 0 40px
+}
+.why-item h4{margin:0 0 4px;font-size:15px;line-height:1.2;font-weight:700}
+.why-item p{margin:0;font-size:13.5px;line-height:1.5;color:#4B5C7A}
+.story-card{
+  background:var(--paper);border:1px solid var(--line2);border-radius:24px;overflow:hidden;box-shadow:var(--shadow2)
+}
+.story-img{height:280px;background:#E8EEF7;overflow:hidden}
+.story-img img{width:100%;height:100%;object-fit:cover}
+.story-body{padding:20px 22px}
+.story-body h3{font-family:Fraunces,serif;font-size:24px;line-height:1.1;margin:0 0 10px}
+.meta-line{font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap}
+.meta-line b{color:var(--ink)}
+
+/* Emergency band */
+.band{
+  margin:0 auto;max-width:1280px;padding:0 24px;
+}
+.band-inner{
+  background:radial-gradient(90% 180% at 10% 0%, #1E3A6A 0%, #0F2240 60%), var(--navy);
+  border-radius:24px;padding:28px 28px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;
+  color:#EAF0FF;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12)
+}
+.band-inner:before{
+  content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 85% -10%, rgba(199,133,62,.28), transparent 60%);pointer-events:none
+}
+.band h3{font-family:Fraunces,serif;font-size:clamp(26px,3vw,36px);line-height:.98;margin:0 0 8px;letter-spacing:-.02em;color:#fff}
+.band p{margin:0;color:#A9B8D0;font-size:15px;line-height:1.5;max-width:560px}
+.band-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.band-list li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
+
+/* Reviews */
+.reviews-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end;margin-bottom:18px}
+.rating-big{display:flex;align-items:center;gap:14px}
+.rating-big b{font-family:Fraunces,serif;font-size:44px;line-height:.9;letter-spacing:-.03em}
+.sample-note{
+  font-size:12px;color:var(--muted);background:#fff;border:1px dashed var(--line2);padding:8px 12px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:6px
+}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{
+  background:#fff;border:1px solid var(--line2);border-radius:20px;padding:18px;
+}
+.review-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.review-person{display:flex;align-items:center;gap:10px}
+.ava{width:36px;height:36px;border-radius:999px;background:#EEF2FA;display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--navy)}
+.review h4{font-size:14px;margin:0;line-height:1.2}
+.review small{font-size:12px;color:var(--muted)}
+.review p{font-size:13.8px;line-height:1.6;color:#2E3A51;margin:10px 0 0}
+.tag{display:inline-flex;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F5FA;border:1px solid #E2E8F0;color:#5B6B86;padding:4px 8px;border-radius:999px;margin-top:12px}
+
+/* Service area */
+.area{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:start}
+.area-list{
+  background:#fff;border:1px solid var(--line2);border-radius:20px;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px
+}
+.area-list div{font-size:14px;padding:7px 0;border-bottom:1px dashed var(--line);display:flex;align-items:center;gap:8px}
+.area-list div:last-child{border:0}
+.area-note{
+  margin-top:14px;background:#FFF7ED;border:1px solid #FFE0B2;color:#7A4A1E;padding:12px 14px;border-radius:12px;font-size:13px;line-height:1.5
+}
+.map-fake{
+  background:#0F2240;border-radius:20px;overflow:hidden;min-height:420px;position:relative;border:1px solid #1C335D;
+  display:grid;place-items:center;color:#8AA0C2;
+}
+.map-fake img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.map-center{
+  position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:16px;padding:14px 16px;
+  border:1px solid rgba(255,255,255,.6);box-shadow:var(--shadow);max-width:300px;text-align:center
+}
+.map-center b{color:var(--navy);font-family:Fraunces,serif;font-size:18px;display:block}
+.map-center small{font-size:12px;color:var(--muted)}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:start}
+.faq-qs{display:grid;gap:10px}
+.item-q{
+  background:#fff;border:1px solid var(--line2);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.18s
+}
+.item-q[open]{border-color:var(--navy);box-shadow:var(--shadow2)}
+.item-q summary{list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:700;font-size:14.5px;cursor:pointer}
+.item-q summary::-webkit-details-marker{display:none}
+.item-q p{margin:12px 0 2px;font-size:13.8px;line-height:1.6;color:#42526E}
+.chevron{width:28px;height:28px;border-radius:999px;background:#F1F4FA;border:1px solid #E2E8F0;display:grid;place-items:center;flex:0 0 28px;transition:.2s}
+.item-q[open] .chevron{transform:rotate(180deg);background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* Contact */
+.contact{
+  background:#fff;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)
+}
+.contact-inner{max-width:1280px;margin:0 auto;padding:54px 24px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.form-card{
+  background:var(--cream);border:1px solid var(--line2);border-radius:24px;padding:20px;box-shadow:var(--shadow2)
+}
+.form-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.form-head h3{font-family:Fraunces,serif;font-size:22px;margin:0}
+.badge-demo{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#101828;color:#FFD8A8;padding:6px 10px;border-radius:999px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.input{
+  background:#fff;border:1px solid var(--line2);border-radius:12px;padding:12px 14px;font-size:14px;width:100%;outline:0;transition:.18s
+}
+.input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,34,64,.12)}
+.input.full{grid-column:1/-1}
+textarea.input{resize:vertical;min-height:92px}
+.form-foot{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.form-foot small{font-size:11.5px;color:var(--muted);line-height:1.4}
+.info-stack{display:grid;gap:14px}
+.info-card{background:#0F2240;color:#D8E1F0;border-radius:20px;padding:20px;border:1px solid rgba(255,255,255,.1)}
+.info-card h4{color:#fff;font-family:Fraunces,serif;font-size:20px;margin:0 0 10px}
+.info-line{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px}
+.info-line:last-child{border:0}
+.info-line b{color:#FFD8A8}
+.hours{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+.hours td{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+.hours td:last-child{text-align:right;color:#A9B8D0}
+
+/* Footer */
+.footer{background:#0B1A31;color:#9AA8C2;padding:28px 24px 90px}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:24px}
+.footer h5{color:#fff;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+.footer a{color:#9AA8C2;font-size:13.5px;display:block;padding:4px 0}
+.footer a:hover{color:#fff}
+.copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#6D7E9A;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+
+/* Sticky mobile */
+.sticky-mob{
+  position:fixed;left:0;right:0;bottom:0;z-index:850;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line2);padding:10px 14px;display:none;gap:10px;box-shadow:0 -10px 40px rgba(15,34,64,.12)
+}
+.sticky-mob .btn{flex:1}
+
+/* Responsive */
+@media (max-width:1060px){
+  .hero{grid-template-columns:1fr;gap:10px}
+  .hero-visual{order:-1}
+  .hero-img-wrap{aspect-ratio:16/10}
+  .grid-services{grid-template-columns:repeat(2,1fr)}
+  .split,.area,.faq,.contact-inner,.footer-inner{grid-template-columns:1fr}
+  .band-inner{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+  .mob-toggle{display:flex}
+}
+@media (max-width:640px){
+  body{padding-top:36px}
+  .header{top:36px}
+  .header-inner{padding:12px 16px}
+  .hero,.section,.band,.trust-bar,.contact-inner{padding-left:16px;padding-right:16px}
+  .topbar-inner{padding:8px 16px}
+  .h1{font-size:38px}
+  .grid-services{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .input.full{grid-column:auto}
+  .sticky-mob{display:flex}
+  .footer{padding-bottom:84px}
+  .hero-float{left:8px;bottom:8px;max-width:calc(100% - 16px)}
+  .hero-badge-top{right:8px;top:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- REQUIRED RIBBON -->
+<div class="ribbon"><span class="ribbon-dot"></span>Free redesign preview built by SmartContent Lab — <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">Book a 15-min call</a></div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span class="pill-live"><i></i> Emergency Plumbing Available 24/7</span>
+      <span>Same-Day Service in SF &amp; San Mateo County <b>·</b> Dispatch $149 applied to job</span>
+    </div>
+    <div class="topbar-left">
+      <span> 1181 Revere Ave, San Francisco, CA 94124 · CSL #<b>1025814</b></span>
+      <a class="tel" href="tel:6286260276">Call 628-626-0276</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#" aria-label="Genteel Plumbers home">
+      <div class="brand-mark">G</div>
+      <div class="brand-name">Genteel Plumbers <span>San Francisco • Since 2016</span></div>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Service Area</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost btn-small" href="#contact">Save With Coupons</a>
+      <a class="btn btn-primary" href="tel:6286260276">Call 628-626-0276</a>
+    </div>
+    <button class="mob-toggle" aria-label="Open menu" onclick="document.querySelector('.nav').style.display = document.querySelector('.nav').style.display==='flex'?'none':'flex'">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker"><span class="kicker-badge">SF Trusted</span> Founded 2016 by Graham W. Jones in Outer Sunset</div>
+      <h1 class="h1">Reliable &amp; trustworthy plumbers on <em>this side of the Golden Gate.</em></h1>
+      <p class="sub">Genteel Plumbers provides expert care for your pipes, water heaters, and drains. Same-day service, flat-rate pricing before work begins, price-match with free second opinions — and a team with 30+ years combined experience who actually love the craft.</p>
+
+      <div class="trust-row">
+        <div class="trust-chip"><svg viewBox="0 0 24 24" fill="#FFB020"><path d="M12 2l2.4 7.2H22l-6.2 4.5 2.4 7.3L12 17.5 5.8 21l2.4-7.3L2 9.2h7.6z"/></svg> <b>4.8/5</b> from 438 Google reviews</div>
+        <div class="trust-chip">🏅 <b>People Love Us</b> on Yelp — 450+ 5-star</div>
+        <div class="trust-chip">✓ <b>Flat-rate</b> upfront • No surprises</div>
+        <div class="trust-chip">✓ <b>14-Day Warranty</b> + No Lemon Guarantee</div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-copper" href="#contact">Schedule Same-Day Service →</a>
+        <a class="btn btn-primary" href="tel:6286260276">📞 Call 628-626-0276</a>
+      </div>
+
+      <div class="micro">
+        <span>⚡ Same-day plumbing service</span>
+        <span>•</span>
+        <span>🛻 Trucks stocked with newest tech &amp; tools</span>
+        <span>•</span>
+        <span>📍 You get plumber bio + photo + ETA text</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" alt="Licensed plumber servicing pipes in San Francisco home" loading="eager" onerror="this.src='https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=80'">
+        <div class="hero-badge-top"><span class="stars">★★★★★</span> 4.8 Google • 438 reviews</div>
+      </div>
+      <div class="hero-float">
+        <div class="float-ava">E</div>
+        <div>
+          <b>Edgar is on the way</b>
+          <span>Verified pro • 4.9 ★ • Background checked • Photo & bio sent</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-bar"><div class="trust-bar-inner">
+    <div class="trust-stat"><div><b>Since 2016</b><small>Outer Sunset founded</small></div></div>
+    <span class="divider"></span>
+    <div class="trust-stat"><div><b>30+ yrs</b><small>Combined experience</small></div></div>
+    <span class="divider"></span>
+    <div class="trust-stat"><div><b>$149</b><small>Dispatch → applied to job</small></div></div>
+    <span class="divider"></span>
+    <div class="trust-stat"><div><b>Price Match</b><small>Free 2nd opinions</small></div></div>
+    <span class="divider"></span>
+    <div class="trust-stat"><div><b>CSL #1025814</b><small>Licensed • Insured</small></div></div>
+  </div></div>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="eyebrow">Genteel Services — Plumbing Happiness. Guaranteed.</div>
+    <h2 class="h2">From water heaters to trenchless sewer, <span class="accent">we handle the hard stuff fast.</span></h2>
+    <p class="lead">Real services from our trucks in SF & San Mateo County — no salesy fluff. Flat-rate options before we start, with your old Sunset or Pacifica pipes in mind.</p>
+
+    <div class="grid-services">
+      <div class="card featured">
+        <div class="card-icon">🔥</div>
+        <h3>Water Heaters</h3>
+        <p>Repair, replacement & maintenance. Tank & more energy-efficient tankless options. No hot water mid-shower? We'll restore it today.</p>
+        <a class="link" href="#contact">Enjoy Hot Water →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6h8a4 4 0 014 4v8a4 4 0 01-4 4H9a4 4 0 01-4-4v-8a4 4 0 014-4z"/><path d="M9 10h8"/></svg>
+        </div>
+        <h3>Drain Cleaning & Hydro Jetting</h3>
+        <p>SF's old lines love to clog. Snakes, camera inspections & eco-friendly hydro jetting to blast foul odors, sewage & deep clogs.</p>
+        <a class="link" href="#contact">Blast Away Clogs →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h20"/><path d="M6 8l-4 4 4 4"/><path d="M18 8l4 4-4 4"/></svg>
+        </div>
+        <h3>Trenchless Sewer Replacement</h3>
+        <p>Damaged sewer but don't want your yard destroyed? Trenchless replacement saves property, time & landscaping in many SF homes.</p>
+        <a class="link" href="#contact">Replace Sewer Pipes →</a>
+      </div>
+
+      <div class="card" style="border-color:#FFC9C9;background:#FFF6F6">
+        <div class="card-icon" style="background:#FFE0E0;border-color:#FFC2C2;color:#B42318">🚨</div>
+        <h3>Emergency Plumbing 24/7</h3>
+        <p>Flooding, overflowing toilet at 1AM, gas leak, scalding water heater? We answer 24/7 with same-day resolution for basements, sewers & more.</p>
+        <a class="link" href="tel:6286260276">Get Help Fast →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3>Leak Detection</h3>
+        <p>Hidden leaks = mold, electrical & structural damage. We find and fix them early before they muck up your plans.</p>
+        <a class="link" href="#contact">Find Leaks →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚽</div>
+        <h3>Toilet Repair & High-Efficiency</h3>
+        <p>Running, leaking or refusing to flush? Licensed repair, replacement & high-efficiency installs across SF & San Mateo.</p>
+        <a class="link" href="#contact">Get Toilet Care →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Gasfitting & Backflow Prevention</h3>
+        <p>Licensed gas line work & certified backflow testing to keep your home safe and code-compliant — no crossing the bridge needed.</p>
+        <a class="link" href="#contact">Keep It Safe →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🛠️</div>
+        <h3>Repiping & Plumbing Repair</h3>
+        <p>From pinhole leaks to full repipes — historic SF homes need care. Well-organized trucks, newest tools, career plumbers (min 4 yrs exp).</p>
+        <a class="link" href="#contact">Get Repaired →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / STORY -->
+  <section id="why" class="section" style="padding-top:12px">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Why Choose Genteel</div>
+        <h2 class="h2">Customer service is practically in our DNA. <span class="accent">That's why SF keeps calling.</span></h2>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-icon">💲</div>
+            <div>
+              <h4>Customer-Friendly Flat-Rate Pricing</h4>
+              <p>You get upfront options before work begins — no inconsistent or surprise charges. $149 dispatch is applied to the job.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🤝</div>
+            <div>
+              <h4>Price Matching + Free Second Opinions</h4>
+              <p>Have a lower written quote on plumbing service in SF? We'll match it. We want the best for customers, period.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <div>
+              <h4>Prompt & Same-Day Plumbing Service</h4>
+              <p>We make a point of handling any job same-day. 24/7 emergency when you need us. Call ahead with bio, photo & ETA text.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🛡️</div>
+            <div>
+              <h4>Trustworthy, Career Plumbers</h4>
+              <p>Min 4 years experience, background checks & drug testing. Positive, enthusiastic shop — not just a job, a craft. Performance & Satisfaction Guarantees + No Lemon Guarantee on fixtures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-img">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" alt="Plumber working on residential pipes with professional tools" loading="lazy">
+        </div>
+        <div class="story-body">
+          <div class="meta-line"><span>Founded <b>2016</b> Outer Sunset</span><span>By <b>Graham W. Jones</b></span><span>CSL #<b>1025814</b></span></div>
+          <h3>The Genteel Story — born in the Sunset for SF's toughest pipes.</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:#3D4D68;margin:0 0 14px">Genteel Plumbers was founded in 2016 by Graham W. Jones in San Francisco's Outer Sunset district. We understand how devastating a plumbing emergency can be. That's why we've always provided same-day service.</p>
+          <p style="font-size:14px;line-height:1.65;color:#4B5C7A;margin:0 0 14px">Our trucks are always organized and stocked with the newest technology — keeping us ahead of the crowd and maximizing efficiency. Our current team boasts 30+ years combined experience. At Genteel, employees are career plumbers with true passion for the craft, not temp labor.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-ghost btn-small" href="#contact">Read Our Story</a>
+            <a class="btn btn-ghost btn-small" href="#contact">Join Our Team →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY BAND -->
+  <div class="band">
+    <div class="band-inner">
+      <div>
+        <h3>Emergency flooding, sewage backup or gas leak right now?</h3>
+        <p>There's no need to panic or resign yourself to major water damage. Reach out for 24/7 emergency plumbing — flooding resolution for basements, clogged sewer repair, overflowing toilets, water heater failure, gas leak detection.</p>
+        <ul class="band-list">
+          <li>✓ Basement flooding resolved</li>
+          <li>✓ Clogged sewer repair</li>
+          <li>✓ Overflowing toilets</li>
+          <li>✓ Gas leak detection</li>
+          <li>✓ Water heater failure</li>
+        </ul>
+      </div>
+      <div style="display:grid;gap:12px">
+        <a class="btn btn-copper" href="tel:6286260276" style="width:100%;padding:18px;font-size:16px">🚨 Call 628-626-0276 — 24/7 Live</a>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.5;color:#A9B8D0">Dispatch $149 applied to job • Call-ahead with plumber photo • Same-day across SF & San Mateo • No Financial District • We do not cross Bay/Golden Gate Bridges</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <div class="reviews-head">
+      <div>
+        <div class="eyebrow">Rated First-Class by SF Homeowners</div>
+        <div class="rating-big"><b>4.8/5</b><div><div class="stars" style="font-size:18px">★★★★★</div><div style="font-size:13px;color:var(--muted)">From 438 Google reviews • 450+ Yelp five-star • “People Love Us on Yelp”</div></div></div>
+      </div>
+      <div class="sample-note">⚑ Sample reviews — replaced with your real Google reviews at launch.</div>
+    </div>
+
+    <div class="review-grid">
+      <div class="review">
+        <div class="review-top"><div class="review-person"><div class="ava">MR</div><div><h4>Sunset District Homeowner</h4><small>Water heater + toilet upgrade</small></div></div><span class="stars">★★★★★</span></div>
+        <p>“Joe found the running water sound immediately, explained everything clearly. Same day a whole team replaced old toilets, updated a 30-year-old water heater, added a smart shutoff & fixed wonky pipes. Work was gorgeous — major upgrade.”</p>
+        <span class="tag">Same-Day • Whole-home</span>
+      </div>
+      <div class="review">
+        <div class="review-top"><div class="review-person"><div class="ava">EA</div><div><h4>Kitchen Sink Rescue</h4><small>Clogged drain — responded in hours</small></div></div><span class="stars">★★★★★</span></div>
+        <p>“Called after kitchen sink stopped draining. Edgar was out in hours, explained options, treated our home with respect and left it cleaner than when he showed up. Highly recommend.”</p>
+        <span class="tag">Drain Cleaning • Edgar</span>
+      </div>
+      <div class="review">
+        <div class="review-top"><div class="review-person"><div class="ava">DB</div><div><h4>Outer Sunset Repeat Customer</h4><small>Garbage disposal + leak fixes</small></div></div><span class="stars">★★★★★</span></div>
+        <p>“We have used Genteel in the past and always happy. Same day, multiple options with pros/cons explained — no pressure for most expensive. Professional, patient, extremely nice. Ask for Edgar.”</p>
+        <span class="tag">Flat-rate options • No upsell</span>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-ghost btn-small" href="#contact">Read More Reviews on Google</a>
+      <a class="btn btn-ghost btn-small" href="#contact">Leave Your Review ★</a>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="area" class="section" style="padding-top:18px">
+    <div class="area">
+      <div>
+        <div class="eyebrow">Ready to Serve You In</div>
+        <h2 class="h2">San Francisco &amp; San Mateo County — <span class="accent">not over the bridges.</span></h2>
+        <p class="lead" style="margin-bottom:16px">We focus where we can be fastest. If you're inside this footprint, we can be same-day. Call <a href="tel:6286260276" style="text-decoration:underline;font-weight:700">628-626-0276</a> to confirm ETA.</p>
+
+        <div class="area-list">
+          <div>📍 <b>San Francisco</b> (excluding Financial District)</div>
+          <div>📍 <b>Daly City</b></div>
+          <div>📍 Brisbane</div>
+          <div>📍 South San Francisco</div>
+          <div>📍 San Bruno</div>
+          <div>📍 Millbrae</div>
+          <div>📍 Burlingame</div>
+          <div>📍 Hillsborough</div>
+          <div>📍 San Mateo</div>
+          <div>📍 Foster City</div>
+          <div>📍 Belmont</div>
+          <div>📍 Pacifica</div>
+          <div>📍 San Carlos</div>
+          <div>📍 Redwood City</div>
+          <div>📍 Atherton</div>
+          <div>📍 Menlo Park</div>
+          <div>📍 Palo Alto</div>
+          <div>📍 East Palo Alto</div>
+        </div>
+        <div class="area-note">⚠️ Per our FAQ: We do <b>not</b> cross the Golden Gate Bridge or Bay Bridge, and we do <b>not</b> provide plumbing services in the Financial District. This is how we keep same-day promise intact for SF & Peninsula.</div>
+      </div>
+
+      <div class="map-fake">
+        <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1000&q=70" alt="San Francisco aerial map" loading="lazy">
+        <div class="map-center">
+          <b>1181 Revere Avenue<br>San Francisco, CA 94124</b>
+          <small>HQ • Trucks dispatched Mon-Fri 7AM-4PM • 24/7 emergency line</small>
+          <div style="margin-top:10px"><a class="btn btn-primary btn-small" href="https://www.google.com/maps/search/?api=1&query=1181+Revere+Avenue+San+Francisco+CA+94124" target="_blank" rel="noopener noreferrer">Open in Maps →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section" style="padding-top:24px">
+    <div class="faq">
+      <div>
+        <div class="eyebrow">Straight Answers from Genteel</div>
+        <h2 class="h2">How much, how fast, and <span class="accent">where exactly.</span></h2>
+        <p style="font-size:14.5px;color:#44556F;line-height:1.6;margin-top:8px">Real FAQs from genteelplumbers.com — updated for speed. Tap to expand.</p>
+        <div style="margin-top:18px;background:var(--navy);color:#D8E1F0;border-radius:16px;padding:16px">
+          <b style="color:#fff;display:block;margin-bottom:6px;font-family:Fraunces,serif;font-size:18px">Want the crème de la crème of same-day service?</b>
+          <span style="font-size:13.5px;line-height:1.5">Call <a href="tel:6286260276" style="color:#FFD8A8;font-weight:700;text-decoration:underline">628-626-0276</a> to schedule today. Senior discounts & coupons available — ask about financing.</span>
+        </div>
+      </div>
+
+      <div class="faq-qs">
+        <details class="item-q" open>
+          <summary>Do you offer ways to save on plumbing service? <span class="chevron">⌄</span></summary>
+          <p>Yes. We offer senior discounts and a variety of coupons (see Save With Coupons). If you need plumbing financing in San Francisco, you can apply on our financing page. Flat-rate pricing is presented before work begins.</p>
+        </details>
+        <details class="item-q">
+          <summary>Will you cross the Golden Gate or Bay Bridge? <span class="chevron">⌄</span></summary>
+          <p>No. We do not cross the Golden Gate Bridge or the Bay Bridge. Our focus is San Francisco and San Mateo County, traveling as far south as East Palo Alto. We also do not service the Financial District — this focus is how we keep same-day service reliable.</p>
+        </details>
+        <details class="item-q">
+          <summary>How much do your plumbing services cost? <span class="chevron">⌄</span></summary>
+          <p>Our dispatch fee is $149, which is applied to the cost of services. Final cost varies by type of work. After examining your plumbing, we provide options with upfront pricing you can choose from. We also offer free second opinions and price matching on written quotes.</p>
+        </details>
+        <details class="item-q">
+          <summary>Do you have an office I can visit? <span class="chevron">⌄</span></summary>
+          <p>Yes — 1181 Revere Avenue, San Francisco, CA 94124. Fastest way to reach us is still to call 628-626-0276. Office hours Mon-Fri 7AM-4PM, emergency line 24/7.</p>
+        </details>
+        <details class="item-q">
+          <summary>How quickly can you get to my home? <span class="chevron">⌄</span></summary>
+          <p>We offer same-day plumbing services throughout SF & San Mateo County. Call to speak to friendly office staff and get a real ETA. Most jobs are completed in under 4 hours; complex jobs are scheduled around your availability.</p>
+        </details>
+        <details class="item-q">
+          <summary>Do you call ahead? <span class="chevron">⌄</span></summary>
+          <p>Yes! You'll get a call when our plumber is on the way, plus their bio and photo. When they pull up, you'll receive a text — gives you time to put pets away and clear access.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <div class="form-card">
+        <div class="form-head">
+          <h3>Request Same-Day Service</h3>
+          <span class="badge-demo">Demo form — visual only, not connected</span>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Demo form — replace with your real ServiceTitan / scheduling form at launch. Call 628-626-0276 for now.');">
+          <div class="form-grid">
+            <input class="input" placeholder="First Name *" required>
+            <input class="input" placeholder="Last Name *" required>
+            <input class="input" placeholder="Email *" type="email" required>
+            <input class="input" placeholder="Phone *" type="tel" required>
+            <input class="input full" placeholder="Service Address * (street, city, zip)" required>
+            <input class="input" type="date">
+            <select class="input">
+              <option>Time Frame: Anytime</option>
+              <option>Morning 8-11</option>
+              <option>Midday 11-2</option>
+              <option>Afternoon 2-5</option>
+              <option>Emergency — now</option>
+            </select>
+            <textarea class="input full" placeholder="Please provide specific details about your plumbing issue(s) — leaks, no hot water, clogged, etc."></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-copper" type="submit">Request Service →</button>
+            <small>By submitting, you agree to SMS/email appointment messages from Genteel Plumbers. Reply STOP to opt out. View Privacy Policy. Not actually submitting — demo only.</small>
+          </div>
+        </form>
+      </div>
+
+      <div class="info-stack">
+        <div class="info-card">
+          <h4>Contact Genteel — Real Info from genteelplumbers.com</h4>
+          <div class="info-line"><span>📍</span><div><b>1181 Revere Avenue</b><br>San Francisco, CA 94124<br>CSL #1025814</div></div>
+          <div class="info-line"><span>📞</span><div><b><a href="tel:6286260276">628-626-0276</a></b> — Emergency 24/7 & Same-Day<br><span style="color:#A9B8D0;font-size:12px">Alt listed (415) 598-9994 on schema — primary is 628-626-0276</span></div></div>
+          <div class="info-line"><span>⏰</span><div><b>Office Hours</b><table class="hours"><tr><td>Mon-Fri</td><td>07:00-16:00</td></tr><tr><td>Emergency</td><td>24/7</td></tr></table></div></div>
+          <div class="info-line"><span>💳</span><div>Flat-rate upfront • $149 dispatch applied • Price match • Senior discounts • Financing available • Coupons</div></div>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--line2);border-radius:20px;padding:18px">
+          <h4 style="margin:0 0 8px;font-family:Fraunces,serif;font-size:19px">What happens after you book</h4>
+          <ol style="margin:0;padding-left:18px;font-size:13.8px;line-height:1.6;color:#3D4D68;display:grid;gap:8px">
+            <li><b>Dispatch confirmation</b> — Office confirms ETA & $149 applied-to-job fee.</li>
+            <li><b>Plumber intro</b> — Photo, bio & background-check verified pro sent via text.</li>
+            <li><b>On-the-way text</b> — When truck pulls up, time to secure pets & clear access.</li>
+            <li><b>Upfront options</b> — Diagnosis + flat-rate choices before any work. No Lemon Guarantee on fixtures/water heaters.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+        <div class="brand-mark" style="background:#fff;color:var(--navy)">G</div>
+        <div style="color:#fff;font-family:Fraunces,serif;font-weight:700;font-size:20px;line-height:.95">Genteel Plumbers <span style="display:block;font-family:Inter;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8AA0C2;font-weight:600;margin-top:3px">Since 2016 • Outer Sunset SF</span></div>
+      </div>
+      <p style="font-size:13px;line-height:1.6;margin:0 0 12px;color:#9AA8C2;max-width:360px">Expert Plumbers Caring for Your Pipes, Water Heaters, and Drains on This Side of the Golden Gate Since 2016. Same-Day Service Available.</p>
+      <div style="font-size:12px;line-height:1.5;color:#6D7E9A">1181 Revere Avenue, San Francisco, CA 94124<br>Call 628-626-0276 • CSL #1025814 • Plumbing Repair • Drain Cleaning • Gasfitting • Backflow Prevention • Emergency • Leaks • Trenchless Sewer</div>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <a href="#services">Plumbing Service</a>
+      <a href="#services">Leak Detection</a>
+      <a href="#services">Repiping</a>
+      <a href="#services">Sewer Replacement</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact & Hours</a>
+      <a href="#contact">Special Offers / Coupons</a>
+    </div>
+    <div>
+      <h5>More Real Info</h5>
+      <a href="#">About Us — Founded 2016 by Graham W. Jones</a>
+      <a href="#">Why Us — Flat-rate, Price Match, 30+ yrs combined</a>
+      <a href="#">Reviews — 4.8/5 Google (438) • 450+ Yelp 5-star</a>
+      <a href="#">Financing Available</a>
+      <a href="#">Plumber Certification — min 4 yrs exp</a>
+      <div style="margin-top:14px;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:11.5px">This redesign preview uses only verifiable facts from genteelplumbers.com. No invented founding dates, certifications, or reviews. Real phone, address, CSL, services preserved.</div>
+    </div>
+  </div>
+  <div class="footer-inner copy">
+    <span>© 2016-2026 Genteel Plumbers • Demo redesign by SmartContent Lab — not affiliated with genteelplumbers.com until launch • Powered by Online Access pattern preserved.</span>
+    <span><a href="#" style="display:inline;color:#6D7E9A">Privacy Policy</a> • <a href="#" style="display:inline;color:#6D7E9A">Terms</a></span>
+  </div>
+</footer>
+
+<div class="sticky-mob">
+  <a class="btn btn-ghost" href="#contact">Schedule</a>
+  <a class="btn btn-copper" href="tel:6286260276">📞 Call 628-626-0276</a>
+</div>
+
+<script>
+document.querySelectorAll('.item-q').forEach(d=>{
+  d.addEventListener('toggle',()=>{
+    if(d.open){
+      document.querySelectorAll('.item-q').forEach(o=>{ if(o!==d) o.open=false })
+    }
+  })
+})
+</script>
+</body>
+</html>

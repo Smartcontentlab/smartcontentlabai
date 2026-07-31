@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genteel Plumbers — San Francisco Plumbing | 24/7 Emergency Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1a26;--ink-light:#243242;--ink-muted:#4a6478;--cream:#f8f5f0;--sand:#efece6;--gold:#c9a96e;--gold-soft:#dccaa5;--text:#2a2320;--text-soft:#6e6965;--text-faint:#a8a39e;--white:#fff;--radius:14px;--shadow:0 18px 60px rgba(15,26,38,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--text);font-size:15px;line-height:1.65;letter-spacing:0.01em;}
+img{display:block;max-width:100%;border-radius:var(--radius);}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:-0.02em;line-height:1.15;color:var(--ink);font-weight:600;}
+h1{font-size:clamp(2.8rem,6vw,4.5rem);}
+h2{font-size:clamp(1.9rem,4vw,3rem);}
+h3{font-size:1.35rem;}
+
+/* Ribbon */
+.ribbon{position:fixed;top:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,var(--ink) 0%,#1b2a3a 60%,#243242 100%);color:var(--gold-soft);padding:10px 20px;text-align:center;font-size:13px;font-weight:500;letter-spacing:0.04em;box-shadow:0 2px 14px rgba(15,26,38,0.25);}
+.ribbon a{color:#f4e6c0;text-decoration:none;border-bottom:1px solid rgba(244,230,192,0.35);transition:border-color .2s;}
+.ribbon a:hover{border-color:#f4e6c0;}
+
+/* Hero */
+.hero{position:relative;background:linear-gradient(170deg,#0f1a26 0%,#162a36 55%,#20425a 100%);min-height:92vh;display:flex;align-items:center;padding:130px 6vw 100px;color:var(--white);overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&q=80&auto=format') center/cover;opacity:0.18;mix-blend-mode:overlay;}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.hero h1{color:#fff;font-style:italic;margin-bottom:18px;text-shadow:0 4px 30px rgba(0,0,0,0.35);}
+.hero h1 span{display:block;font-style:normal;font-family:'Inter',system-ui,sans-serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:700;color:#fdfbf7;letter-spacing:-0.035em;line-height:1.05;margin-top:6px;}
+.hero p.lead{font-size:1.15rem;color:#c9dde8;max-width:480px;margin-bottom:32px;line-height:1.7;font-weight:300;}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:8px;}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:0.03em;transition:transform .15s,box-shadow .2s;background:#c9a96e;color:#0f1a26;box-shadow:0 6px 22px rgba(201,169,110,0.35);}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(201,169,110,0.45);}
+.hero-img{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(15,26,38,0.35);transform:perspective(900px) rotateY(-3deg);transition:transform .3s;}
+.hero-img:hover{transform:perspective(900px) rotateY(0deg);}
+.hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:0.92;}
+.hero-badge{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,0.92);backdrop-filter:blur(4px);color:var(--ink);font-size:11px;font-weight:700;padding:10px 20px;border-radius:100px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 4px 14px rgba(0,0,0,0.08);}
+
+/* Services */
+.services{max-width:1200px;margin:0 auto;padding:120px 6vw;}
+.services header{text-align:center;margin-bottom:70px;}
+.services header h2{margin-bottom:14px;}
+.services header p.subtitle{color:var(--text-soft);max-width:500px;margin:0 auto;font-size:1.05rem;}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.service-card{background:#fff;border:1px solid #eae7e0;border-radius:18px;padding:36px 30px 32px;transition:transform .2s,box-shadow .2s, border-color .2s;box-shadow:0 8px 30px rgba(15,26,38,0.03);position:relative;overflow:hidden;}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(15,26,38,0.08);border-color:#dccaa5;}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),#dccaa5);opacity:0.85;}
+.service-card .icon{font-size:32px;margin-bottom:20px;line-height:1;filter:brightness(0.7) sepia(0.35) hue-rotate(20deg);}
+.service-card h3{font-size:1.15rem;margin-bottom:10px;color:var(--ink);}
+.service-card p{font-size:14px;color:var(--text-soft);line-height:1.7;}
+
+/* Trust / Stats */
+.trust-strip{background:linear-gradient(135deg,#0f1a26 0%,#16293a 60%,#1a3148 100%);color:#fff;padding:100px 6vw;position:relative;overflow:hidden;}
+.trust-strip::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=80&auto=format') center/cover;opacity:0.07;}
+.trust-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center;}
+.trust-strip h2{font-style:italic;margin-bottom:18px;color:#fff;line-height:1.15;}
+.trust-strip h2 span{display:block;font-style:normal;color:#dccaa5;margin-top:10px;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.stat{padding:22px 16px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;background:rgba(255,255,255,0.04);backdrop-filter:blur(6px);text-align:center;}
+.stat .num{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;color:#dccaa5;font-weight:600;line-height:1;}
+.stat .label{font-size:11px;color:#a8b2c0;margin-top:8px;text-transform:uppercase;letter-spacing:0.08em;}
+
+/* Reviews */
+.reviews{max-width:1200px;margin:0 auto;padding:120px 6vw;background:var(--cream);}
+.reviews header{text-align:center;margin-bottom:60px;}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.review-card{background:#fff;border:1px solid #eae7e0;border-radius:18px;padding:34px 28px;box-shadow:0 8px 30px rgba(15,26,38,0.03);position:relative;}
+.review-card::before{content:"\u201c";font-family:'Cormorant Garamond',Georgia,serif;font-size:80px;color:var(--gold);line-height:0;position:absolute;top:28px;right:22px;opacity:0.25;}
+.review-card p{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-style:italic;color:var(--ink-light);line-height:1.45;margin-bottom:20px;}
+.review-card .author{font-size:12px;font-weight:600;color:var(--ink);letter-spacing:0.04em;}
+.review-card .author span{font-weight:400;color:var(--text-faint);font-style:italic;}
+.review-card .stars{font-size:14px;color:var(--gold);letter-spacing:2px;margin-bottom:16px;}
+
+/* Emergency banner */
+.emergency{background:linear-gradient(90deg,var(--ink),#162a36);color:#fff;padding:60px 6vw;}
+.emergency-inner{max-width:1200px;margin:0 auto;display:flex;gap:60px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.emergency h2{font-family:'Inter',system-ui,sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:-0.01em;margin-bottom:8px;color:#fff;}
+.emergency p{color:#c9dde8;font-size:15px;max-width:520px;line-height:1.6;font-weight:300;}
+.emergency .cta{background:#c9a96e;color:#0f1a26;padding:14px 30px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;transition:transform .15s,box-shadow .2s;box-shadow:0 6px 20px rgba(201,169,110,0.35);white-space:nowrap;}
+.emergency .cta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(201,169,110,0.45);}
+
+/* Area */
+.area{max-width:1200px;margin:0 auto;padding:100px 6vw;}
+.area h2{text-align:center;margin-bottom:14px;}
+.area p.subtitle{text-align:center;color:var(--text-soft);font-size:1.05rem;margin-bottom:50px;}
+.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.area-tag{padding:12px 10px;background:#fff;border:1px solid #eceae4;border-radius:10px;text-align:center;font-size:13px;color:var(--ink-light);font-weight:500;transition:background .15s,border-color .15s;}
+.area-tag:hover{background:#f4efe8;border-color:var(--gold-soft);}
+
+/* About / Trust */
+.about{max-width:1200px;margin:0 auto;padding:100px 6vw;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;}
+.about-img{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
+.about-img img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.about .tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;font-style:italic;color:var(--gold);margin-bottom:18px;line-height:1.3;}
+.about h2{margin-bottom:18px;}
+.about p{color:var(--text-soft);line-height:1.75;margin-bottom:16px;font-size:15px;}
+.about ul{list-style:none;padding:0;margin-top:22px;}
+.about ul li{padding:8px 0;color:var(--text-soft);font-size:14px;display:flex;align-items:center;gap:12px;}
+.about ul li::before{content:"\u2713";font-weight:700;color:var(--gold);font-size:14px;min-width:16px;}
+
+/* Callback form */
+.callback{max-width:720px;margin:0 auto;padding:80px 6vw 120px;}
+.callback .card{background:#fff;border:1px solid #eceae4;border-radius:22px;padding:50px 44px;box-shadow:0 22px 60px rgba(15,26,38,0.06);position:relative;overflow:hidden;}
+.callback .card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),#dccaa5);}
+.callback h2{text-align:center;margin-bottom:8px;font-style:italic;}
+.callback p.subtitle{text-align:center;color:var(--text-soft);font-size:15px;margin-bottom:36px;}
+.callback form{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.callback input, .callback textarea{width:100%;padding:14px 16px;border:1px solid #e4ddd5;border-radius:10px;font-size:14px;font-family:inherit;color:var(--text);background:#fdfcfb;transition:border-color .15s,box-shadow .15s;outline:none;}
+.callback input:focus, .callback textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,169,110,0.12);}
+.callback textarea{grid-column:span 2;resize:vertical;min-height:100px;}
+.callback button{grid-column:span 2;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:16px;font-weight:600;font-size:14px;letter-spacing:0.04em;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 6px 22px rgba(15,26,38,0.2);}
+.callback button:hover{background:#1b2a3a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,26,38,0.3);}
+.callback .note{text-align:center;margin-top:18px;font-size:12px;color:var(--text-faint);}
+.callback .note em{font-style:italic;}
+
+/* Footer */
+footer{background:#0f1a26;color:#fff;padding:80px 6vw 100px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:60px;}
+footer h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;color:#dccaa5;margin-bottom:18px;letter-spacing:0.02em;}
+footer p, footer a{font-size:13px;color:#9aa6b4;line-height:1.75;text-decoration:none;display:block;margin-bottom:8px;transition:color .15s;}
+footer a:hover{color:#c9a96e;}
+footer .logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;color:#fff;font-weight:600;margin-bottom:14px;letter-spacing:-0.02em;}
+footer .logo span{color:#dccaa5;}
+
+/* Mobile */
+@media(max-width:980px){
+.hero-inner{grid-template-columns:1fr;gap:50px;}
+.hero-img{display:none;}
+.service-grid{grid-template-columns:1fr 1fr;}
+.review-grid{grid-template-columns:1fr;}
+.trust-inner{grid-template-columns:1fr;gap:40px;}
+.about{grid-template-columns:1fr;}
+.footer-inner{grid-template-columns:1fr 1fr;}
+.area-grid{grid-template-columns:1fr 1fr;}
+.callback form{grid-template-columns:1fr;}
+.callback textarea{grid-column:span 1;}
+.callback button{grid-column:span 1;}
+.emergency-inner{flex-direction:column;align-items:flex-start;gap:22px;}
+}
+@media(max-width:560px){
+.hero{padding-top:70px;min-height:auto;}
+.service-grid{grid-template-columns:1fr;}
+.stats-row{grid-template-columns:1fr 1fr;}
+.footer-inner{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- Required ribbon -->
+<div class="ribbon">
+Free redesign preview built by SmartContent Lab — <a href="https://cal.com/smartcontentlab">Book a 15-min call</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" aria-label="Intro">
+<div class="hero-inner">
+<div>
+<h1><span>San Francisco's Most Trusted<br>Plumbing Company</span></h1>
+<p class="lead">Flat-rate pricing. 24/7 emergency response. Same-day appointments. 450+ five-star Yelp reviews. CSL #1025814.</p>
+<div class="cta-row">
+<a class="cta" href="tel:+16284004688">Call 628-400-4688</a>
+<a class="cta" href="#callback" style="background:#fff;color:#0f1a26;">Request a Callback</a>
+</div>
+</div>
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80&auto=format" alt="Professional plumbing work" loading="eager">
+<div class="hero-badge">24/7 Emergency Service</div>
+</div>
+</div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services" aria-label="Services">
+<header>
+<h2>What We Fix, Fast</h2>
+<p class="subtitle">From leaks to full sewer replacements — real expertise, real results, real people in your home.</p>
+</header>
+<div class="service-grid">
+<div class="service-card">
+<div class="icon">&#128167;</div>
+<h3>Water Heaters</h3>
+<p>Repair, replacement, and maintenance — including tankless installations. We handle every brand, every size, every budget.</p>
+</div>
+<div class="service-card">
+<div class="icon">&#128701;</div>
+<h3>Toilets</h3>
+<p>Repair, replacement, and new installations. From a simple flapper fix to a full bathroom upgrade.</p>
+</div>
+<div class="service-card">
+<div class="icon">&#128165;</div>
+<h3>Drain & Sewer</h3>
+<p>Hydro jetting, video inspection, trenchless sewer replacement. We clear the blockage and prevent the next one.</p>
+</div>
+<div class="service-card">
+<div class="icon">&#128260;</div>
+<h3>Leak Detection</h3>
+<p>Hidden leaks found with advanced equipment — quick, clean, accurate. No guesswork, no unnecessary demolition.</p>
+</div>
+<div class="service-card">
+<div class="icon">&#128224;</div>
+<h3>Emergency Plumbing</h3>
+<p>Available 24/7. Pipe bursts, flooding, no hot water — the same team answers, shows up, and fixes it.</p>
+</div>
+<div class="service-card">
+<div class="icon">&#128736;</div>
+<h3>Same-Day Service</h3>
+<p>Most calls booked for the same day. Flat-rate pricing before any work begins — no surprises.</p>
+</div>
+</div>
+</section>
+
+<!-- Trust / Stats -->
+<section class="trust-strip" aria-label="Trust signals">
+<div class="trust-inner">
+<div>
+<h2>Trusted Across <span>the Bay Area</span></h2>
+<p>Founded in 2016 by Graham W. Jones. Over 30 years of combined plumbing experience on our team. Every technician passes drug testing and a background check before stepping into your home.</p>
+</div>
+<div class="stats-row">
+<div class="stat"><div class="num">30+</div><div class="label">Years Experience</div></div>
+<div class="stat"><div class="num">450+</div><div class="label">Yelp Reviews</div></div>
+<div class="stat"><div class="num">24/7</div><div class="label">Emergency Service</div></div>
+<div class="stat"><div class="num">2016</div><div class="label">Founded</div></div>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" aria-label="Reviews">
+<header>
+<h2>What Homeowners Say</h2>
+<p class="subtitle">Sample reviews — replaced with your real Google reviews at launch.</p>
+</header>
+<div class="review-grid">
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Graham and the team were incredible. Same-day service, explained everything clearly, and the price was exactly what they quoted. No upsell, no surprises."</p>
+<div class="author">Meghan R. <span>— San Francisco</span></div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Our water heater failed at 10 PM. They showed up within the hour, installed a new one, and cleaned up like nothing happened. True professionals."</p>
+<div class="author">Michael T. <span>— Daly City</span></div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Best plumbing company we've used in 15 years. They match lower written quotes, work fast, and actually follow through on guarantees."</p>
+<div class="author">Deborah B. <span>— Redwood City</span></div>
+</div>
+</div>
+</section>
+
+<!-- Emergency Banner -->
+<section class="emergency" aria-label="Emergency service">
+<div class="emergency-inner">
+<div>
+<h2>Emergency Plumbing, Any Hour</h2>
+<p>Burst pipes, flooding, no hot water — call now and our team answers directly. No answering service, no delay. We serve San Francisco, Daly City, South SF, and the full Peninsula.</p>
+</div>
+<a class="cta" href="tel:+16284004688">Call 628-400-4688</a>
+</div>
+</section>
+
+<!-- Service Area -->
+<section class="area" id="area" aria-label="Service area">
+<h2>Serving the Bay Area</h2>
+<p class="subtitle">San Francisco and 19 surrounding cities — same team, same standard.</p>
+<div class="area-grid">
+<div class="area-tag">San Francisco</div>
+<div class="area-tag">Daly City</div>
+<div class="area-tag">Brisbane</div>
+<div class="area-tag">South SF</div>
+<div class="area-tag">San Bruno</div>
+<div class="area-tag">Millbrae</div>
+<div class="area-tag">Burlingame</div>
+<div class="area-tag">San Mateo</div>
+<div class="area-tag">Foster City</div>
+<div class="area-tag">Belmont</div>
+<div class="area-tag">Pacifica</div>
+<div class="area-tag">San Carlos</div>
+<div class="area-tag">Redwood City</div>
+<div class="area-tag">Atherton</div>
+<div class="area-tag">Menlo Park</div>
+<div class="area-tag">Palo Alto</div>
+</div>
+</section>
+
+<!-- About -->
+<section class="about" aria-label="About the company">
+<div class="about-img">
+<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80&auto=format" alt="Licensed plumber" loading="lazy">
+</div>
+<div>
+<p class="tagline">"Real people, real work, real guarantees."</p>
+<h2>About Genteel Plumbers</h2>
+<p>Founded in 2016 by Graham W. Jones, Genteel Plumbers serves the greater Bay Area with a simple promise: flat-rate pricing before any work begins, same-day appointments, and a satisfaction guarantee that actually means something.</p>
+<p>Every technician passes drug testing and a background check. We price-match lower written quotes from competitors. We offer free second opinions. And our emergency line is answered by real people, not an answering service.</p>
+<ul>
+<li>Licensed: CSL #1025814</li>
+<li>Flat-rate pricing — no surprises</li>
+<li>Free second opinions</li>
+<li>Performance & satisfaction guarantees</li>
+<li>Cash & all major cards accepted</li>
+</ul>
+</div>
+</section>
+
+<!-- Callback -->
+<section class="callback" id="callback" aria-label="Request callback">
+<div class="card">
+<h2>Book Your Service</h2>
+<p class="subtitle">Tell us what's happening and we'll call you back within 15 minutes.</p>
+<form onsubmit="event.preventDefault();this.innerHTML='<p style=\'text-align:center;color:#2a2320;font-weight:600;padding:10px 0;\'>Thanks — our team will call shortly. If it\'s urgent, call 628-400-4688.</p>';">
+<input type="text" placeholder="Your name" aria-label="Your name" required>
+<input type="tel" placeholder="Phone number" aria-label="Phone number" required>
+<input type="text" placeholder="Your city" aria-label="Your city" required>
+<textarea placeholder="What's wrong? (leak, no hot water, clogged drain...)" aria-label="Service description"></textarea>
+<button type="submit">Request a Call</button>
+</form>
+<p class="note">This is a demo form for preview purposes. <em>Sample reviews shown above.</em> Your real reviews replace these at launch.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer aria-label="Footer">
+<div class="footer-inner">
+<div>
+<div class="logo">Genteel <span>Plumbers</span></div>
+<p>1181 Revere Ave<br>San Francisco, CA 94124</p>
+<p><a href="tel:+16284004688">628-400-4688</a></p>
+</div>
+<div>
+<h4>Services</h4>
+<a href="#services">Water Heaters</a>
+<a href="#services">Toilets</a>
+<a href="#services">Drain & Sewer</a>
+<a href="#services">Leak Detection</a>
+<a href="#services">Emergency Plumbing</a>
+</div>
+<div>
+<h4>Service Area</h4>
+<a href="#area">San Francisco</a>
+<a href="#area">South SF</a>
+<a href="#area">Daly City</a>
+<a href="#area">Redwood City</a>
+</div>
+<div>
+<h4>Company</h4>
+<a href="#">CSL #1025814</a>
+<a href="#">Price Matching</a>
+<a href="#">Free Second Opinions</a>
+<a href="#">Performance Guarantee</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
