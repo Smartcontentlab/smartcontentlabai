@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genteel Plumbers | San Francisco's Trusted Plumber | 24/7 Same-Day Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0B1F3A;
+    --navy2:  #122848;
+    --teal:   #0E7C86;
+    --teal2:  #0A6870;
+    --gold:   #D4A017;
+    --gold2:  #B8891A;
+    --off-white: #F7F5F0;
+    --light-gray: #EEF0F4;
+    --text:   #1A2535;
+    --muted:  #5A6474;
+    --white:  #FFFFFF;
+    --red:    #C0392B;
+    --ribbon-h: 44px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    padding-top: var(--ribbon-h);
+  }
+
+  /* ── RIBBON ── */
+  .ribbon {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--ribbon-h);
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    z-index: 9999;
+    gap: 10px;
+    padding: 0 16px;
+    text-align: center;
+  }
+  .ribbon a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .ribbon a:hover { border-color: var(--gold); }
+  .ribbon-dot { opacity: 0.4; }
+
+  /* ── EMERGENCY BANNER ── */
+  .emergency-banner {
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .emergency-banner a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    position: sticky;
+    top: var(--ribbon-h);
+    z-index: 100;
+    border-bottom: 1px solid #DDE1E8;
+    box-shadow: 0 2px 12px rgba(11,31,58,0.07);
+  }
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--teal);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .nav-logo-text { line-height: 1.1; }
+  .nav-logo-text strong {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+  .nav-logo-text span {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--teal);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal2) !important; color: var(--white) !important; }
+  .nav-phone {
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    color: var(--navy) !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center 35%;
+    opacity: 0.22;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(11,31,58,0.97) 38%, rgba(11,31,58,0.55) 100%);
+  }
+  .hero-content {
+    position: relative;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(14,124,134,0.25);
+    border: 1px solid rgba(14,124,134,0.5);
+    color: #7FD5DC;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: #4FC8D0;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 42px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(14,124,134,0.4);
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--teal2); transform: translateY(-1px); }
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(212,160,23,0.4);
+  }
+  .btn-call:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 26px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
+
+  .hero-trust {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .trust-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .trust-chip-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .hero-card h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+  }
+  .hero-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 5px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #D0D5DF;
+    border-radius: 7px;
+    font-size: 0.92rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #FAFBFC;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: var(--white);
+  }
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .form-submit:hover { background: var(--teal2); }
+  .demo-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+    }
+    .hero-card { display: none; }
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--navy2);
+    padding: 28px 0;
+  }
+  .stats-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  .stat-item { padding: 0 10px; }
+  .stat-num {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.12);
+    align-self: stretch;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-divider { display: none; }
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 0; }
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-eyebrow {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--off-white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(11,31,58,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(11,31,58,0.13);
+  }
+  .service-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+  }
+  .service-body {
+    padding: 22px 24px 26px;
+  }
+  .service-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .service-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(14,124,134,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .service-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+  }
+  .service-card p {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-top: 8px;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--teal);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+    transition: gap 0.2s;
+  }
+  .service-link:hover { gap: 9px; }
+
+  /* ── WHY GENTEEL ── */
+  .why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .why-img-wrap { order: -1; }
+  }
+  .why-img-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(11,31,58,0.16);
+  }
+  .why-img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .why-img-badge {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .why-points { display: flex; flex-direction: column; gap: 24px; }
+  .why-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .why-point-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(14,124,134,0.3);
+  }
+  .why-point-text h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .why-point-text p {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--off-white); }
+  .reviews-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 44px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .yelp-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 12px rgba(11,31,58,0.08);
+    flex-shrink: 0;
+  }
+  .yelp-badge-logo {
+    font-size: 1.6rem;
+  }
+  .yelp-badge-text strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--navy);
+  }
+  .yelp-badge-text span {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .stars {
+    color: #E3A000;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 860px) {
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid .review-card:last-child { display: none; }
+  }
+  @media (max-width: 520px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-grid .review-card:last-child { display: block; }
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 26px 24px;
+    box-shadow: 0 2px 10px rgba(11,31,58,0.06);
+    position: relative;
+  }
+  .review-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    font-size: 4rem;
+    color: rgba(14,124,134,0.12);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  .review-stars { margin-bottom: 12px; }
+  .review-text {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .review-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .review-location {
+    font-size: 0.76rem;
+    color: var(--muted);
+  }
+  .review-disclaimer {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 28px;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  /* ── SERVICE AREA ── */
+  .service-area { background: var(--white); }
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .area-grid { grid-template-columns: 1fr; }
+  }
+  .area-map-placeholder {
+    background: var(--light-gray);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    height: 360px;
+    border: 2px solid #DDE1E8;
+  }
+  .area-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+  .area-map-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(11,31,58,0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+  .area-map-label {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .area-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+  }
+  .area-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .area-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .area-note {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: #FFF8E6;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* ── PRICING / PROMISE ── */
+  .promise { background: var(--navy); padding: 70px 0; }
+  .promise-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .promise-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+  }
+  @media (max-width: 860px) {
+    .promise-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .promise-grid { grid-template-columns: 1fr; }
+  }
+  .promise .section-title { color: var(--white); }
+  .promise .section-eyebrow { color: var(--gold); }
+  .promise .section-sub { color: rgba(255,255,255,0.65); margin-bottom: 0; }
+  .promise-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .promise-card:hover { background: rgba(255,255,255,0.1); }
+  .promise-card-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .promise-card h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+  .promise-card p {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── EMERGENCY CTA ── */
+  .emergency-cta {
+    background: linear-gradient(135deg, var(--red) 0%, #8B1A12 100%);
+    padding: 60px 0;
+  }
+  .emergency-cta-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .emergency-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .emergency-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    max-width: 480px;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--red);
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    white-space: nowrap;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--off-white);
+    padding: 70px 0;
+  }
+  .about-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .about-inner { grid-template-columns: 1fr; }
+  }
+  .about-inner img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(11,31,58,0.12);
+    display: block;
+  }
+  .about-copy h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .about-copy p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .about-copy p strong { color: var(--navy); }
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+  }
+  .about-tag {
+    background: var(--white);
+    border: 1.5px solid #DDE1E8;
+    color: var(--navy);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    padding: 56px 0 36px;
+  }
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+  @media (max-width: 860px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  .footer-logo-text strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-logo-text span {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .footer-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+  .footer-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+  .footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.87rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-address {
+    font-size: 0.87rem;
+    line-height: 1.7;
+  }
+  .footer-address strong {
+    display: block;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .footer-address a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 22px;
+  }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p { font-size: 0.78rem; }
+  .footer-license {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .license-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ── STICKY MOBILE CALL BAR ── */
+  .mobile-call-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--navy);
+    padding: 12px 16px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    .mobile-call-bar { display: flex; }
+    body { padding-bottom: 72px; }
+  }
+  .mobile-call-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .mobile-call-btn.primary {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .mobile-call-btn.secondary {
+    background: var(--teal);
+    color: var(--white);
+  }
+
+  /* ── PRICING NOTE ── */
+  .pricing-note {
+    background: #EAF6F7;
+    border: 2px solid rgba(14,124,134,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .pricing-note-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .pricing-note h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .pricing-note p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- SMARTCONTENT LAB RIBBON -->
+<div class="ribbon">
+  <span>Free redesign preview built by SmartContent Lab</span>
+  <span class="ribbon-dot">•</span>
+  <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">Book a 15-min call &rarr;</a>
+</div>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  &#9888; Plumbing Emergency? We Answer 24/7 &mdash;
+  <a href="tel:4154655853">Call Now: (415) 465-5853</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">&#128296;</div>
+      <div class="nav-logo-text">
+        <strong>Genteel Plumbers</strong>
+        <span>San Francisco &amp; San Mateo County</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Genteel</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#service-area">Service Area</a></li>
+      <li><a href="tel:4154655853" class="nav-phone">&#128222; (415) 465-5853</a></li>
+      <li><a href="#contact" class="nav-cta">Get Same-Day Service</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-copy">
+      <div class="hero-badge">&#128994; Available Now &mdash; Same-Day Service</div>
+      <h1>San Francisco's Most <em>Trusted</em> Plumbers</h1>
+      <p class="hero-sub">
+        Serving SF and San Mateo County since 2016. Over 450 five-star Yelp reviews.
+        Flat-rate pricing, no surprises &mdash; and we'll match any written quote.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:4154655853" class="btn-call">&#128222; (415) 465-5853</a>
+        <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+        <a href="#services" class="btn-outline">See All Services</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-chip">
+          <div class="trust-chip-icon">&#11088;</div>
+          450+ Yelp Reviews
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">&#9200;</div>
+          24/7 Emergency
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">&#128176;</div>
+          Flat-Rate Pricing
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">&#9989;</div>
+          Since 2016
+        </div>
+      </div>
+    </div>
+
+    <!-- CALLBACK FORM CARD -->
+    <div class="hero-card" id="contact">
+      <h2>Request a Callback</h2>
+      <p>Usually respond within 15 minutes during business hours</p>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Jane Smith">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(415) 555-0100">
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Water Heater Repair / Replacement</option>
+          <option>Drain &amp; Sewer Cleaning</option>
+          <option>Toilet Repair / Replacement</option>
+          <option>Hydro Jetting</option>
+          <option>Trenchless Sewer Replacement</option>
+          <option>Leak Detection</option>
+          <option>Emergency Plumbing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Briefly describe the issue</label>
+        <textarea rows="2" placeholder="E.g. No hot water since this morning..."></textarea>
+      </div>
+      <button class="form-submit" type="button">Request Callback</button>
+      <p class="demo-note">Demo form &mdash; connected to live scheduling at launch</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">450+</span>
+      <span class="stat-label">5-Star Yelp Reviews</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">30+</span>
+      <span class="stat-label">Years Combined Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">Emergency Availability</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Since '16</span>
+      <span class="stat-label">Serving the Bay Area</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-eyebrow">What We Fix</div>
+    <h2 class="section-title">Genteel Services:<br>Plumbing Happiness. Guaranteed.</h2>
+    <p class="section-sub">From a dripping faucet to a full sewer replacement &mdash; our licensed SF plumbers handle it all, same day.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop" alt="Water heater service" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#128293;</div>
+            <h3>Water Heaters</h3>
+          </div>
+          <p>Repair, replacement, and maintenance for traditional and tankless water heaters. Hot water restored same day.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&auto=format&fit=crop" alt="Drain and sewer cleaning" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#128694;</div>
+            <h3>Drain &amp; Sewer Services</h3>
+          </div>
+          <p>Clogged drains, sewage backflow, drain snaking, and camera inspections throughout SF and San Mateo County.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=900&auto=format&fit=crop" alt="Toilet repair and replacement" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#128704;</div>
+            <h3>Toilet Repair &amp; Replacement</h3>
+          </div>
+          <p>Leaking, running, or refusing to flush? We repair or replace any toilet, including high-efficiency upgrades.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=900&auto=format&fit=crop" alt="Hydro jetting pipes" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#128246;</div>
+            <h3>Hydro Jetting</h3>
+          </div>
+          <p>Eco-friendly, high-pressure water blasting clears deep clogs, foul odors, and backed-up sewer lines fast.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?w=900&auto=format&fit=crop" alt="Trenchless sewer replacement" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#127959;</div>
+            <h3>Trenchless Sewer Replacement</h3>
+          </div>
+          <p>Replace damaged sewer pipes without destroying your yard. Modern trenchless technology &mdash; minimal disruption.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=900&auto=format&fit=crop" alt="Leak detection" class="service-img">
+        <div class="service-body">
+          <div class="service-icon-row">
+            <div class="service-icon">&#128269;</div>
+            <h3>Leak Detection</h3>
+          </div>
+          <p>Hidden leaks cause water damage, mold, and structural issues. We find and fix them before they become catastrophic.</p>
+          <a href="tel:4154655853" class="service-link">Call to Book &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pricing-note">
+      <div class="pricing-note-icon">&#128176;</div>
+      <div>
+        <h4>Transparent Flat-Rate Pricing &mdash; No Surprises</h4>
+        <p>Our dispatch fee is $149, applied toward the cost of your service. We give you upfront pricing options before any work begins. Got a lower written quote? We'll match it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GENTEEL -->
+<section class="why" id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <div class="section-eyebrow">Why Homeowners Choose Us</div>
+        <h2 class="section-title">The Genteel Difference</h2>
+        <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 36px;">
+          Founded in 2016 by Graham W. Jones in SF's Outer Sunset, Genteel has built its reputation on doing
+          the right thing &mdash; upfront pricing, background-checked plumbers, and a guarantee you can count on.
+        </p>
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-point-icon">&#9989;</div>
+            <div class="why-point-text">
+              <h4>Background-Checked &amp; Drug-Tested Plumbers</h4>
+              <p>Every Genteel plumber has at minimum 4 years of field experience and passes thorough background and drug screening before joining the team.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">&#128176;</div>
+            <div class="why-point-text">
+              <h4>Flat-Rate Pricing with Price Matching</h4>
+              <p>Know your cost before work begins. If you have a lower written quote from a competitor, we'll match it &mdash; no negotiating required.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">&#128274;</div>
+            <div class="why-point-text">
+              <h4>Performance, Satisfaction &amp; No-Lemon Guarantees</h4>
+              <p>We stand behind every job with performance and satisfaction guarantees, plus No Lemon Guarantees on all fixtures and water heaters we install.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">&#128241;</div>
+            <div class="why-point-text">
+              <h4>Real-Time Plumber Tracking</h4>
+              <p>Before your plumber arrives, you'll receive their bio and photo. A text alert lets you know when they're pulling up &mdash; so you can put your pets away.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-img-wrap">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&auto=format&fit=crop" alt="Skilled plumber at work" class="why-img">
+        <div class="why-img-badge">&#11088; Yelp &ldquo;People Love Us&rdquo; Award Winner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <div>
+        <div class="section-eyebrow">Customer Reviews</div>
+        <h2 class="section-title">What San Francisco Says</h2>
+      </div>
+      <div class="yelp-badge">
+        <div class="yelp-badge-logo">&#11088;</div>
+        <div class="yelp-badge-text">
+          <strong>4.9 / 5</strong>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <span>450+ reviews on Yelp</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Called at 7am about a burst pipe and they were here by 9. The plumber explained everything clearly, gave us upfront pricing, and had it fixed in under two hours. Absolutely saved us from a disaster."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: #0E7C86;">MR</div>
+          <div>
+            <div class="review-name">M. Rodriguez</div>
+            <div class="review-location">Outer Sunset, San Francisco</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Best plumbers I've used in 15 years in this city. Flat pricing, no upselling, and the technician even matched a quote I had from another company without me asking twice. 10/10 would call again."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: #D4A017; color: #0B1F3A;">TK</div>
+          <div>
+            <div class="review-name">T. Kim</div>
+            <div class="review-location">Noe Valley, San Francisco</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Our water heater died on a Friday evening. Genteel had someone out by Saturday morning, new tankless unit installed by afternoon. Professional, clean, and reasonably priced. Couldn't be happier."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: #122848;">JP</div>
+          <div>
+            <div class="review-name">J. Patel</div>
+            <div class="review-location">San Mateo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="review-disclaimer">Sample reviews &mdash; replaced with your real Google reviews at launch.</p>
+  </div>
+</section>
+
+<!-- PROMISE / GUARANTEES -->
+<section class="promise" id="guarantees">
+  <div class="promise-inner">
+    <div style="max-width: 580px;">
+      <div class="section-eyebrow">Our Commitment</div>
+      <h2 class="section-title">The Genteel Promise</h2>
+      <p class="section-sub">Every job, every time &mdash; backed by guarantees that actually mean something.</p>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <span class="promise-card-icon">&#9200;</span>
+        <h4>Same-Day Service</h4>
+        <p>We'll schedule your visit for the same day you call, throughout SF and San Mateo County.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-card-icon">&#128176;</span>
+        <h4>Price-Match Guarantee</h4>
+        <p>Show us a lower written quote and we'll match it &mdash; no hassle, no fine print.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-card-icon">&#128274;</span>
+        <h4>Performance &amp; Satisfaction</h4>
+        <p>Every repair is backed by our performance guarantee. Not happy? We make it right.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-card-icon">&#127381;</span>
+        <h4>No-Lemon on Installs</h4>
+        <p>All fixtures and water heaters we install carry a No Lemon Guarantee &mdash; defects are on us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="service-area" id="service-area">
+  <div class="container">
+    <div class="section-eyebrow">Coverage</div>
+    <h2 class="section-title">Serving the Peninsula &amp; SF</h2>
+    <p class="section-sub">We cover San Francisco and San Mateo County &mdash; from the Outer Sunset to East Palo Alto.</p>
+    <div class="area-grid">
+      <div class="area-map-placeholder">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&auto=format&fit=crop" alt="San Francisco Bay Area" class="area-map-img">
+        <div class="area-map-overlay">
+          <div class="area-map-label">
+            San Francisco &amp; San Mateo County<br>
+            <span style="font-size: 0.8rem; opacity: 0.8;">Outer Sunset to East Palo Alto</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="area-list">
+          <li>San Francisco</li>
+          <li>Daly City</li>
+          <li>South San Francisco</li>
+          <li>San Bruno</li>
+          <li>Millbrae</li>
+          <li>Burlingame</li>
+          <li>Hillsborough</li>
+          <li>San Mateo</li>
+          <li>Foster City</li>
+          <li>Belmont</li>
+          <li>San Carlos</li>
+          <li>Redwood City</li>
+          <li>Atherton</li>
+          <li>Menlo Park</li>
+          <li>Palo Alto</li>
+          <li>East Palo Alto</li>
+        </ul>
+        <div class="area-note">
+          We do not cross the Golden Gate Bridge or the Bay Bridge. Our focus is San Francisco and San Mateo County. We also do not service the Financial District.
+        </div>
+        <a href="tel:4154655853" class="btn-primary" style="margin-top: 24px; display: inline-flex; text-decoration: none;">
+          &#128222; Check If We Cover Your Area
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-inner">
+    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&auto=format&fit=crop" alt="San Francisco neighborhood homes">
+    <div class="about-copy">
+      <h2>Built for SF's Older Homes &amp; Aging Pipes</h2>
+      <p>San Francisco has a long history of sewer challenges. <strong>Many homes in the Outer Sunset, Noe Valley, Richmond, and beyond</strong> were built decades ago &mdash; their pipes weren't designed for today's demands.</p>
+      <p>Genteel Plumbers was founded right here in the Outer Sunset with exactly these homes in mind. Our team brings <strong>camera inspections, hydro jetting, and trenchless technology</strong> to bear on problems that older piping makes common: blockages, corrosion, root intrusion, and sewage backflow.</p>
+      <p>We're your neighbors. We know these streets, these buildings, and these pipes. Call us.</p>
+      <div class="about-tags">
+        <span class="about-tag">&#127968; Outer Sunset Founded</span>
+        <span class="about-tag">&#128196; Flat-Rate Pricing</span>
+        <span class="about-tag">&#128303; Background Checks</span>
+        <span class="about-tag">&#11088; 450+ Yelp Stars</span>
+        <span class="about-tag">&#128664; Fully Stocked Trucks</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMERGENCY CTA -->
+<div class="emergency-cta">
+  <div class="emergency-cta-inner">
+    <div>
+      <h2>Plumbing Emergency? We Answer Around the Clock.</h2>
+      <p>Flooding, overflowing toilets, gas leak detection, water heater failures &mdash; don't wait. Our emergency line is live 24 hours a day, 7 days a week.</p>
+    </div>
+    <a href="tel:4154655853" class="btn-white">&#128222; (415) 465-5853</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-text">
+          <strong>Genteel Plumbers</strong>
+          <span>San Francisco &amp; San Mateo County</span>
+        </div>
+        <p class="footer-desc">
+          Expert plumbing services in San Francisco and the Peninsula since 2016.
+          Same-day service, flat-rate pricing, and over 30 years of combined experience.
+        </p>
+        <a href="tel:4154655853" class="footer-phone">&#128222; (415) 465-5853</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="tel:4154655853">Water Heaters</a></li>
+          <li><a href="tel:4154655853">Drain &amp; Sewer</a></li>
+          <li><a href="tel:4154655853">Toilet Repair</a></li>
+          <li><a href="tel:4154655853">Hydro Jetting</a></li>
+          <li><a href="tel:4154655853">Trenchless Sewer</a></li>
+          <li><a href="tel:4154655853">Leak Detection</a></li>
+          <li><a href="tel:4154655853">Emergency Plumbing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why-us">About Genteel</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#service-area">Service Area</a></li>
+          <li><a href="#guarantees">Our Guarantees</a></li>
+          <li><a href="tel:4154655853">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact &amp; Location</h4>
+        <div class="footer-address">
+          <strong>Office Address</strong>
+          1181 Revere Avenue<br>
+          San Francisco, CA<br><br>
+          <strong>Phone</strong>
+          <a href="tel:4154655853">(415) 465-5853</a><br><br>
+          <strong>Hours</strong>
+          24/7 Emergency Service<br>
+          Same-Day Appointments
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2024 Genteel Plumbers. All rights reserved. Founded in the Outer Sunset, San Francisco.</p>
+      <div class="footer-license">
+        <span class="license-badge">&#128200; 450+ Yelp Reviews</span>
+        <span class="license-badge">&#9200; 24/7 Available</span>
+        <span class="license-badge">&#127968; SF Since 2016</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CALL BAR -->
+<div class="mobile-call-bar">
+  <a href="tel:4154655853" class="mobile-call-btn primary">&#128222; Call Now: (415) 465-5853</a>
+  <a href="#contact" class="mobile-call-btn secondary">Get Estimate</a>
+</div>
+
+</body>
+</html>
