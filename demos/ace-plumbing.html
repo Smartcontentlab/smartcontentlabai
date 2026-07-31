@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ace Plumbing & Rooter | San Francisco's Trusted Plumber — (415) 824-6444</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ───────────── RESET & TOKENS ───────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0B1C2E;
+      --navy2:  #142744;
+      --blue:   #1352A0;
+      --blue-l: #1A6ACC;
+      --gold:   #E8A020;
+      --gold-l: #F5B840;
+      --white:  #FFFFFF;
+      --off:    #F5F6F8;
+      --slate:  #4A5568;
+      --light:  #8A95A3;
+      --border: #DDE2E8;
+      --red:    #C8281E;
+      --green:  #1A7A3C;
+      --r: .75rem;
+      --r-lg: 1.25rem;
+      --shadow: 0 4px 24px rgba(0,0,0,.10);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ───────────── SMARTCONTENT LAB RIBBON ───────────── */
+    .scl-ribbon {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: .55rem 1rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .scl-ribbon a {
+      color: var(--gold-l);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .scl-ribbon a:hover { color: var(--white); }
+
+    /* ───────────── STICKY MOBILE CALL BAR ───────────── */
+    .mobile-call-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 9000;
+      background: var(--red);
+      padding: .9rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 -4px 16px rgba(0,0,0,.22);
+    }
+    .mobile-call-bar a {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+    }
+    .mobile-call-bar a::before {
+      content: "📞";
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 767px) {
+      .mobile-call-bar { display: block; }
+      body { padding-bottom: 4rem; }
+    }
+
+    /* ───────────── SITE HEADER ───────────── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 2.2rem;        /* below SCL ribbon */
+      z-index: 800;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .85rem 1.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+      gap: 1rem;
+    }
+    .logo-lockup {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .logo-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .logo-name span { color: var(--blue); }
+    .logo-tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-phone {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+    .header-phone .icon { font-size: 1.1rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      border-radius: var(--r);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background .18s, color .18s, border-color .18s, transform .12s;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: .75rem 1.4rem;
+      font-size: .9rem;
+    }
+    .btn-primary:hover { background: #a51e15; }
+    .btn-outline {
+      background: transparent;
+      color: var(--blue);
+      border-color: var(--blue);
+      padding: .7rem 1.3rem;
+      font-size: .9rem;
+    }
+    .btn-outline:hover { background: var(--blue); color: var(--white); }
+    .btn-hero-call {
+      background: var(--red);
+      color: var(--white);
+      padding: 1.1rem 2.2rem;
+      font-size: 1.3rem;
+      border-radius: var(--r-lg);
+      box-shadow: 0 6px 28px rgba(200,40,30,.4);
+      letter-spacing: .01em;
+    }
+    .btn-hero-call:hover { background: #a51e15; box-shadow: 0 8px 36px rgba(200,40,30,.55); }
+    .btn-hero-request {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.7);
+      padding: 1.05rem 2rem;
+      font-size: 1.1rem;
+      border-radius: var(--r-lg);
+    }
+    .btn-hero-request:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+
+    @media (max-width: 600px) {
+      .header-phone { font-size: 1.1rem; }
+      .header-cta .btn-outline { display: none; }
+    }
+
+    /* ───────────── HERO ───────────── */
+    .hero {
+      position: relative;
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0 4rem;
+      overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: .18;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(11,28,46,.97) 0%, rgba(19,82,160,.75) 60%, rgba(11,28,46,.88) 100%);
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(232,160,32,.18);
+      border: 1px solid rgba(232,160,32,.45);
+      color: var(--gold-l);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem .85rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -.01em;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--gold-l);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.82);
+      max-width: 540px;
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+    .hero-trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.92);
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .38rem .85rem;
+      border-radius: 100px;
+    }
+    .chip .dot {
+      width: 7px; height: 7px;
+      background: var(--gold-l);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Hero form panel */
+    .hero-form-panel {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      color: var(--navy);
+    }
+    .form-panel-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .form-panel-sub {
+      font-size: .82rem;
+      color: var(--slate);
+      margin-bottom: 1.25rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--slate);
+      margin-bottom: .35rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .7rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: var(--navy);
+      transition: border-color .15s;
+      background: var(--white);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue-l);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .btn-form-submit {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      padding: .9rem;
+      font-size: 1rem;
+      border-radius: var(--r);
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      letter-spacing: .02em;
+      transition: background .18s, transform .12s;
+    }
+    .btn-form-submit:hover { background: #a51e15; transform: translateY(-1px); }
+    .form-demo-note {
+      margin-top: .75rem;
+      font-size: .72rem;
+      color: var(--light);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-form-panel {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .hero { padding: 4rem 0 3rem; min-height: auto; }
+    }
+
+    /* ───────────── EMERGENCY BANNER ───────────── */
+    .emergency-bar {
+      background: var(--red);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+    }
+    .emergency-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .emergency-bar-text {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .emergency-icon {
+      font-size: 1.4rem;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .7; transform: scale(1.12); }
+    }
+    .emergency-bar-text strong {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+    .emergency-bar-text span {
+      font-size: .9rem;
+      opacity: .9;
+    }
+    .btn-emergency-call {
+      background: var(--white);
+      color: var(--red);
+      padding: .65rem 1.6rem;
+      font-size: .95rem;
+      border-radius: var(--r);
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: background .15s, transform .12s;
+      flex-shrink: 0;
+    }
+    .btn-emergency-call:hover { background: #fde8e7; transform: translateY(-1px); }
+
+    /* ───────────── SECTION HEADINGS ───────────── */
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--off); }
+    .section-dark { background: var(--navy); color: var(--white); }
+
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: .6rem;
+    }
+    .section-dark .section-label { color: var(--gold-l); }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--slate);
+      max-width: 640px;
+      margin-top: .6rem;
+      line-height: 1.65;
+    }
+    .section-dark .section-sub { color: rgba(255,255,255,.7); }
+    .section-hd { margin-bottom: 2.75rem; }
+
+    /* ───────────── SERVICES GRID ───────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.75rem 1.5rem;
+      transition: box-shadow .2s, border-color .2s, transform .18s;
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--blue-l);
+      transform: translateY(-3px);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #EBF3FF 0%, #D6E8FF 100%);
+      border-radius: .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      margin-bottom: 1.1rem;
+      flex-shrink: 0;
+    }
+    .service-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: .45rem;
+      color: var(--navy);
+    }
+    .service-desc {
+      font-size: .87rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .service-tag {
+      display: inline-block;
+      margin-top: .85rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: #EBF3FF;
+      padding: .25rem .6rem;
+      border-radius: 4px;
+    }
+
+    /* ───────────── WHY CHOOSE ACE ───────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .why-image-col { position: relative; }
+    .why-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .why-badge-float {
+      position: absolute;
+      bottom: -1.25rem;
+      right: -1.25rem;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      min-width: 140px;
+    }
+    .why-badge-float .big-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--gold-l);
+    }
+    .why-badge-float .big-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      margin-top: .2rem;
+    }
+    .why-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .why-point {
+      display: flex;
+      gap: 1rem;
+    }
+    .why-point-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-l) 100%);
+      border-radius: .6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-top: .1rem;
+    }
+    .why-point-title {
+      font-size: .98rem;
+      font-weight: 800;
+      margin-bottom: .2rem;
+    }
+    .why-point-text {
+      font-size: .88rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-image-col { order: -1; }
+      .why-badge-float { right: 1rem; bottom: 1rem; }
+    }
+
+    /* ───────────── CERTS STRIP ───────────── */
+    .certs-strip {
+      background: var(--navy2);
+      padding: 2rem 0;
+    }
+    .certs-inner {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: center;
+    }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      color: rgba(255,255,255,.85);
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .cert-item .cert-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ───────────── REVIEWS ───────────── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.75rem;
+      position: relative;
+    }
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 1rem;
+    }
+    .star { color: #F5A623; font-size: 1.05rem; }
+    .review-text {
+      font-size: .95rem;
+      color: var(--slate);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .review-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; font-size: .9rem; }
+    .review-location { font-size: .78rem; color: var(--light); }
+    .review-platform {
+      margin-left: auto;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .reviews-disclaimer {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--light);
+      font-style: italic;
+      border: 1px dashed var(--border);
+      padding: .6rem 1rem;
+      border-radius: var(--r);
+      background: var(--off);
+    }
+
+    /* ───────────── SERVICE AREA ───────────── */
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+    .area-chip {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.92);
+      font-size: .9rem;
+      font-weight: 600;
+      padding: .7rem 1.1rem;
+      border-radius: var(--r);
+    }
+    .area-chip .pin { font-size: .9rem; }
+
+    /* ───────────── PHOTO GALLERY STRIP ───────────── */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    .photo-strip img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+    }
+    @media (max-width: 600px) {
+      .photo-strip { grid-template-columns: 1fr; }
+    }
+
+    /* ───────────── FOOTER ───────────── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.75);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand .logo-name { color: var(--white); font-size: 1.4rem; }
+    .footer-brand .logo-name span { color: var(--gold-l); }
+    .footer-brand p {
+      font-size: .87rem;
+      line-height: 1.65;
+      margin-top: .75rem;
+      color: rgba(255,255,255,.65);
+    }
+    .footer-phone-big {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-top: .75rem;
+      display: block;
+    }
+    .footer-phone-big:hover { color: var(--gold-l); }
+    .footer-col h4 {
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-l);
+      font-weight: 700;
+      margin-bottom: .9rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li {
+      font-size: .88rem;
+      margin-bottom: .5rem;
+      color: rgba(255,255,255,.7);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 1.5rem;
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: .78rem;
+      color: rgba(255,255,255,.45);
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .footer-lic {
+      font-size: .77rem;
+      color: rgba(255,255,255,.5);
+      margin-top: .4rem;
+    }
+
+    @media (max-width: 720px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ───────────── DEMO BANNER ───────────── */
+    .demo-notice {
+      background: linear-gradient(90deg, #1352A0 0%, #0B1C2E 100%);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .demo-notice span { color: var(--gold-l); }
+
+    /* ───────────── UTILITIES ───────────── */
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 0; }
+      .hero { padding: 3rem 0 2.5rem; }
+      .hero-headline { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ SMARTCONTENT LAB RIBBON ═══════════ -->
+  <div class="scl-ribbon" role="banner">
+    Free redesign preview built by SmartContent Lab —
+    <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">Book a 15-min call</a>
+  </div>
+
+  <!-- ═══════════ DEMO NOTICE ═══════════ -->
+  <div class="demo-notice">
+    <span>DEMO PREVIEW</span> — This is a SmartContent Lab concept redesign for Ace Plumbing &amp; Rooter.
+    Not the live site.
+  </div>
+
+  <!-- ═══════════ SITE HEADER ═══════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-lockup">
+        <div class="logo-name">Ace <span>Plumbing</span> &amp; Rooter</div>
+        <div class="logo-tag">San Francisco's Trusted Plumber Since 1999</div>
+      </div>
+      <div class="header-cta">
+        <a href="tel:4158246444" class="header-phone">
+          <span class="icon">📞</span> (415) 824-6444
+        </a>
+        <a href="#request" class="btn btn-primary">Request Service</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <!-- LEFT: headline + CTAs -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>🔧</span> San Francisco · Licensed · Available Now
+          </div>
+          <h1 class="hero-headline">
+            Plumbing<br>
+            Emergency?<br>
+            <em>We Answer.</em>
+          </h1>
+          <p class="hero-sub">
+            Ace Plumbing &amp; Rooter has served San Francisco homes and businesses for over 25 years.
+            When something breaks, our experienced team arrives fast, fixes it right the first time, and charges by the job — not the hour.
+          </p>
+          <div class="hero-actions">
+            <a href="tel:4158246444" class="btn btn-hero-call">
+              📞 &nbsp;Call (415) 824-6444
+            </a>
+            <a href="#request" class="btn btn-hero-request">
+              Request a Callback →
+            </a>
+          </div>
+          <div class="hero-trust-chips">
+            <div class="chip"><span class="dot"></span>Licensed &amp; Insured — Lic. #829071</div>
+            <div class="chip"><span class="dot"></span>25+ Years in SF</div>
+            <div class="chip"><span class="dot"></span>Charge by Job, Not by Hour</div>
+            <div class="chip"><span class="dot"></span>Emergency Response 7 Days a Week</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: callback form -->
+        <div class="hero-form-panel" id="request">
+          <div class="form-panel-title">🔔 Request a Callback</div>
+          <div class="form-panel-sub">Tell us your issue — we'll call you back ASAP.</div>
+          <form onsubmit="return false;">
+            <div class="form-group">
+              <label for="cb-name">Your Name</label>
+              <input type="text" id="cb-name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-group">
+              <label for="cb-phone">Phone Number</label>
+              <input type="tel" id="cb-phone" placeholder="(415) 555-0000" />
+            </div>
+            <div class="form-group">
+              <label for="cb-service">What do you need?</label>
+              <select id="cb-service">
+                <option value="">Select a service…</option>
+                <option>Emergency Plumbing</option>
+                <option>Sewer &amp; Drain Repair</option>
+                <option>Water Heater / Boiler</option>
+                <option>Leak Detection</option>
+                <option>Drain Cleaning / Hydro Jetting</option>
+                <option>Backflow Testing</option>
+                <option>Fire Protection</option>
+                <option>Commercial Plumbing</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cb-notes">Brief description (optional)</label>
+              <textarea id="cb-notes" placeholder="e.g. Kitchen drain backed up, garage flooding…"></textarea>
+            </div>
+            <button class="btn-form-submit" type="submit">
+              Send — We'll Call You Back
+            </button>
+          </form>
+          <p class="form-demo-note">
+            Demo form — not connected. At launch this submits directly to Ace Plumbing's dispatch inbox.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ EMERGENCY BANNER ═══════════ -->
+  <div class="emergency-bar">
+    <div class="container">
+      <div class="emergency-bar-text">
+        <span class="emergency-icon">🚨</span>
+        <div>
+          <strong>Plumbing Emergency in San Francisco?</strong><br>
+          <span>We dispatch experienced technicians fast — 7 days a week.</span>
+        </div>
+      </div>
+      <a href="tel:4158246444" class="btn-emergency-call">
+        📞 Call Now: (415) 824-6444
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-hd">
+        <div class="section-label">What We Fix</div>
+        <h2 class="section-title">Plumbing &amp; Sewer Services</h2>
+        <p class="section-sub">
+          From a dripping faucet to a full sewer line replacement — residential and commercial, we handle it.
+        </p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🚨</div>
+          <div class="service-name">Emergency Plumbing</div>
+          <p class="service-desc">Burst pipes, sewage backups, flooding — we prioritize emergency calls and dispatch fast throughout San Francisco, 7 days a week.</p>
+          <span class="service-tag">Residential &amp; Commercial</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔩</div>
+          <div class="service-name">Sewer &amp; Drain Repair</div>
+          <p class="service-desc">Main line snaking, full sewer line replacement, trenchless repair. We carry the most powerful Hydro Jetter in San Francisco.</p>
+          <span class="service-tag">Residential &amp; Commercial</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <div class="service-name">Water Heaters &amp; Boilers</div>
+          <p class="service-desc">Tankless and conventional water heater installation, repair, and maintenance. Boiler service (C4 licensed) for homes, apartments, and commercial properties.</p>
+          <span class="service-tag">Residential &amp; Commercial</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💧</div>
+          <div class="service-name">Leak Detection</div>
+          <p class="service-desc">Hidden leaks diagnosed and repaired before they become costly water damage. Gas leak detection and repair available.</p>
+          <span class="service-tag">Residential &amp; Commercial</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🌊</div>
+          <div class="service-name">Drain Cleaning &amp; Hydro Jetting</div>
+          <p class="service-desc">High-pressure hydro jetting clears stubborn grease, root, and debris blockages. Preventative maintenance plans available for restaurants and commercial buildings.</p>
+          <span class="service-tag">Commercial Specialty</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✅</div>
+          <div class="service-name">Backflow Testing &amp; Certification</div>
+          <p class="service-desc">A.W.W.A. Backflow Certified technicians. Easy scheduling for annual backflow prevention device testing and certification — especially convenient for HOAs and property managers.</p>
+          <span class="service-tag">Required by City of SF</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <div class="service-name">Fire Protection</div>
+          <p class="service-desc">C16 Fire Protection Contractor license. Installation and service of fire sprinkler systems for residential and commercial properties.</p>
+          <span class="service-tag">C16 Licensed</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <div class="service-name">Commercial &amp; HOA Plumbing</div>
+          <p class="service-desc">Two decades serving restaurants, hotels, bars, HOAs, and property managers. Flexible scheduling, purchase order billing, and NTE compliance — we understand your requirements.</p>
+          <span class="service-tag">Commercial</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PHOTO STRIP ═══════════ -->
+  <div class="container">
+    <div class="photo-strip">
+      <img
+        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80"
+        alt="Professional plumber at work on pipes"
+        loading="lazy"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80"
+        alt="Plumbing tools and fittings"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <!-- ═══════════ CERTS STRIP ═══════════ -->
+  <div class="certs-strip">
+    <div class="container">
+      <div class="certs-inner">
+        <div class="cert-item"><span class="cert-dot"></span>Contractors License #829071</div>
+        <div class="cert-item"><span class="cert-dot"></span>C36 Plumbing Contractor</div>
+        <div class="cert-item"><span class="cert-dot"></span>C4 Boiler &amp; Hot Water Heating</div>
+        <div class="cert-item"><span class="cert-dot"></span>C16 Fire Protection</div>
+        <div class="cert-item"><span class="cert-dot"></span>A.W.W.A. Backflow Certified</div>
+        <div class="cert-item"><span class="cert-dot"></span>PG&amp;E Trench &amp; Excavation Safety</div>
+        <div class="cert-item"><span class="cert-dot"></span>TECH Clean California Certified</div>
+        <div class="cert-item"><span class="cert-dot"></span>Licensed, Bonded &amp; Insured</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ WHY ACE ═══════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="why-grid">
+
+        <div class="why-image-col">
+          <img
+            class="why-img"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+            alt="Experienced plumbing professional inspecting pipes"
+            loading="lazy"
+          />
+          <div class="why-badge-float">
+            <div class="big-num">25+</div>
+            <div class="big-label">Years Serving<br>San Francisco</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">The Ace Difference</div>
+          <h2 class="section-title">Why San Francisco Trusts Ace</h2>
+          <p class="section-sub">Three promises we've kept for over two decades.</p>
+
+          <ul class="why-points" style="margin-top:2rem;">
+
+            <li class="why-point">
+              <div class="why-point-icon">🎯</div>
+              <div>
+                <div class="why-point-title">We Fix Only What Needs to Be Fixed</div>
+                <p class="why-point-text">
+                  No upselling, no unnecessary repairs. We deliver honest estimates, walk you through every option, and let you decide. Fair and competitive pricing on every job.
+                </p>
+              </div>
+            </li>
+
+            <li class="why-point">
+              <div class="why-point-icon">✅</div>
+              <div>
+                <div class="why-point-title">Done Right the First Time</div>
+                <p class="why-point-text">
+                  We charge by the job, not by the hour — so our technician stays until the work is complete and you're satisfied, with no clock running against you.
+                </p>
+              </div>
+            </li>
+
+            <li class="why-point">
+              <div class="why-point-icon">😊</div>
+              <div>
+                <div class="why-point-title">Friendly Service in a Time of Need</div>
+                <p class="why-point-text">
+                  Plumbing emergencies are stressful. Our team shows up with a genuine smile, communicates clearly, and treats your home or business with respect.
+                </p>
+              </div>
+            </li>
+
+            <li class="why-point">
+              <div class="why-point-icon">⚡</div>
+              <div>
+                <div class="why-point-title">Fast Emergency Response, 7 Days a Week</div>
+                <p class="why-point-text">
+                  When you call (415) 824-6444, our goal is to get a skilled plumber to your door fast — diagnose on arrival and start work immediately to prevent further damage.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ REVIEWS ═══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-hd text-center">
+        <div class="section-label">Customer Reviews</div>
+        <h2 class="section-title">What San Francisco Homeowners Say</h2>
+        <p class="section-sub">Ace Plumbing &amp; Rooter has been the go-to plumber for SF residents and businesses for over two decades.</p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "Burst pipe at 11pm on a Sunday. Called Ace and they were at my door in under an hour. Fixed the pipe, cleaned up, and were completely professional the entire time. Cannot recommend them enough."
+          </p>
+          <div class="review-meta">
+            <div class="review-avatar">MR</div>
+            <div>
+              <div class="review-name">M. Rodriguez</div>
+              <div class="review-location">Noe Valley, San Francisco</div>
+            </div>
+            <div class="review-platform">Google</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "Our restaurant had a major drain backup right before Friday dinner service. Ace arrived, got us cleared, and were out before we opened. They understand that our business can't stop — we've been using them for years."
+          </p>
+          <div class="review-meta">
+            <div class="review-avatar">TK</div>
+            <div>
+              <div class="review-name">T. Kim</div>
+              <div class="review-location">The Mission, San Francisco</div>
+            </div>
+            <div class="review-platform">Yelp</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "We manage 12 units in Pacific Heights and Ace is our exclusive plumber. Annual backflow testing is always painless — easy scheduling, certified technicians, paperwork handled. Everything a property manager needs."
+          </p>
+          <div class="review-meta">
+            <div class="review-avatar">SB</div>
+            <div>
+              <div class="review-name">S. Brennan</div>
+              <div class="review-location">Pacific Heights, San Francisco</div>
+            </div>
+            <div class="review-platform">Google</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="reviews-disclaimer">
+        Sample reviews — replaced with your real Google reviews at launch.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICE AREA ═══════════ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-hd text-center">
+        <div class="section-label">Where We Work</div>
+        <h2 class="section-title">Serving San Francisco &amp; Surrounding Cities</h2>
+        <p class="section-sub">
+          From North Beach to Parkside, The Castro to SOMA — Ace Plumbing &amp; Rooter covers every San Francisco neighborhood and serves the broader Bay Area.
+        </p>
+      </div>
+
+      <div class="area-grid">
+        <div class="area-chip"><span class="pin">📍</span> The Mission District</div>
+        <div class="area-chip"><span class="pin">📍</span> The Castro</div>
+        <div class="area-chip"><span class="pin">📍</span> Noe Valley</div>
+        <div class="area-chip"><span class="pin">📍</span> Pacific Heights</div>
+        <div class="area-chip"><span class="pin">📍</span> North Beach</div>
+        <div class="area-chip"><span class="pin">📍</span> West Portal</div>
+        <div class="area-chip"><span class="pin">📍</span> Sunset District</div>
+        <div class="area-chip"><span class="pin">📍</span> Richmond District</div>
+        <div class="area-chip"><span class="pin">📍</span> Parkside</div>
+        <div class="area-chip"><span class="pin">📍</span> Lower Haight</div>
+        <div class="area-chip"><span class="pin">📍</span> The Marina</div>
+        <div class="area-chip"><span class="pin">📍</span> FIDI / SOMA</div>
+        <div class="area-chip"><span class="pin">📍</span> Potrero Hill</div>
+        <div class="area-chip"><span class="pin">📍</span> Bernal Heights</div>
+        <div class="area-chip"><span class="pin">📍</span> Fillmore</div>
+        <div class="area-chip"><span class="pin">📍</span> Cow Hollow</div>
+        <div class="area-chip"><span class="pin">📍</span> The Presidio</div>
+        <div class="area-chip"><span class="pin">📍</span> &amp; Beyond SF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ BOTTOM CTA / LEAD FORM ═══════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;">
+
+        <div>
+          <div class="section-label">Ready When You Need Us</div>
+          <h2 class="section-title">Don't Wait on a Plumbing Problem</h2>
+          <p class="section-sub" style="margin-top:.75rem;">
+            Whether it's an emergency at midnight or a water heater on the blink — Ace Plumbing &amp; Rooter is your first call in San Francisco.
+            We'll give you an honest estimate, fix it right the first time, and stand behind our work.
+          </p>
+          <div style="margin-top:2rem; display:flex; flex-direction:column; gap:1rem;">
+            <a href="tel:4158246444" class="btn btn-primary" style="font-size:1.15rem; padding:1rem 1.8rem; max-width:300px;">
+              📞 &nbsp;Call (415) 824-6444
+            </a>
+            <div style="font-size:.82rem; color:var(--slate);">
+              Licensed, Bonded &amp; Insured · Lic. #829071 · service@aceplumbingandrooter.com
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-form-panel" style="box-shadow:var(--shadow);">
+          <div class="form-panel-title">📋 Request a Service</div>
+          <div class="form-panel-sub">Fill out a quick form and we'll be in touch shortly.</div>
+          <form onsubmit="return false;">
+            <div class="form-group">
+              <label for="srv-name">Name</label>
+              <input type="text" id="srv-name" placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="srv-phone">Phone</label>
+              <input type="tel" id="srv-phone" placeholder="(415) 555-0000" />
+            </div>
+            <div class="form-group">
+              <label for="srv-email">Email</label>
+              <input type="email" id="srv-email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="srv-addr">Address</label>
+              <input type="text" id="srv-addr" placeholder="Street, San Francisco, CA" />
+            </div>
+            <div class="form-group">
+              <label for="srv-issue">How can we help?</label>
+              <textarea id="srv-issue" placeholder="Describe your plumbing issue…"></textarea>
+            </div>
+            <button class="btn-form-submit" type="submit">
+              Submit Service Request
+            </button>
+          </form>
+          <p class="form-demo-note">
+            Demo form — not connected. At launch this routes directly to Ace Plumbing's dispatch team.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="logo-name">Ace <span>Plumbing</span> &amp; Rooter</div>
+          <div class="footer-lic">Contractors License #829071 · Licensed, Bonded &amp; Insured</div>
+          <p>
+            For over 25 years, San Francisco's trusted plumber for residential and commercial plumbing, sewer, water heater, and fire sprinkler services. Serving every neighborhood in the city and surrounding areas.
+          </p>
+          <a href="tel:4158246444" class="footer-phone-big">📞 (415) 824-6444</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Emergency Plumbing</li>
+            <li>Sewer &amp; Drain Repair</li>
+            <li>Water Heaters &amp; Boilers</li>
+            <li>Leak Detection</li>
+            <li>Hydro Jetting</li>
+            <li>Backflow Testing</li>
+            <li>Fire Protection</li>
+            <li>Commercial Plumbing</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>service@aceplumbingandrooter.com</li>
+            <li>San Francisco, CA</li>
+            <li style="margin-top:.75rem; font-size:.78rem; color:rgba(255,255,255,.45);">
+              projects@aceplumbingandrooter.com<br>(Project management)
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <div>© Ace Plumbing &amp; Rooter, Inc. · San Francisco, CA</div>
+        <div>
+          Demo redesign by
+          <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer" style="color:var(--gold); text-decoration:underline; text-underline-offset:2px;">
+            SmartContent Lab
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ MOBILE CALL BAR ═══════════ -->
+  <div class="mobile-call-bar" aria-label="Call Ace Plumbing now">
+    <a href="tel:4158246444">Call Ace Plumbing Now: (415) 824-6444</a>
+  </div>
+
+</body>
+</html>

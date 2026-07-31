@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Larratt Brothers Plumbing — San Francisco Bay Area</title>
+  <meta name="description" content="Full-service plumbing in the San Francisco Bay Area. Founded 1990 by Rob &amp; Steve Larratt. Google Guaranteed. Call (650) 873-5794." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0f2137;
+      --navy-mid:#1a3350;
+      --blue:    #1e5fa8;
+      --blue-lt: #2d77cc;
+      --gold:    #c8821a;
+      --gold-lt: #e09a30;
+      --cream:   #f8f6f2;
+      --grey-lt: #f2f4f7;
+      --grey:    #8a95a3;
+      --text:    #1c2733;
+      --white:   #ffffff;
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+
+      --shadow-sm: 0 2px 8px rgba(15,33,55,.08);
+      --shadow-md: 0 6px 24px rgba(15,33,55,.12);
+      --shadow-lg: 0 16px 48px rgba(15,33,55,.16);
+
+      --max: 1120px;
+      --pad-x: clamp(20px, 5vw, 64px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── SmartContent Lab Ribbon ─── */
+    .scl-ribbon {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .scl-ribbon a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 6px;
+      white-space: nowrap;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .scl-ribbon a:hover { border-color: var(--gold-lt); }
+    .scl-ribbon .ribbon-sep { margin: 0 8px; opacity: .4; }
+
+    /* ─── Sticky Mobile Call Bar ─── */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--blue);
+      padding: 14px 20px;
+      gap: 10px;
+    }
+    .mobile-cta a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 10px;
+      border-radius: var(--r-sm);
+      text-decoration: none;
+      transition: transform .15s;
+    }
+    .mobile-cta a:active { transform: scale(.97); }
+    .mobile-cta a.accent {
+      background: var(--gold);
+      color: var(--white);
+    }
+    @media (max-width: 768px) {
+      .mobile-cta { display: flex; }
+      body { padding-bottom: 72px; }
+    }
+
+    /* ─── Layout helpers ─── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+    .section { padding: clamp(64px, 8vw, 112px) var(--pad-x); max-width: var(--max); margin: 0 auto; }
+
+    /* ─── Typography ─── */
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); color: var(--white); font-weight: 700; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--navy); font-weight: 700; }
+    p { color: #4a5568; line-height: 1.75; }
+    .lead { font-size: clamp(1.05rem, 1.8vw, 1.2rem); }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: var(--r-sm);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn:active { transform: translateY(0); }
+    .btn-call {
+      background: var(--gold);
+      color: var(--white);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      padding: 20px 40px;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,.12);
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.5);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.2); }
+    .btn-outline {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .btn-outline:hover { background: var(--blue); color: var(--white); }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--navy); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 40px; /* ribbon offset */
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(10,22,40,.92) 0%, rgba(10,22,40,.75) 55%, rgba(10,22,40,.4) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px var(--pad-x) 64px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot {
+      width: 7px; height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .6; transform: scale(.85); }
+    }
+    .hero h1 { max-width: 700px; margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,.8);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    /* Trust chips */
+    .trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.92);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+    }
+    .chip-icon { font-size: 1rem; }
+
+    /* ─── SOCIAL PROOF BAR ─── */
+    .proof-bar {
+      background: var(--navy);
+      padding: 20px var(--pad-x);
+    }
+    .proof-bar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .proof-stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+    }
+    .proof-stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+    }
+    .proof-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.3;
+    }
+    .proof-divider { width: 1px; height: 36px; background: rgba(255,255,255,.15); }
+    @media (max-width: 480px) { .proof-divider { display: none; } }
+
+    /* ─── ABOUT / STORY ─── */
+    .story {
+      background: var(--cream);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: center;
+    }
+    @media (max-width: 768px) { .story-grid { grid-template-columns: 1fr; } }
+    .story-img {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .story-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .story-text h2 { margin-bottom: 20px; }
+    .story-text p { margin-bottom: 16px; }
+    .story-attrs {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .story-attr {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--white);
+      border-radius: var(--r-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .story-attr-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .story-attr-body strong { font-size: 0.9rem; color: var(--navy); display: block; margin-bottom: 2px; }
+    .story-attr-body span { font-size: 0.82rem; color: var(--grey); }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--grey-lt);
+      border-radius: var(--r-md);
+      padding: 28px 24px;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      background: var(--white);
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: 0.83rem;
+      color: var(--grey);
+      line-height: 1.55;
+    }
+    .services-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews { background: var(--navy); }
+    .reviews h2 { color: var(--white); }
+    .reviews-intro { color: rgba(255,255,255,.7); margin-top: 12px; max-width: 540px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .review-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r-md);
+      padding: 28px 26px;
+      transition: background .2s;
+    }
+    .review-card:hover { background: rgba(255,255,255,.1); }
+    .stars {
+      color: var(--gold-lt);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .review-text {
+      color: rgba(255,255,255,.88);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .reviewer-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .reviewer-name { font-weight: 600; color: var(--white); font-size: 0.88rem; }
+    .reviewer-meta { font-size: 0.78rem; color: rgba(255,255,255,.5); }
+    .reviews-disclaimer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,.35);
+      font-style: italic;
+    }
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.75);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-top: 12px;
+    }
+
+    /* ─── SERVICE AREA ─── */
+    .area { background: var(--cream); }
+    .area-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+      margin-top: 48px;
+    }
+    @media (max-width: 640px) { .area-grid { grid-template-columns: 1fr; } }
+    .area-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .area-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 10px 12px;
+      background: var(--white);
+      border-radius: var(--r-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .area-item::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .area-map-placeholder {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.4);
+      font-size: 0.9rem;
+    }
+    .area-map-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── EMERGENCY BANNER ─── */
+    .emergency {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+      padding: 64px var(--pad-x);
+      text-align: center;
+    }
+    .emergency h2 { color: var(--white); margin-bottom: 12px; }
+    .emergency p { color: rgba(255,255,255,.8); max-width: 520px; margin: 0 auto 36px; }
+    .emergency-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-large {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--gold-lt);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: opacity .15s;
+    }
+    .phone-large:hover { opacity: .85; }
+
+    /* ─── LEAD FORM ─── */
+    .form-section { background: var(--white); }
+    .form-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--grey-lt);
+      border-radius: var(--r-lg);
+      padding: clamp(32px, 5vw, 56px);
+      box-shadow: var(--shadow-sm);
+    }
+    .form-label {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .form-wrapper h2 { margin-bottom: 8px; }
+    .form-wrapper > p { margin-bottom: 28px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 14px;
+      border: 1.5px solid #dde2ea;
+      border-radius: var(--r-sm);
+      font-size: 0.93rem;
+      font-family: inherit;
+      background: var(--white);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(30,95,168,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-disclaimer {
+      font-size: 0.75rem;
+      color: var(--grey);
+      margin-top: 14px;
+      text-align: center;
+    }
+    .form-demo-notice {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: #e07a30;
+      font-style: italic;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 48px var(--pad-x) 32px;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 28px;
+    }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
+    .footer-brand p { font-size: 0.83rem; line-height: 1.65; }
+    .footer-col h4 { color: var(--white); font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; letter-spacing: .04em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col li { font-size: 0.83rem; }
+    .footer-col a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ─── Section headers ─── */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-intro {
+      max-width: 540px;
+      margin-top: 12px;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      .hero-actions { flex-direction: column; }
+      .btn-call { width: 100%; text-align: center; }
+      .trust-chips .chip:nth-child(n+4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== SmartContent Lab Ribbon ===== -->
+  <div class="scl-ribbon">
+    Free redesign preview built by SmartContent Lab
+    <span class="ribbon-sep">—</span>
+    <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">Book a 15-min call &rarr;</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Plumber working on pipes"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Available Now &mdash; SF Bay Area
+      </div>
+      <h1>When It Leaks,<br><em>We Show Up.</em></h1>
+      <p class="hero-sub">
+        Larratt Brothers has served San Francisco homeowners since 1990.
+        Family-owned, Google Guaranteed, and there when you need us most.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:6508735794" class="btn btn-call">
+          &#128222; (650) 873-5794
+        </a>
+        <a href="#request" class="btn btn-secondary">Request a Callback</a>
+      </div>
+      <div class="trust-chips">
+        <span class="chip"><span class="chip-icon">&#9989;</span> Google Guaranteed</span>
+        <span class="chip"><span class="chip-icon">&#127968;</span> Family-Owned Since 1990</span>
+        <span class="chip"><span class="chip-icon">&#9889;</span> Emergency &amp; Same-Day</span>
+        <span class="chip"><span class="chip-icon">&#127987;</span> Licensed &amp; Insured</span>
+        <span class="chip"><span class="chip-icon">&#128247;</span> On-Demand Video Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF BAR ===== -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-stat">
+        <span class="proof-stat-num">35+</span>
+        <span class="proof-stat-label">Years Serving<br>the Bay Area</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="proof-stat-num">&#9733; 5.0</span>
+        <span class="proof-stat-label">Google<br>Rating</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="proof-stat-num">24 / 7</span>
+        <span class="proof-stat-label">Emergency<br>Response</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="proof-stat-num">100%</span>
+        <span class="proof-stat-label">Satisfaction<br>Guarantee</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STORY / WHY US ===== -->
+  <section class="story">
+    <div class="section story-grid">
+      <div class="story-img">
+        <img
+          src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80"
+          alt="Plumber at work in San Francisco home"
+          loading="lazy"
+          width="900"
+          height="675"
+        />
+      </div>
+      <div class="story-text">
+        <span class="story-badge">&#127968; Family Business</span>
+        <h2>The Larratt Brothers Have Had Your Back Since 1990</h2>
+        <p class="lead">
+          Rob and Steve Larratt founded this company right here in San Francisco,
+          and that local commitment runs through everything we do.
+        </p>
+        <p>
+          We're not a franchise or a call center. We're your neighbors —
+          the plumbers whose trucks you've spotted in your street.
+          We do the full range: from a dripping faucet to a slab leak,
+          from a Saturday-morning water heater failure to a sewer line
+          that needs replacing without tearing up your yard.
+        </p>
+        <div class="story-attrs">
+          <div class="story-attr">
+            <span class="story-attr-icon">&#127968;</span>
+            <div class="story-attr-body">
+              <strong>Locally Owned &amp; Operated</strong>
+              <span>Rob &amp; Steve Larratt — San Francisco, CA 94124</span>
+            </div>
+          </div>
+          <div class="story-attr">
+            <span class="story-attr-icon">&#128249;</span>
+            <div class="story-attr-body">
+              <strong>On-Demand Video for Emergencies</strong>
+              <span>One of the only Bay Area plumbers offering video triage now</span>
+            </div>
+          </div>
+          <div class="story-attr">
+            <span class="story-attr-icon">&#9989;</span>
+            <div class="story-attr-body">
+              <strong>Google Guaranteed</strong>
+              <span>Background-checked, licensed, and backed by Google's guarantee</span>
+            </div>
+          </div>
+          <div class="story-attr">
+            <span class="story-attr-icon">&#128176;</span>
+            <div class="story-attr-body">
+              <strong>Transparent Pricing</strong>
+              <span>Clear estimates before any work begins — no surprise invoices</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section>
+    <div class="section">
+      <span class="section-tag">What We Do</span>
+      <h2>Complete Plumbing Services for Every Need</h2>
+      <p class="section-intro lead">
+        From routine maintenance to complex repairs — if it involves your
+        home's plumbing, Larratt Brothers handles it right the first time.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">&#128268;</span>
+          <h3>General Plumbing &amp; Repairs</h3>
+          <p>Faucets, toilets, sinks, showers, bathtubs — all fixtures installed, repaired, and replaced.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128268;</span>
+          <h3>Drain Cleaning &amp; Clearing</h3>
+          <p>Hydro-jetting, rooter service, and BioBen treatment for clogs and slow drains.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128293;</span>
+          <h3>Water Heater Services</h3>
+          <p>Repair and installation of tank, tankless, and solar water heaters — same-day when possible.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128269;</span>
+          <h3>Leak Detection</h3>
+          <p>We track down hidden leaks — including slab leaks — before they cause serious damage.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128247;</span>
+          <h3>Camera Inspections</h3>
+          <p>High-tech camera systems let us see exactly what's happening inside your pipes.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128684;</span>
+          <h3>Sewer Repair &amp; Replacement</h3>
+          <p>Trenchless sewer repairs and full sewer line replacement — no unnecessary excavation.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128167;</span>
+          <h3>Water Treatment</h3>
+          <p>Water softeners and purification systems to protect your pipes and improve water quality.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#9881;&#65039;</span>
+          <h3>Copper &amp; Gas Piping</h3>
+          <p>Pipe repair, replacement, and new installations — copper, gas, and underground lines.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128684;</span>
+          <h3>Garbage Disposals</h3>
+          <p>Installation, repair, and replacement of kitchen garbage disposals.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#127754;</span>
+          <h3>Sump &amp; Sewer Pumps</h3>
+          <p>Submersible and pedestal pump installation, repair, and battery backup systems.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128295;</span>
+          <h3>Radiant Heating</h3>
+          <p>Boiler service and radiant heating system installation and maintenance.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#128338;</span>
+          <h3>Preventive Maintenance</h3>
+          <p>Scheduled service plans to catch problems early and keep your system running smoothly.</p>
+        </div>
+      </div>
+      <div class="services-cta">
+        <a href="tel:6508735794" class="btn btn-primary">Call to Book a Service &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews">
+    <div class="section">
+      <span class="section-tag" style="color:var(--gold-lt)">What Customers Say</span>
+      <h2>San Francisco Homeowners Love Larratt Brothers</h2>
+      <p class="reviews-intro lead">
+        Real reviews from real Bay Area neighbors. Here's what happens
+        when you call a company that actually picks up.
+      </p>
+      <div class="google-badge">&#9989; Google Guaranteed &nbsp;&bull;&nbsp; &#9733;&#9733;&#9733;&#9733;&#9733; Rated 5.0</div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">
+            "Of course, the hot water heater decided to leak all over the garage
+            floor on a Friday night about 7pm! Emergency services were hard to
+            find — I was lucky I had seen Larratt Brothers trucks in my
+            neighborhood. My call was promptly answered, and Saturday morning
+            within an hour we had hot water again!!!"
+          </p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MG</div>
+            <div>
+              <div class="reviewer-name">Megan G.</div>
+              <div class="reviewer-meta">San Francisco, CA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">
+            "Exceptional plumbing services. We had a variety of plumbing
+            issues — from simple to quite complex. Travis was professional
+            and efficient — clearly cared about his work and wanted us to
+            understand what he was doing and why. He looked for ways to
+            save us money. I highly recommend Larratt Brothers!"
+          </p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">LN</div>
+            <div>
+              <div class="reviewer-name">Linda N.</div>
+              <div class="reviewer-meta">San Francisco Bay Area</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">
+            "I had a pipe spring a leak on a Saturday morning, and not only
+            did someone answer the phone, they sent someone over within the
+            hour! He was friendly, and super professional.
+            Highly recommended!"
+          </p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">JG</div>
+            <div>
+              <div class="reviewer-name">Jane G.</div>
+              <div class="reviewer-meta">San Francisco, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reviews-disclaimer">
+        Sample reviews — replaced with your real Google reviews at launch.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE AREA ===== -->
+  <section class="area">
+    <div class="section">
+      <span class="section-tag">Where We Work</span>
+      <h2>Serving the Full San Francisco Bay Area</h2>
+      <p class="section-intro">
+        Based at 88 Elmira Street, San Francisco — we cover the entire Bay Area
+        for both residential and commercial plumbing.
+      </p>
+      <div class="area-grid">
+        <div>
+          <div class="area-list">
+            <div class="area-item">San Francisco</div>
+            <div class="area-item">Daly City</div>
+            <div class="area-item">South San Francisco</div>
+            <div class="area-item">San Bruno</div>
+            <div class="area-item">Pacifica</div>
+            <div class="area-item">Millbrae</div>
+            <div class="area-item">Burlingame</div>
+            <div class="area-item">San Mateo</div>
+            <div class="area-item">Oakland</div>
+            <div class="area-item">Berkeley</div>
+            <div class="area-item">East Bay</div>
+            <div class="area-item">Peninsula</div>
+          </div>
+          <p style="margin-top:20px; font-size:0.85rem; color:var(--grey);">
+            Not sure we cover your neighborhood? Call us — we'll let you know in seconds.
+          </p>
+          <a href="tel:6508735794" class="btn btn-outline" style="margin-top:20px;">(650) 873-5794</a>
+        </div>
+        <div class="area-map-placeholder">
+          <img
+            src="https://images.pexels.com/photos/8486972/pexels-photo-8486972.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Plumbing van on San Francisco streets"
+            loading="lazy"
+            width="800"
+            height="600"
+            style="border-radius: var(--r-lg);"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EMERGENCY BANNER ===== -->
+  <section class="emergency">
+    <h2>Plumbing Emergency? Don't Wait.</h2>
+    <p>
+      We answer the phone. Day or night, weekday or weekend — a real
+      person picks up and we dispatch fast across the Bay Area.
+    </p>
+    <div class="emergency-actions">
+      <a href="tel:6508735794" class="phone-large">
+        &#128222; (650) 873-5794
+      </a>
+    </div>
+    <p style="margin-top:20px; font-size:0.85rem; opacity:.6;">
+      Same-day service available &bull; 24-hour emergency response &bull; Google Guaranteed
+    </p>
+  </section>
+
+  <!-- ===== LEAD FORM ===== -->
+  <section class="form-section" id="request">
+    <div class="section" style="padding-top: clamp(48px, 6vw, 96px); padding-bottom: clamp(48px, 6vw, 96px);">
+      <div class="form-wrapper">
+        <span class="form-label">Quick &amp; Easy</span>
+        <h2>Request a Callback</h2>
+        <p>Fill this in and we'll call you back within the hour during business hours.</p>
+
+        <form onsubmit="return false;" aria-label="Callback request form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Jane" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(415) 555-0100" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="neighborhood">Neighborhood / City</label>
+            <input type="text" id="neighborhood" name="neighborhood" placeholder="e.g. Mission District, San Francisco" />
+          </div>
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option value="">— Select a service —</option>
+              <option>Leak or burst pipe</option>
+              <option>Drain cleaning / clog</option>
+              <option>Water heater repair or replacement</option>
+              <option>Sewer or drain line</option>
+              <option>Camera inspection</option>
+              <option>Water softener / treatment</option>
+              <option>General plumbing repair</option>
+              <option>Other / not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Any details? (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Tell us a little about the issue..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; font-size:1rem; padding:16px;">
+            Send Request
+          </button>
+          <p class="form-disclaimer">
+            We'll never share your information. By submitting you agree to be contacted about your request.
+          </p>
+          <p class="form-demo-notice">
+            Demo form — not connected to a live backend. For the real launch, this submits to your CRM.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Larratt Brothers Plumbing</h3>
+          <p>
+            Family-owned and operated since 1990 by Rob &amp; Steve Larratt.
+            Serving San Francisco and the Bay Area with honest, reliable plumbing.
+          </p>
+          <p style="margin-top:12px;">
+            88 Elmira Street, Suite A<br />San Francisco, CA 94124
+          </p>
+          <a href="tel:6508735794" style="color:var(--gold-lt); text-decoration:none; font-weight:700; margin-top:10px; display:inline-block;">
+            (650) 873-5794
+          </a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Drain Cleaning</li>
+            <li>Water Heaters</li>
+            <li>Leak Detection</li>
+            <li>Camera Inspections</li>
+            <li>Sewer Repair</li>
+            <li>Water Softeners</li>
+            <li>Emergency Plumbing</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="https://larrattbros.com" target="_blank" rel="noopener noreferrer">Visit Real Site</a></li>
+            <li><a href="tel:6508735794">Call Us</a></li>
+            <li><a href="mailto:info@larrattbros.com">Email Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Larratt Brothers Plumbing &mdash; San Francisco, CA</span>
+        <span>
+          Demo site by
+          <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">SmartContent Lab</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== STICKY MOBILE CALL BAR ===== -->
+  <div class="mobile-cta" aria-label="Quick call actions">
+    <a href="tel:6508735794">&#128222; Call Now</a>
+    <a href="#request" class="accent">Request Callback</a>
+  </div>
+
+</body>
+</html>
