@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romeo's Auto Spa — San Diego's Premier Auto Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────── */
+:root {
+  --ink:       #0b0b0d;
+  --ink-mid:   #111114;
+  --ink-light: #1a1a1f;
+  --text:      #e8e6e0;
+  --text-dim:  #8a8880;
+  --gold:      #c9a96e;
+  --gold-pale: #e8d5a8;
+  --gold-dim:  rgba(201,169,110,.15);
+  --white:     #ffffff;
+  --radius:    6px;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* shared warm-dusk grade — applied identically to every img */
+  --grade-filter: brightness(0.78) saturate(1.15) sepia(0.28) contrast(1.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─────────────────────────────────────────────
+   SCL RIBBON
+───────────────────────────────────────────── */
+#scl-ribbon {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: var(--gold);
+  color: var(--ink);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 9px 16px;
+  line-height: 1;
+}
+#scl-ribbon a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--ink);
+}
+
+/* ─────────────────────────────────────────────
+   STICKY MOBILE CALL BAR
+───────────────────────────────────────────── */
+#sticky-call {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9000;
+  background: var(--gold);
+  color: var(--ink);
+}
+#sticky-call a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 20px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+@media (max-width: 768px) {
+  #sticky-call { display: block; }
+  body { padding-bottom: 58px; }
+}
+
+/* ─────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 34px; left: 0; right: 0;
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  background: linear-gradient(to bottom, rgba(11,11,13,.95) 60%, transparent);
+  pointer-events: none;
+}
+nav * { pointer-events: auto; }
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.nav-logo span { color: var(--text); font-weight: 300; }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 10px 22px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--gold-pale); }
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .nav-cta { display: none; }
+}
+
+/* ─────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────── */
+#hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 100px;
+  overflow: hidden;
+}
+#hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85');
+  background-size: cover;
+  background-position: center 40%;
+  filter: var(--grade-filter);
+  transform: scale(1.02);
+  transition: transform 8s ease-out;
+}
+#hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(11,11,13,.10) 0%,
+    rgba(11,11,13,.45) 45%,
+    rgba(11,11,13,.92) 100%
+  );
+}
+#hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  padding: 0 48px;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  border: 1px solid rgba(201,169,110,.35);
+  border-radius: 2px;
+}
+#hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7.5vw, 100px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.03em;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+#hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 300;
+  color: rgba(232,230,224,.75);
+  max-width: 480px;
+  margin-bottom: 44px;
+  line-height: 1.55;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 17px 36px;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--gold-pale); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  padding: 17px 0;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(201,169,110,.4);
+  letter-spacing: .02em;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+@media (max-width: 640px) {
+  #hero { padding-bottom: 72px; }
+  #hero-inner { padding: 0 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   MANIFESTO LINE
+───────────────────────────────────────────── */
+#manifesto {
+  padding: 100px 48px;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+#manifesto p {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+#manifesto p strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  #manifesto { padding: 72px 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   STAR BLOCK — SIGNATURE MOMENT
+───────────────────────────────────────────── */
+#star-block {
+  position: relative;
+  background: var(--ink-mid);
+  overflow: hidden;
+  padding: 0 48px;
+}
+.star-block-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  min-height: 560px;
+}
+.star-left {
+  padding: 80px 60px 80px 0;
+  border-right: 1px solid rgba(201,169,110,.12);
+}
+.star-numeral {
+  font-family: var(--font-display);
+  font-size: clamp(160px, 26vw, 320px);
+  font-weight: 800;
+  line-height: .85;
+  letter-spacing: -.06em;
+  color: var(--gold);
+  display: block;
+  /* Largest element on page */
+}
+.star-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.star-label .stars {
+  color: var(--gold);
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.star-label .star-count {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: .06em;
+}
+.star-right {
+  padding: 80px 0 80px 60px;
+}
+.star-right h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+.star-right p {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(232,230,224,.65);
+  line-height: 1.65;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+.review-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.review-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.review-card .rev-stars {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.review-card p {
+  font-size: 14px;
+  color: rgba(232,230,224,.7);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.review-card .rev-meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: .04em;
+  font-style: italic;
+}
+.review-disclaimer {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 10px;
+  opacity: .65;
+  font-style: italic;
+}
+@media (max-width: 900px) {
+  .star-block-inner {
+    grid-template-columns: 1fr;
+  }
+  .star-left {
+    padding: 72px 0 40px;
+    border-right: none;
+    border-bottom: 1px solid rgba(201,169,110,.12);
+    text-align: center;
+  }
+  .star-numeral { font-size: clamp(130px, 38vw, 220px); }
+  .star-label { justify-content: center; }
+  .star-right {
+    padding: 48px 0 72px;
+  }
+  .star-right p { max-width: 100%; }
+  #star-block { padding: 0 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   IMAGE BREAK (full bleed)
+───────────────────────────────────────────── */
+.img-break {
+  width: 100%;
+  height: clamp(280px, 45vw, 580px);
+  overflow: hidden;
+}
+.img-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: var(--grade-filter);
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   SERVICES
+───────────────────────────────────────────── */
+#services {
+  padding: 120px 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+#services h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.0;
+  margin-bottom: 12px;
+}
+.services-disclaimer {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 60px;
+  font-style: italic;
+  opacity: .7;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.service-tile {
+  background: var(--ink-light);
+  padding: 44px 36px;
+  position: relative;
+  transition: background .2s;
+}
+.service-tile:hover { background: rgba(201,169,110,.08); }
+.service-tile .tier {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.service-tile h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+.service-tile .price {
+  font-size: 38px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--gold);
+  letter-spacing: -.04em;
+  margin-bottom: 20px;
+}
+.service-tile .price sup {
+  font-size: 20px;
+  vertical-align: super;
+  font-weight: 500;
+}
+.service-tile ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-tile ul li {
+  font-size: 14px;
+  color: rgba(232,230,224,.65);
+  padding-left: 18px;
+  position: relative;
+}
+.service-tile ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 11px;
+}
+.service-tile.featured {
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,169,110,.25);
+}
+.service-tile.featured .tier { color: var(--gold-pale); }
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr; gap: 2px; }
+  #services { padding: 80px 20px; }
+  .service-tile { padding: 36px 24px; }
+}
+
+/* ─────────────────────────────────────────────
+   ASYMMETRIC SPLIT — PROCESS
+───────────────────────────────────────────── */
+#process {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 600px;
+}
+.process-img {
+  overflow: hidden;
+}
+.process-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: var(--grade-filter);
+  display: block;
+}
+.process-content {
+  background: var(--ink-mid);
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.process-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+  margin-bottom: 36px;
+}
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  padding-top: 2px;
+  letter-spacing: .04em;
+}
+.step-body h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -.01em;
+}
+.step-body p {
+  font-size: 14px;
+  color: rgba(232,230,224,.6);
+  line-height: 1.55;
+}
+@media (max-width: 900px) {
+  #process {
+    grid-template-columns: 1fr;
+  }
+  .process-img { height: 320px; }
+  .process-content { padding: 56px 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   THE RECEIPT — static 5-fix ledger
+───────────────────────────────────────────── */
+#receipt {
+  padding: 100px 48px;
+  background: var(--ink-mid);
+}
+#receipt-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+#receipt h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  margin-bottom: 8px;
+}
+.receipt-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 52px;
+  font-style: italic;
+}
+.ledger {
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.ledger-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 1fr;
+  gap: 20px 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  align-items: start;
+}
+.ledger-num {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .1em;
+  padding-top: 2px;
+}
+.ledger-before {
+  font-size: 14px;
+  color: rgba(232,230,224,.45);
+  line-height: 1.5;
+}
+.ledger-before::before {
+  content: 'BEFORE  ';
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: rgba(201,169,110,.5);
+  display: block;
+  margin-bottom: 4px;
+}
+.ledger-after {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.ledger-after::before {
+  content: 'AFTER  ';
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+@media (max-width: 700px) {
+  .ledger-row {
+    grid-template-columns: 24px 1fr;
+    gap: 12px 16px;
+  }
+  .ledger-after { grid-column: 2; }
+  #receipt { padding: 72px 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   BOOKING FORM
+───────────────────────────────────────────── */
+#booking {
+  padding: 120px 48px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+#booking h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: .95;
+  margin-bottom: 12px;
+}
+.booking-sub {
+  font-size: 16px;
+  color: rgba(232,230,224,.6);
+  margin-bottom: 48px;
+}
+.booking-disclaimer {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+  font-style: italic;
+  padding: 12px 16px;
+  border-left: 2px solid rgba(201,169,110,.3);
+  background: rgba(201,169,110,.05);
+  border-radius: 0 3px 3px 0;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: var(--ink-light);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(232,230,224,.3); }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(201,169,110,.5);
+}
+.field select option { background: #111114; }
+.field textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  margin-top: 28px;
+}
+.form-submit .btn-primary {
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  #booking { padding: 80px 20px; }
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+footer {
+  background: #080809;
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding: 60px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 80px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.footer-brand .nav-logo {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.footer-contact p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.9;
+}
+.footer-contact a { color: var(--gold); }
+.footer-bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px 48px 32px;
+  border-top: 1px solid rgba(255,255,255,.04);
+  font-size: 12px;
+  color: var(--text-dim);
+  opacity: .6;
+}
+@media (max-width: 640px) {
+  footer { grid-template-columns: 1fr; padding: 48px 20px; }
+  .footer-bottom { padding: 16px 20px 24px; }
+}
+
+/* ─────────────────────────────────────────────
+   FIX TOUR — floating pill
+───────────────────────────────────────────── */
+#tour-pill {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 8500;
+  background: rgba(11,11,13,.92);
+  border: 1px solid rgba(201,169,110,.55);
+  color: var(--gold);
+  padding: 13px 20px;
+  border-radius: 40px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.55);
+  transition: background .2s, border-color .2s, transform .15s;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+#tour-pill:hover {
+  background: rgba(201,169,110,.15);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  #tour-pill { bottom: 76px; right: 16px; }
+}
+
+/* ─────────────────────────────────────────────
+   FIX TOUR — overlay dim
+───────────────────────────────────────────── */
+#tour-dim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,10,.72);
+  z-index: 8600;
+  pointer-events: none;
+}
+body.tour-active #tour-dim { display: block; }
+
+/* ─────────────────────────────────────────────
+   FIX TOUR — pins
+───────────────────────────────────────────── */
+.tour-pin {
+  position: absolute;
+  z-index: 8700;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 5px rgba(201,169,110,.22), 0 4px 16px rgba(0,0,0,.5);
+  transition: transform .15s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  line-height: 1;
+}
+.tour-pin:hover { transform: scale(1.12); }
+body.tour-active .tour-pin { display: flex; }
+.tour-pin.unvisited {
+  animation: pin-pulse 2s ease-in-out infinite;
+}
+.tour-pin.active-pin {
+  background: var(--white);
+  animation: none;
+  transform: scale(1.15);
+}
+@keyframes pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 5px rgba(201,169,110,.22), 0 4px 16px rgba(0,0,0,.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(201,169,110,.0), 0 4px 16px rgba(0,0,0,.5); }
+}
+
+/* ─────────────────────────────────────────────
+   FIX TOUR — card
+───────────────────────────────────────────── */
+#tour-card {
+  position: fixed;
+  z-index: 8800;
+  background: #16151a;
+  border: 1px solid rgba(201,169,110,.3);
+  border-radius: 10px;
+  width: min(360px, calc(100vw - 32px));
+  box-shadow: 0 20px 60px rgba(0,0,0,.75);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.tour-active #tour-card { display: flex; }
+
+#tour-card-head {
+  background: var(--gold-dim);
+  border-bottom: 1px solid rgba(201,169,110,.18);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tour-card-step {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+#tour-close {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: color .15s;
+}
+#tour-close:hover { color: var(--text); }
+
+#tour-card-body {
+  padding: 20px 18px;
+}
+.tour-before-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(232,230,224,.4);
+  margin-bottom: 4px;
+}
+.tour-before-text {
+  font-size: 14px;
+  color: rgba(232,230,224,.55);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.tour-arrow-divider {
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: block;
+}
+.tour-after-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.tour-after-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+#tour-card-foot {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tour-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.tour-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  transition: background .2s;
+}
+.tour-dot.active { background: var(--gold); }
+.tour-nav {
+  display: flex;
+  gap: 8px;
+}
+.tour-nav-btn {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background .15s, border-color .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.tour-nav-btn:hover {
+  background: rgba(201,169,110,.15);
+  border-color: rgba(201,169,110,.4);
+}
+.tour-nav-btn:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+/* ─────────────────────────────────────────────
+   HERO SCROLL INDICATOR
+───────────────────────────────────────────── */
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(201,169,110,.5);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.scroll-cue::after {
+  content: '';
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, rgba(201,169,110,.5), transparent);
+  animation: scroll-line 1.6s ease-in-out infinite;
+}
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@media (max-width: 640px) { .scroll-cue { display: none; } }
+
+/* ─────────────────────────────────────────────
+   LOCATION STRIP
+───────────────────────────────────────────── */
+#location-strip {
+  background: var(--ink-light);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.loc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.loc-item .loc-icon {
+  color: var(--gold);
+  font-size: 18px;
+}
+.loc-item strong { color: var(--text); }
+@media (max-width: 640px) {
+  #location-strip { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─────────────────────────────────────────────
+   GOLD DIVIDER
+───────────────────────────────────────────── */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  opacity: .25;
+  border: none;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- SCL Ribbon -->
+<div id="scl-ribbon">
+  Free redesign preview built by SmartContent Lab —&nbsp;
+  <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer">Book a 15-min call</a>
+</div>
+
+<!-- Sticky mobile call bar -->
+<div id="sticky-call">
+  <a href="tel:+16198768803">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.85 19.79 19.79 0 011 1.28 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.82a16 16 0 006.09 6.09l1.19-1.16a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call (619) 876-8803
+  </a>
+</div>
+
+<!-- Nav -->
+<nav aria-label="Main navigation">
+  <div class="nav-logo">Romeo's<span>&nbsp;Auto Spa</span></div>
+  <a href="tel:+16198768803" class="nav-cta" aria-label="Call Romeo's Auto Spa">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.85 19.79 19.79 0 011 1.28 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.82a16 16 0 006.09 6.09l1.19-1.16a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    (619) 876-8803
+  </a>
+</nav>
+
+<!-- ──────────────────── HERO ──────────────────── -->
+<section id="hero" aria-label="Hero">
+  <div id="hero-bg" aria-hidden="true"></div>
+
+  <div id="hero-inner">
+    <div class="hero-eyebrow">San Diego, CA — Auto Detailing</div>
+    <h1>Your car.<br>Its best <em>self.</em></h1>
+    <p class="hero-sub">Professional detailing that protects your paint, restores your interior, and turns heads on San Diego streets.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary" id="hero-book-cta">
+        Book a Detail
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+16198768803" class="btn-ghost" id="hero-call-cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.85 19.79 19.79 0 011 1.28 2 2 0 012.96 0h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.82a16 16 0 006.09 6.09l1.19-1.16a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (619) 876-8803
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- Manifesto -->
+<section id="manifesto" aria-label="Brand statement">
+  <p>Every detail is a decision.<br><strong>We make the right ones.</strong></p>
+</section>
+
+<hr class="gold-rule">
+
+<!-- ──────────────────── STAR BLOCK ──────────────────── -->
+<section id="star-block" aria-label="Reviews">
+  <div class="star-block-inner">
+    <div class="star-left" id="reviews-section">
+      <span class="star-numeral" aria-label="5.0 star rating">5.0</span>
+      <div class="star-label">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="star-count">77 Google Reviews</span>
+      </div>
+    </div>
+    <div class="star-right">
+      <h2>San Diego's most-trusted detail shop.</h2>
+      <p>77 five-star reviews don't lie. Every car gets our full attention — because reputation is built one vehicle at a time.</p>
+      <div class="review-cards">
+        <div class="review-card">
+          <div class="rev-stars" aria-hidden="true">★★★★★</div>
+          <p>"Brought in my M3 and it came back looking better than the day I drove it off the lot. The paint correction alone was worth every cent."</p>
+          <div class="rev-meta">— D.M., Google reviewer</div>
+        </div>
+        <div class="review-card">
+          <div class="rev-stars" aria-hidden="true">★★★★★</div>
+          <p>"My interior had years of wear — dog hair, stained seats, the works. Romeo's handled all of it. The transformation was insane."</p>
+          <div class="rev-meta">— K.R., Google reviewer</div>
+        </div>
+      </div>
+      <p class="review-disclaimer">Sample review presentation — your real Google reviews will be featured.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- Image Break 1 -->
+<div class="img-break" aria-hidden="true">
+  <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1800&q=85"
+       alt="Close-up of polished automotive paint surface with reflections" loading="lazy">
+</div>
+
+<!-- ──────────────────── SERVICES ──────────────────── -->
+<section id="services" aria-label="Services and pricing">
+  <span class="section-label">Services &amp; Packages</span>
+  <h2>Choose your level<br>of clean.</h2>
+  <p class="services-disclaimer">Sample packages and pricing for preview — finalized with the owner.</p>
+
+  <div class="services-grid">
+    <div class="service-tile">
+      <span class="tier">Essential</span>
+      <h3>Signature Wash</h3>
+      <div class="price"><sup>$</sup>149</div>
+      <ul>
+        <li>Hand wash &amp; dry</li>
+        <li>Interior vacuum</li>
+        <li>Window cleaning</li>
+        <li>Tire &amp; wheel dressing</li>
+        <li>Air freshener</li>
+      </ul>
+    </div>
+    <div class="service-tile featured">
+      <span class="tier">Most Popular</span>
+      <h3>Full Detail</h3>
+      <div class="price"><sup>$</sup>299</div>
+      <ul>
+        <li>Everything in Signature Wash</li>
+        <li>Clay bar decontamination</li>
+        <li>Paint polish &amp; gloss coat</li>
+        <li>Deep interior steam clean</li>
+        <li>Leather conditioning</li>
+        <li>Engine bay wipe-down</li>
+      </ul>
+    </div>
+    <div class="service-tile">
+      <span class="tier">Pinnacle</span>
+      <h3>Paint Correction</h3>
+      <div class="price"><sup>$</sup>599<sup style="font-size:14px">+</sup></div>
+      <ul>
+        <li>Multi-stage machine polish</li>
+        <li>Swirl mark &amp; scratch removal</li>
+        <li>Ceramic coating prep</li>
+        <li>Paint depth measurement</li>
+        <li>Full detail included</li>
+        <li>Ceramic coating add-on available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── PROCESS SPLIT ──────────────────── -->
+<section id="process" aria-label="Our process">
+  <div class="process-img">
+    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=85"
+         alt="Auto detailing professional applying product to vehicle" loading="lazy">
+  </div>
+  <div class="process-content">
+    <span class="section-label">How it works</span>
+    <h2>Precision,<br>every step.</h2>
+    <div class="process-steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <h4>Inspection</h4>
+          <p>We assess your paint, interior condition, and specific concerns before touching the car.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <h4>Decontamination</h4>
+          <p>Iron fallout removal, clay bar treatment — your paint surface is prepped correctly, not just wiped down.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <h4>Correction &amp; Protection</h4>
+          <p>Machine polish for depth and clarity, topped with protective coatings that last.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-body">
+          <h4>Final Reveal</h4>
+          <p>Walk-around with the owner. Every detail reviewed before you drive home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Break 2 -->
+<div class="img-break" aria-hidden="true">
+  <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1800&q=85"
+       alt="Interior detailing of luxury vehicle showing pristine upholstery" loading="lazy">
+</div>
+
+<!-- Location Strip -->
+<div id="location-strip" aria-label="Location and contact info">
+  <div class="loc-item">
+    <span class="loc-icon" aria-hidden="true">📍</span>
+    <div><strong>San Diego, CA</strong> — serving the greater SD area</div>
+  </div>
+  <div class="loc-item">
+    <span class="loc-icon" aria-hidden="true">✆</span>
+    <div><a href="tel:+16198768803" style="color:var(--gold);font-weight:600">(619) 876-8803</a></div>
+  </div>
+  <div class="loc-item">
+    <span class="loc-icon" aria-hidden="true">⏱</span>
+    <div><strong>By appointment</strong> — Mon–Sat</div>
+  </div>
+</div>
+
+<hr class="gold-rule">
+
+<!-- ──────────────────── THE RECEIPT ──────────────────── -->
+<section id="receipt" aria-label="The Fix Receipt">
+  <div id="receipt-inner">
+    <span class="section-label">The receipt</span>
+    <h2>Five real fixes.</h2>
+    <p class="receipt-sub">What your old site had. What this one delivers.</p>
+
+    <div class="ledger" role="list">
+      <div class="ledger-row" role="listitem">
+        <span class="ledger-num">01</span>
+        <div class="ledger-before">Every visitor landed on a dead "Account Suspended" error page.</div>
+        <div class="ledger-after">A booking-first homepage that answers questions and converts in one tap.</div>
+      </div>
+      <div class="ledger-row" role="listitem">
+        <span class="ledger-num">02</span>
+        <div class="ledger-before">77 five-star Google reviews — completely invisible to anyone finding you online.</div>
+        <div class="ledger-after">Your 5.0-star rating is the first substantial thing every visitor encounters.</div>
+      </div>
+      <div class="ledger-row" role="listitem">
+        <span class="ledger-num">03</span>
+        <div class="ledger-before">No phone number above the fold. Customers had to search for how to reach you.</div>
+        <div class="ledger-after">Click-to-call at the top, in the hero, and in a sticky bar on every mobile screen.</div>
+      </div>
+      <div class="ledger-row" role="listitem">
+        <span class="ledger-num">04</span>
+        <div class="ledger-before">No service menu or pricing context anywhere on the site.</div>
+        <div class="ledger-after">Three clear packages with pricing that sets expectations and reduces friction before they call.</div>
+      </div>
+      <div class="ledger-row" role="listitem">
+        <span class="ledger-num">05</span>
+        <div class="ledger-before">No way to request a booking without first finding a different channel (Yelp, Google, etc.).</div>
+        <div class="ledger-after">A dedicated booking form — always one scroll away, with a mobile-ready sticky CTA.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-rule">
+
+<!-- ──────────────────── BOOKING ──────────────────── -->
+<section id="booking" aria-label="Book a detail">
+  <span class="section-label">Get Started</span>
+  <h2>Book your<br><em style="color:var(--gold);font-style:normal">detail.</em></h2>
+  <p class="booking-sub">Tell us about your car. We'll be in touch to confirm your appointment.</p>
+  <div class="booking-disclaimer" role="note">
+    Visual demo only — this form is for preview purposes and is honestly labeled as such. The working booking system will be configured with the owner.
+  </div>
+
+  <form aria-label="Booking request form (demo)">
+    <div class="form-grid">
+      <div class="field">
+        <label for="f-name">First Name</label>
+        <input type="text" id="f-name" name="first_name" placeholder="Romeo" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone</label>
+        <input type="tel" id="f-phone" name="phone" placeholder="(619) 000-0000" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="f-vehicle">Vehicle</label>
+        <input type="text" id="f-vehicle" name="vehicle" placeholder="2022 Porsche 911">
+      </div>
+      <div class="field">
+        <label for="f-service">Service</label>
+        <select id="f-service" name="service">
+          <option value="">Select a package…</option>
+          <option>Signature Wash — $149</option>
+          <option>Full Detail — $299</option>
+          <option>Paint Correction — $599+</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="f-notes">Anything specific we should know?</label>
+        <textarea id="f-notes" name="notes" placeholder="Paint swirls, stained seats, pet hair — anything helps…"></textarea>
+      </div>
+    </div>
+    <div class="form-submit" id="booking-form-section">
+      <button type="submit" class="btn-primary" onclick="return false;">
+        Request Appointment
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </form>
+</section>
+
+<!-- ──────────────────── FOOTER ──────────────────── -->
+<footer aria-label="Footer">
+  <div class="footer-brand">
+    <div class="nav-logo">Romeo's<span>&nbsp;Auto Spa</span></div>
+    <p>San Diego's premier auto detailing studio. Precision work. Every time.</p>
+  </div>
+  <div class="footer-contact">
+    <p>
+      <a href="tel:+16198768803">(619) 876-8803</a><br>
+      San Diego, CA<br>
+      By appointment — Mon–Sat
+    </p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  &copy; Romeo's Auto Spa. Preview built by <a href="https://cal.com/smartcontentlab" target="_blank" rel="noopener noreferrer" style="color:var(--gold)">SmartContent Lab</a>.
+</div>
+
+<!-- ──────────────────── FIX TOUR ──────────────────── -->
+<div id="tour-dim" aria-hidden="true"></div>
+
+<button id="tour-pill" aria-label="Open the Fix Tour — see what we fixed" aria-expanded="false">
+  <span aria-hidden="true">✦</span> See what we fixed
+</button>
+
+<!-- Tour pins (injected into sections via JS) -->
+<div class="tour-pin unvisited" id="pin-1" data-pin="1" role="button" tabindex="0" aria-label="Fix 1: Hero and booking CTA">1</div>
+<div class="tour-pin unvisited" id="pin-2" data-pin="2" role="button" tabindex="0" aria-label="Fix 2: 5.0 star reviews">2</div>
+<div class="tour-pin unvisited" id="pin-3" data-pin="3" role="button" tabindex="0" aria-label="Fix 3: Click-to-call">3</div>
+<div class="tour-pin unvisited" id="pin-4" data-pin="4" role="button" tabindex="0" aria-label="Fix 4: Services and pricing">4</div>
+<div class="tour-pin unvisited" id="pin-5" data-pin="5" role="button" tabindex="0" aria-label="Fix 5: Booking form">5</div>
+
+<!-- Tour card -->
+<div id="tour-card" role="dialog" aria-modal="true" aria-label="Fix Tour card" aria-live="polite">
+  <div id="tour-card-head">
+    <span class="tour-card-step" id="tour-step-label">Fix 1 of 5</span>
+    <button id="tour-close" aria-label="Close tour">✕</button>
+  </div>
+  <div id="tour-card-body">
+    <div class="tour-before-label">Before</div>
+    <div class="tour-before-text" id="tour-before-text"></div>
+    <span class="tour-arrow-divider" aria-hidden="true">↓</span>
+    <div class="tour-after-label">After</div>
+    <div class="tour-after-text" id="tour-after-text"></div>
+  </div>
+  <div id="tour-card-foot">
+    <div class="tour-dots" aria-hidden="true" id="tour-dots"></div>
+    <div class="tour-nav">
+      <button class="tour-nav-btn" id="tour-prev" aria-label="Previous fix">←</button>
+      <button class="tour-nav-btn" id="tour-next" aria-label="Next fix">→</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Data ── */
+  const FIXES = [
+    {
+      anchor: 'hero',
+      pinOffset: { top: '72%', left: '68%' },
+      before: 'Your site showed a dead "Account Suspended" error page to every single visitor — no message, no number, no way in.',
+      after: 'A booking-first homepage with your name, your story, and a call-to-action that works on the first tap.'
+    },
+    {
+      anchor: 'star-block',
+      pinOffset: { top: '35%', left: '28%' },
+      before: '77 five-star Google reviews — the most powerful trust signal in your category — completely invisible online.',
+      after: 'Your 5.0★ rating is now the largest element on the page. First thing every visitor sees, impossible to ignore.'
+    },
+    {
+      anchor: 'location-strip',
+      pinOffset: { top: '50%', left: '55%' },
+      before: 'No phone number anywhere on the site. Potential customers had to leave to find another way to reach you.',
+      after: 'Click-to-call in the nav, in the hero, in the footer, and a sticky bar that follows every mobile visitor all the way down.'
+    },
+    {
+      anchor: 'services',
+      pinOffset: { top: '30%', left: '75%' },
+      before: 'No service menu, no pricing context. Visitors had no idea what you offered or what to expect to pay.',
+      after: 'Three clear packages with transparent starting prices — sets expectations, filters tire-kickers, and makes calling easier.'
+    },
+    {
+      anchor: 'booking',
+      pinOffset: { top: '28%', left: '22%' },
+      before: 'No booking path on the site. Customers had to find you on Yelp or Google just to request an appointment.',
+      after: 'A dedicated booking form — always one scroll away, plus a sticky mobile CTA that\'s never more than a thumb-tap away.'
+    }
+  ];
+
+  /* ── State ── */
+  let tourActive = false;
+  let currentPin = 0; // 0-indexed
+  const visited = new Set();
+
+  /* ── Elements ── */
+  const pill      = document.getElementById('tour-pill');
+  const card      = document.getElementById('tour-card');
+  const dim       = document.getElementById('tour-dim');
+  const closeBtn  = document.getElementById('tour-close');
+  const prevBtn   = document.getElementById('tour-prev');
+  const nextBtn   = document.getElementById('tour-next');
+  const beforeTxt = document.getElementById('tour-before-text');
+  const afterTxt  = document.getElementById('tour-after-text');
+  const stepLbl   = document.getElementById('tour-step-label');
+  const dotsEl    = document.getElementById('tour-dots');
+  const pins      = [1,2,3,4,5].map(n => document.getElementById('pin-' + n));
+
+  /* ── Build dots ── */
+  FIXES.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'tour-dot';
+    d.id = 'tour-dot-' + i;
+    dotsEl.appendChild(d);
+  });
+
+  /* ── Position pins ── */
+  function positionPins () {
+    FIXES.forEach((fix, i) => {
+      const anchor = document.getElementById(fix.anchor);
+      if (!anchor) return;
+      const pin = pins[i];
+      const rect = anchor.getBoundingClientRect();
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const top = rect.top + scrollY + (parseFloat(fix.pinOffset.top) / 100) * rect.height;
+      const left = rect.left + (parseFloat(fix.pinOffset.left) / 100) * rect.width;
+      pin.style.position = 'absolute';
+      pin.style.top = top + 'px';
+      pin.style.left = left + 'px';
+      pin.style.transform = 'translate(-50%, -50%)';
+    });
+  }
+
+  /* ── Update card content ── */
+  function updateCard (idx) {
+    const fix = FIXES[idx];
+    beforeTxt.textContent = fix.before;
+    afterTxt.textContent = fix.after;
+    stepLbl.textContent = 'Fix ' + (idx + 1) + ' of ' + FIXES.length;
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === FIXES.length - 1;
+
+    // dots
+    document.querySelectorAll('.tour-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+
+    // pin states
+    pins.forEach((p, i) => {
+      p.classList.toggle('active-pin', i === idx);
+      if (visited.has(i)) p.classList.remove('unvisited');
+    });
+  }
+
+  /* ── Position card near pin (viewport-safe) ── */
+  function positionCard (pinEl) {
+    const rect = pinEl.getBoundingClientRect();
+    const cardW = card.offsetWidth || 360;
+    const cardH = card.offsetHeight || 220;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const margin = 16;
+
+    let top = rect.top - cardH - 16;
+    let left = rect.left + rect.width / 2 - cardW / 2;
+
+    // flip down if too close to top
+    if (top < margin + 34) { top = rect.bottom + 16; }
+    // clamp horizontal
+    left = Math.max(margin, Math.min(vw - cardW - margin, left));
+    // clamp vertical
+    top  = Math.max(margin + 34, Math.min(vh - cardH - margin, top));
+
+    card.style.top  = top  + 'px';
+    card.style.left = left + 'px';
+  }
+
+  /* ── Open / navigate to a pin ── */
+  function goToPin (idx) {
+    currentPin = idx;
+    visited.add(idx);
+    updateCard(idx);
+    // allow card to render before measuring
+    requestAnimationFrame(() => {
+      positionCard(pins[idx]);
+    });
+    // scroll pin into view with a bit of padding
+    pins[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* ── Activate tour ── */
+  function activateTour () {
+    tourActive = true;
+    document.body.classList.add('tour-active');
+    pill.setAttribute('aria-expanded', 'true');
+    positionPins();
+    goToPin(0);
+    pill.style.display = 'none';
+  }
+
+  /* ── Deactivate tour ── */
+  function deactivateTour () {
+    tourActive = false;
+    document.body.classList.remove('tour-active');
+    pill.setAttribute('aria-expanded', 'false');
+    pill.style.display = '';
+    pins.forEach(p => {
+      p.classList.remove('active-pin');
+    });
+    currentPin = 0;
+  }
+
+  /* ── Events ── */
+  pill.addEventListener('click', activateTour);
+
+  closeBtn.addEventListener('click', deactivateTour);
+
+  document.addEventListener('keydown', function (e) {
+    if (!tourActive) return;
+    if (e.key === 'Escape') deactivateTour();
+    if (e.key === 'ArrowRight' && currentPin < FIXES.length - 1) goToPin(currentPin + 1);
+    if (e.key === 'ArrowLeft'  && currentPin > 0)                goToPin(currentPin - 1);
+  });
+
+  prevBtn.addEventListener('click', function () {
+    if (currentPin > 0) goToPin(currentPin - 1);
+  });
+
+  nextBtn.addEventListener('click', function () {
+    if (currentPin < FIXES.length - 1) goToPin(currentPin + 1);
+  });
+
+  pins.forEach(function (pin, i) {
+    pin.addEventListener('click', function () { goToPin(i); });
+    pin.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToPin(i); }
+    });
+  });
+
+  /* Reposition on scroll / resize */
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      positionPins();
+      if (tourActive) positionCard(pins[currentPin]);
+    }, 100);
+  });
+
+  /* Hero parallax subtle */
+  const heroBg = document.getElementById('hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', function () {
+      const sy = window.pageYOffset;
+      if (sy < window.innerHeight * 1.5) {
+        heroBg.style.transform = 'scale(1.02) translateY(' + (sy * 0.18) + 'px)';
+      }
+    }, { passive: true });
+  }
+
+})();
+</script>
+</body>
+</html>
