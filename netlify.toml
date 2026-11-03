@@ -1,6 +1,16 @@
 [build]
-  publish = "."
-  command = ""
+  base = "redesign"
+  command = "pnpm run build"
+  publish = "dist/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_VERSION = "10.26.1"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"

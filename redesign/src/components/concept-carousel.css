@@ -1,0 +1,26 @@
+.cc-band{position:relative;width:100%;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;outline:none}
+.cc-band.is-dragging{cursor:grabbing}
+.cc-band:focus-visible{box-shadow:inset 0 0 0 2px hsl(var(--ember))}
+.cc-card{position:absolute;left:0;top:0;will-change:transform,clip-path;overflow:hidden;contain:layout paint}
+.cc-inner{position:absolute;inset:0;font-size:calc(var(--u) * 10px)}
+.cc-inner img{pointer-events:none;-webkit-user-drag:none}
+.cc-tag{position:absolute;left:50%;bottom:9%;translate:-50% 0;white-space:nowrap;font-family:var(--app-font-mono);font-size:max(8px,.78em);letter-spacing:.08em;text-transform:uppercase;padding:.35em .7em;border-radius:99px;background:hsl(38 40% 94%/.85);color:hsl(345 55% 14%);backdrop-filter:blur(6px)}
+.cc-controls button{display:grid;place-items:center;width:40px;height:40px;border-radius:999px;border:1px solid hsl(345 55% 14%/.2);color:hsl(345 55% 14%);background:hsl(38 40% 97%);transition:transform .2s,background .2s}
+.cc-controls button:hover{transform:translateY(-2px);background:hsl(var(--ember)/.35)}
+.cc-controls button:focus-visible{outline:2px solid hsl(345 55% 22%);outline-offset:2px}
+
+/* hero entrance */
+.hx{opacity:1;animation:hxRise .6s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--d,0ms) / 4)}
+.hx-blur{opacity:1;animation:hxBlur .65s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--d,0ms) / 4)}
+.hx-pop{opacity:1;animation:hxPop .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--d,0ms) / 4)}
+.hx-draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);animation:hxDraw 1.4s cubic-bezier(.65,0,.35,1) forwards;animation-delay:var(--d,0ms)}
+@keyframes hxRise{from{opacity:.25;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes hxBlur{from{opacity:.3;transform:translateY(20px);filter:blur(3px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes hxPop{from{opacity:.4;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes hxDraw{to{stroke-dashoffset:0}}
+.cta-ring{position:absolute;inset:-8px;border:1.5px dashed hsl(345 55% 22%/.45);border-radius:999px;pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  .hx,.hx-blur,.hx-pop{opacity:1;animation:none;filter:none;transform:none}
+  .hx-draw{animation:none;stroke-dashoffset:0}
+}
